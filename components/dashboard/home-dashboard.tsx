@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import airportsCatalog from "@/data/europe-latam-airports.json";
 
 type Airport = {
@@ -98,6 +98,24 @@ export function HomeDashboard() {
   const [submitMessage, setSubmitMessage] = useState("");
   const [alerts, setAlerts] = useState<ActiveAlert[]>([]);
 
+  useEffect(() => {
+    const stored = window.localStorage.getItem("flighttracker_alerts");
+    if (!stored) return;
+
+    try {
+      const parsed = JSON.parse(stored) as ActiveAlert[];
+      if (Array.isArray(parsed)) {
+        setAlerts(parsed);
+      }
+    } catch {
+      // Ignore malformed local cache.
+    }
+  }, []);
+
+  useEffect(() => {
+    window.localStorage.setItem("flighttracker_alerts", JSON.stringify(alerts));
+  }, [alerts]);
+
   const originAirport = useMemo(
     () => airportsCatalog.find((airport) => airport.code === origin),
     [origin],
@@ -143,7 +161,7 @@ export function HomeDashboard() {
 
       const nextAlert: ActiveAlert = {
         id: payload.trackedFlight?.id ?? `${origin}-${destination}-${Date.now()}`,
-        route: `${airportLabel(originAirport, origin)} → ${airportLabel(destinationAirport, destination)}`,
+        route: `${origin} -> ${destination}`,
         target: `COP ${Number(targetPrice || 0).toLocaleString("es-CO")}`,
         status: "Activa",
       };
@@ -206,7 +224,10 @@ export function HomeDashboard() {
           </div>
 
           <div className="summary-box">
-            <span>Ruta: {airportLabel(originAirport, origin)} → {airportLabel(destinationAirport, destination)}</span>
+            <span>Ruta: {origin} -> {destination}</span>
+            <span>
+              Aeropuertos: {airportLabel(originAirport, origin)} -> {airportLabel(destinationAirport, destination)}
+            </span>
             <span>Equipaje: {baggageType}</span>
             <span>Precio: COP {Number(targetPrice || 0).toLocaleString("es-CO")}</span>
           </div>
