@@ -143,6 +143,21 @@ select {
   margin-bottom: 18px;
 }
 
+.toggle-pill {
+  border: 1px solid rgba(148, 163, 184, 0.24);
+  border-radius: 999px;
+  padding: 10px 14px;
+  background: rgba(15, 23, 42, 0.85);
+  color: #f8fafc;
+  cursor: pointer;
+}
+
+.toggle-pill-active {
+  background: rgba(20, 184, 166, 0.16);
+  border-color: rgba(20, 184, 166, 0.55);
+  color: #67e8f9;
+}
+
 .primary-btn {
   border: 0;
   border-radius: 14px;
@@ -175,6 +190,19 @@ select {
   color: #94a3b8;
 }
 
+.summary-box,
+.empty-state,
+.empty-chart {
+  display: grid;
+  gap: 8px;
+  padding: 14px;
+  border-radius: 16px;
+  border: 1px dashed rgba(148, 163, 184, 0.25);
+  background: rgba(15, 23, 42, 0.52);
+  margin-bottom: 16px;
+  color: #cbd5e1;
+}
+
 .buy-badge {
   width: fit-content;
   margin: 14px 0;
@@ -182,26 +210,20 @@ select {
   color: #67e8f9;
 }
 
-.chart-placeholder {
+.line-chart {
   height: 180px;
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(8, 1fr);
   align-items: end;
   gap: 10px;
   padding: 16px 0 8px;
 }
 
-.chart-placeholder div {
+.line-chart span {
   border-radius: 14px 14px 4px 4px;
   background: linear-gradient(180deg, rgba(96, 165, 250, 0.95), rgba(20, 184, 166, 0.85));
+  min-height: 24px;
 }
-
-.chart-placeholder div:nth-child(1) { height: 35%; }
-.chart-placeholder div:nth-child(2) { height: 55%; }
-.chart-placeholder div:nth-child(3) { height: 40%; }
-.chart-placeholder div:nth-child(4) { height: 75%; }
-.chart-placeholder div:nth-child(5) { height: 60%; }
-.chart-placeholder div:nth-child(6) { height: 82%; }
 
 @media (max-width: 1024px) {
   .panel:nth-child(1),
