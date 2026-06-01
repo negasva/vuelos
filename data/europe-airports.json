@@ -1,0 +1,6824 @@
+[
+  {
+    "code": "TIA",
+    "city": "Tirana",
+    "name": "Tirana International Airport Mother Teresa",
+    "country": "Albania"
+  },
+  {
+    "code": "LWN",
+    "city": "Gyumri",
+    "name": "Gyumri Shirak Airport",
+    "country": "Armenia"
+  },
+  {
+    "code": "EVN",
+    "city": "Yerevan",
+    "name": "Zvartnots International Airport",
+    "country": "Armenia"
+  },
+  {
+    "code": "GRZ",
+    "city": "Graz",
+    "name": "Graz Airport",
+    "country": "Austria"
+  },
+  {
+    "code": "HOH",
+    "city": "Hohenems",
+    "name": "Hohenems-Dornbirn Airport",
+    "country": "Austria"
+  },
+  {
+    "code": "INN",
+    "city": "Innsbruck",
+    "name": "Innsbruck Airport",
+    "country": "Austria"
+  },
+  {
+    "code": "KLU",
+    "city": "Klagenfurt",
+    "name": "Klagenfurt Airport",
+    "country": "Austria"
+  },
+  {
+    "code": "LNZ",
+    "city": "Linz",
+    "name": "Linz Hörsching Airport",
+    "country": "Austria"
+  },
+  {
+    "code": "SZG",
+    "city": "Salzburg",
+    "name": "Salzburg Airport",
+    "country": "Austria"
+  },
+  {
+    "code": "VIE",
+    "city": "Vienna",
+    "name": "Vienna International Airport",
+    "country": "Austria"
+  },
+  {
+    "code": "GYD",
+    "city": "Baku",
+    "name": "Heydar Aliyev International Airport",
+    "country": "Azerbaijan"
+  },
+  {
+    "code": "ZXT",
+    "city": "Baku",
+    "name": "Zabrat Airport",
+    "country": "Azerbaijan"
+  },
+  {
+    "code": "KVD",
+    "city": "Ganja",
+    "name": "Ganja Airport",
+    "country": "Azerbaijan"
+  },
+  {
+    "code": "LLK",
+    "city": "Lankaran",
+    "name": "Lankaran International Airport",
+    "country": "Azerbaijan"
+  },
+  {
+    "code": "NAJ",
+    "city": "Nakhchivan",
+    "name": "Nakhchivan Airport",
+    "country": "Azerbaijan"
+  },
+  {
+    "code": "GBB",
+    "city": "Qabala",
+    "name": "Gabala International Airport",
+    "country": "Azerbaijan"
+  },
+  {
+    "code": "ZTU",
+    "city": "Zaqatala",
+    "name": "Zaqatala International Airport",
+    "country": "Azerbaijan"
+  },
+  {
+    "code": "BQT",
+    "city": "Brest",
+    "name": "Brest Airport",
+    "country": "Belarus"
+  },
+  {
+    "code": "GME",
+    "city": "Gomel",
+    "name": "Gomel Airport",
+    "country": "Belarus"
+  },
+  {
+    "code": "GNA",
+    "city": "Hrodna",
+    "name": "Hrodna Airport",
+    "country": "Belarus"
+  },
+  {
+    "code": "MHP",
+    "city": "Minsk",
+    "name": "Minsk 1 Airport",
+    "country": "Belarus"
+  },
+  {
+    "code": "MSQ",
+    "city": "Minsk 2",
+    "name": "Minsk National Airport",
+    "country": "Belarus"
+  },
+  {
+    "code": "MVQ",
+    "city": "Mogilev",
+    "name": "Mogilev Airport",
+    "country": "Belarus"
+  },
+  {
+    "code": "VTB",
+    "city": "Vitebsk",
+    "name": "Vitebsk Vostochny Airport",
+    "country": "Belarus"
+  },
+  {
+    "code": "ANR",
+    "city": "Antwerp",
+    "name": "Antwerp International Airport (Deurne)",
+    "country": "Belgium"
+  },
+  {
+    "code": "BRU",
+    "city": "Brussels",
+    "name": "Brussels Airport",
+    "country": "Belgium"
+  },
+  {
+    "code": "CRL",
+    "city": "Charleroi",
+    "name": "Brussels South Charleroi Airport",
+    "country": "Belgium"
+  },
+  {
+    "code": "KJK",
+    "city": "Kortrijk-vevelgem",
+    "name": "Wevelgem Airport",
+    "country": "Belgium"
+  },
+  {
+    "code": "LGG",
+    "city": "Liege",
+    "name": "Liège Airport",
+    "country": "Belgium"
+  },
+  {
+    "code": "OST",
+    "city": "Ostend",
+    "name": "Ostend-Bruges International Airport",
+    "country": "Belgium"
+  },
+  {
+    "code": "OBL",
+    "city": "Zoersel",
+    "name": "Zoersel (Oostmalle) Airfield",
+    "country": "Belgium"
+  },
+  {
+    "code": "BNX",
+    "city": "Banja Luka",
+    "name": "Banja Luka International Airport",
+    "country": "Bosnia and Herzegovina"
+  },
+  {
+    "code": "OMO",
+    "city": "Mostar",
+    "name": "Mostar International Airport",
+    "country": "Bosnia and Herzegovina"
+  },
+  {
+    "code": "TZL",
+    "city": "Null",
+    "name": "Tuzla International Airport",
+    "country": "Bosnia and Herzegovina"
+  },
+  {
+    "code": "SJJ",
+    "city": "Sarajevo",
+    "name": "Sarajevo International Airport",
+    "country": "Bosnia and Herzegovina"
+  },
+  {
+    "code": "BOJ",
+    "city": "Bourgas",
+    "name": "Burgas Airport",
+    "country": "Bulgaria"
+  },
+  {
+    "code": "GOZ",
+    "city": "Gorna Orechovica",
+    "name": "Gorna Oryahovitsa Airport",
+    "country": "Bulgaria"
+  },
+  {
+    "code": "PDV",
+    "city": "Plovdiv",
+    "name": "Plovdiv International Airport",
+    "country": "Bulgaria"
+  },
+  {
+    "code": "SOF",
+    "city": "Sofia",
+    "name": "Sofia Airport",
+    "country": "Bulgaria"
+  },
+  {
+    "code": "SZR",
+    "city": "Stara Zagora",
+    "name": "Stara Zagora Airport",
+    "country": "Bulgaria"
+  },
+  {
+    "code": "VAR",
+    "city": "Varna",
+    "name": "Varna Airport",
+    "country": "Bulgaria"
+  },
+  {
+    "code": "JAM",
+    "city": "Yambol",
+    "name": "Bezmer Air Base",
+    "country": "Bulgaria"
+  },
+  {
+    "code": "BWK",
+    "city": "Brac",
+    "name": "Bol Airport",
+    "country": "Croatia"
+  },
+  {
+    "code": "DBV",
+    "city": "Dubrovnik",
+    "name": "Dubrovnik Airport",
+    "country": "Croatia"
+  },
+  {
+    "code": "LSZ",
+    "city": "Mali Losinj",
+    "name": "Lošinj Island Airport",
+    "country": "Croatia"
+  },
+  {
+    "code": "OSI",
+    "city": "Osijek",
+    "name": "Osijek Airport",
+    "country": "Croatia"
+  },
+  {
+    "code": "PUY",
+    "city": "Pula",
+    "name": "Pula Airport",
+    "country": "Croatia"
+  },
+  {
+    "code": "RJK",
+    "city": "Rijeka",
+    "name": "Rijeka Airport",
+    "country": "Croatia"
+  },
+  {
+    "code": "SPU",
+    "city": "Split",
+    "name": "Split Airport",
+    "country": "Croatia"
+  },
+  {
+    "code": "ZAD",
+    "city": "Zadar",
+    "name": "Zadar Airport",
+    "country": "Croatia"
+  },
+  {
+    "code": "ZAG",
+    "city": "Zagreb",
+    "name": "Zagreb Airport",
+    "country": "Croatia"
+  },
+  {
+    "code": "AKT",
+    "city": "Akrotiri",
+    "name": "RAF Akrotiri",
+    "country": "Cyprus"
+  },
+  {
+    "code": "GEC",
+    "city": "Geçitkale",
+    "name": "Lefkoniko Airport",
+    "country": "Cyprus"
+  },
+  {
+    "code": "LCA",
+    "city": "Larnaca",
+    "name": "Larnaca International Airport",
+    "country": "Cyprus"
+  },
+  {
+    "code": "ECN",
+    "city": "Nicosia",
+    "name": "Ercan International Airport",
+    "country": "Cyprus"
+  },
+  {
+    "code": "PFO",
+    "city": "Paphos",
+    "name": "Paphos International Airport",
+    "country": "Cyprus"
+  },
+  {
+    "code": "BRQ",
+    "city": "Brno",
+    "name": "Brno-Tuřany Airport",
+    "country": "Czech Republic"
+  },
+  {
+    "code": "KLV",
+    "city": "Karlovy Vary",
+    "name": "Karlovy Vary International Airport",
+    "country": "Czech Republic"
+  },
+  {
+    "code": "UHE",
+    "city": "Kunovice",
+    "name": "Kunovice Airport",
+    "country": "Czech Republic"
+  },
+  {
+    "code": "OSR",
+    "city": "Ostrava",
+    "name": "Ostrava Leos Janáček Airport",
+    "country": "Czech Republic"
+  },
+  {
+    "code": "PED",
+    "city": "Pardubice",
+    "name": "Pardubice Airport",
+    "country": "Czech Republic"
+  },
+  {
+    "code": "PRG",
+    "city": "Prague",
+    "name": "Václav Havel Airport Prague",
+    "country": "Czech Republic"
+  },
+  {
+    "code": "PRV",
+    "city": "Prerov",
+    "name": "Přerov Air Base",
+    "country": "Czech Republic"
+  },
+  {
+    "code": "VOD",
+    "city": "Vodochody",
+    "name": "Vodochody Airport",
+    "country": "Czech Republic"
+  },
+  {
+    "code": "AAL",
+    "city": "Aalborg",
+    "name": "Aalborg Airport",
+    "country": "Denmark"
+  },
+  {
+    "code": "AAR",
+    "city": "Aarhus",
+    "name": "Aarhus Airport",
+    "country": "Denmark"
+  },
+  {
+    "code": "BLL",
+    "city": "Billund",
+    "name": "Billund Airport",
+    "country": "Denmark"
+  },
+  {
+    "code": "CPH",
+    "city": "Copenhagen",
+    "name": "Copenhagen Kastrup Airport",
+    "country": "Denmark"
+  },
+  {
+    "code": "RKE",
+    "city": "Copenhagen",
+    "name": "Copenhagen Roskilde Airport",
+    "country": "Denmark"
+  },
+  {
+    "code": "EBJ",
+    "city": "Esbjerg",
+    "name": "Esbjerg Airport",
+    "country": "Denmark"
+  },
+  {
+    "code": "KRP",
+    "city": "Karup",
+    "name": "Karup Airport",
+    "country": "Denmark"
+  },
+  {
+    "code": "BYR",
+    "city": "Laeso",
+    "name": "Læsø Airport",
+    "country": "Denmark"
+  },
+  {
+    "code": "MRW",
+    "city": "Maribo",
+    "name": "Lolland Falster Maribo Airport",
+    "country": "Denmark"
+  },
+  {
+    "code": "ODE",
+    "city": "Odense",
+    "name": "Odense Airport",
+    "country": "Denmark"
+  },
+  {
+    "code": "RNN",
+    "city": "Ronne",
+    "name": "Bornholm Airport",
+    "country": "Denmark"
+  },
+  {
+    "code": "CNL",
+    "city": "Sindal",
+    "name": "Sindal Airport",
+    "country": "Denmark"
+  },
+  {
+    "code": "SQW",
+    "city": "Skive",
+    "name": "Skive Airport",
+    "country": "Denmark"
+  },
+  {
+    "code": "SKS",
+    "city": "Skrydstrup",
+    "name": "Skrydstrup Air Base",
+    "country": "Denmark"
+  },
+  {
+    "code": "SGD",
+    "city": "Soenderborg",
+    "name": "Sønderborg Airport",
+    "country": "Denmark"
+  },
+  {
+    "code": "STA",
+    "city": "Stauning",
+    "name": "Stauning Airport",
+    "country": "Denmark"
+  },
+  {
+    "code": "TED",
+    "city": "Thisted",
+    "name": "Thisted Airport",
+    "country": "Denmark"
+  },
+  {
+    "code": "KDL",
+    "city": "Kardla",
+    "name": "Kärdla Airport",
+    "country": "Estonia"
+  },
+  {
+    "code": "URE",
+    "city": "Kuressaare",
+    "name": "Kuressaare Airport",
+    "country": "Estonia"
+  },
+  {
+    "code": "EPU",
+    "city": "Parnu",
+    "name": "Pärnu Airport",
+    "country": "Estonia"
+  },
+  {
+    "code": "TLL",
+    "city": "Tallinn-ulemiste International",
+    "name": "Lennart Meri Tallinn Airport",
+    "country": "Estonia"
+  },
+  {
+    "code": "TAY",
+    "city": "Tartu",
+    "name": "Tartu Airport",
+    "country": "Estonia"
+  },
+  {
+    "code": "ENF",
+    "city": "Enontekio",
+    "name": "Enontekio Airport",
+    "country": "Finland"
+  },
+  {
+    "code": "KEV",
+    "city": "Halli",
+    "name": "Halli Airport",
+    "country": "Finland"
+  },
+  {
+    "code": "HEL",
+    "city": "Helsinki",
+    "name": "Helsinki Vantaa Airport",
+    "country": "Finland"
+  },
+  {
+    "code": "HEM",
+    "city": "Helsinki",
+    "name": "Helsinki Malmi Airport",
+    "country": "Finland"
+  },
+  {
+    "code": "HYV",
+    "city": "Hyvinkaa",
+    "name": "Hyvinkää Airfield",
+    "country": "Finland"
+  },
+  {
+    "code": "IVL",
+    "city": "Ivalo",
+    "name": "Ivalo Airport",
+    "country": "Finland"
+  },
+  {
+    "code": "JOE",
+    "city": "Joensuu",
+    "name": "Joensuu Airport",
+    "country": "Finland"
+  },
+  {
+    "code": "JYV",
+    "city": "Jyvaskyla",
+    "name": "Jyvaskyla Airport",
+    "country": "Finland"
+  },
+  {
+    "code": "KAJ",
+    "city": "Kajaani",
+    "name": "Kajaani Airport",
+    "country": "Finland"
+  },
+  {
+    "code": "KHJ",
+    "city": "Kauhajoki",
+    "name": "Kauhajoki Airport",
+    "country": "Finland"
+  },
+  {
+    "code": "KAU",
+    "city": "Kauhava",
+    "name": "Kauhava Airport",
+    "country": "Finland"
+  },
+  {
+    "code": "KEM",
+    "city": "Kemi",
+    "name": "Kemi-Tornio Airport",
+    "country": "Finland"
+  },
+  {
+    "code": "KTQ",
+    "city": "Kitee",
+    "name": "Kitee Airport",
+    "country": "Finland"
+  },
+  {
+    "code": "KTT",
+    "city": "Kittila",
+    "name": "Kittilä Airport",
+    "country": "Finland"
+  },
+  {
+    "code": "KOK",
+    "city": "Kruunupyy",
+    "name": "Kokkola-Pietarsaari Airport",
+    "country": "Finland"
+  },
+  {
+    "code": "KUO",
+    "city": "Kuopio",
+    "name": "Kuopio Airport",
+    "country": "Finland"
+  },
+  {
+    "code": "KAO",
+    "city": "Kuusamo",
+    "name": "Kuusamo Airport",
+    "country": "Finland"
+  },
+  {
+    "code": "LPP",
+    "city": "Lappeenranta",
+    "name": "Lappeenranta Airport",
+    "country": "Finland"
+  },
+  {
+    "code": "MHQ",
+    "city": "Mariehamn",
+    "name": "Mariehamn Airport",
+    "country": "Finland"
+  },
+  {
+    "code": "MIK",
+    "city": "Mikkeli",
+    "name": "Mikkeli Airport",
+    "country": "Finland"
+  },
+  {
+    "code": "OUL",
+    "city": "Oulu",
+    "name": "Oulu Airport",
+    "country": "Finland"
+  },
+  {
+    "code": "POR",
+    "city": "Pori",
+    "name": "Pori Airport",
+    "country": "Finland"
+  },
+  {
+    "code": "RVN",
+    "city": "Rovaniemi",
+    "name": "Rovaniemi Airport",
+    "country": "Finland"
+  },
+  {
+    "code": "SVL",
+    "city": "Savonlinna",
+    "name": "Savonlinna Airport",
+    "country": "Finland"
+  },
+  {
+    "code": "SJY",
+    "city": "Seinäjoki / Ilmajoki",
+    "name": "Seinäjoki Airport",
+    "country": "Finland"
+  },
+  {
+    "code": "SOT",
+    "city": "Sodankyla",
+    "name": "Sodankyla Airport",
+    "country": "Finland"
+  },
+  {
+    "code": "TMP",
+    "city": "Tampere",
+    "name": "Tampere-Pirkkala Airport",
+    "country": "Finland"
+  },
+  {
+    "code": "TKU",
+    "city": "Turku",
+    "name": "Turku Airport",
+    "country": "Finland"
+  },
+  {
+    "code": "UTI",
+    "city": "Utti",
+    "name": "Utti Air Base",
+    "country": "Finland"
+  },
+  {
+    "code": "VAA",
+    "city": "Vaasa",
+    "name": "Vaasa Airport",
+    "country": "Finland"
+  },
+  {
+    "code": "VRK",
+    "city": "Varkaus",
+    "name": "Varkaus Airport",
+    "country": "Finland"
+  },
+  {
+    "code": "QLF",
+    "city": "Vesivehmaa",
+    "name": "Lahti Vesivehmaa Airport",
+    "country": "Finland"
+  },
+  {
+    "code": "YLI",
+    "city": "Ylivieska-raudaskyla",
+    "name": "Ylivieska Airfield",
+    "country": "Finland"
+  },
+  {
+    "code": "XAB",
+    "city": "Abbeville",
+    "name": "Abbeville",
+    "country": "France"
+  },
+  {
+    "code": "AGF",
+    "city": "Agen",
+    "name": "Agen-La Garenne Airport",
+    "country": "France"
+  },
+  {
+    "code": "AJA",
+    "city": "Ajaccio",
+    "name": "Ajaccio-Napoléon Bonaparte Airport",
+    "country": "France"
+  },
+  {
+    "code": "MFX",
+    "city": "Ajaccio",
+    "name": "Méribel Altiport",
+    "country": "France"
+  },
+  {
+    "code": "BYF",
+    "city": "Albert",
+    "name": "Albert-Bray Airport",
+    "country": "France"
+  },
+  {
+    "code": "LBI",
+    "city": "Albi",
+    "name": "Albi-Le Séquestre Airport",
+    "country": "France"
+  },
+  {
+    "code": "ANE",
+    "city": "Angers/Marcé",
+    "name": "Angers-Loire Airport",
+    "country": "France"
+  },
+  {
+    "code": "ANG",
+    "city": "Angouleme",
+    "name": "Angoulême-Brie-Champniers Airport",
+    "country": "France"
+  },
+  {
+    "code": "NCY",
+    "city": "Annecy",
+    "name": "Annecy-Haute-Savoie-Mont Blanc Airport",
+    "country": "France"
+  },
+  {
+    "code": "QNJ",
+    "city": "Annemasse",
+    "name": "Annemasse Airport",
+    "country": "France"
+  },
+  {
+    "code": "OBS",
+    "city": "Aubenas-vals-lanas",
+    "name": "Aubenas-Ardèche Méridional Airport",
+    "country": "France"
+  },
+  {
+    "code": "AUR",
+    "city": "Aurillac",
+    "name": "Aurillac Airport",
+    "country": "France"
+  },
+  {
+    "code": "AUF",
+    "city": "Auxerre",
+    "name": "Auxerre-Branches Airport",
+    "country": "France"
+  },
+  {
+    "code": "AVN",
+    "city": "Avignon",
+    "name": "Avignon-Caumont Airport",
+    "country": "France"
+  },
+  {
+    "code": "BIA",
+    "city": "Bastia",
+    "name": "Bastia-Poretta Airport",
+    "country": "France"
+  },
+  {
+    "code": "BVA",
+    "city": "Beauvais",
+    "name": "Paris Beauvais Tillé Airport",
+    "country": "France"
+  },
+  {
+    "code": "BOR",
+    "city": "Belfort",
+    "name": "Fontaine Airport",
+    "country": "France"
+  },
+  {
+    "code": "EGC",
+    "city": "Bergerac",
+    "name": "Bergerac-Roumanière Airport",
+    "country": "France"
+  },
+  {
+    "code": "BZR",
+    "city": "Beziers",
+    "name": "Béziers-Vias Airport",
+    "country": "France"
+  },
+  {
+    "code": "BIQ",
+    "city": "Biarritz-bayonne",
+    "name": "Biarritz-Anglet-Bayonne Airport",
+    "country": "France"
+  },
+  {
+    "code": "BOD",
+    "city": "Bordeaux",
+    "name": "Bordeaux-Mérignac Airport",
+    "country": "France"
+  },
+  {
+    "code": "BOU",
+    "city": "Bourges",
+    "name": "Bourges Airport",
+    "country": "France"
+  },
+  {
+    "code": "BES",
+    "city": "Brest",
+    "name": "Brest Bretagne Airport",
+    "country": "France"
+  },
+  {
+    "code": "BVE",
+    "city": "Brive",
+    "name": "Brive Souillac Airport",
+    "country": "France"
+  },
+  {
+    "code": "CFR",
+    "city": "Caen",
+    "name": "Caen-Carpiquet Airport",
+    "country": "France"
+  },
+  {
+    "code": "ZAO",
+    "city": "Cahors",
+    "name": "Cahors-Lalbenque Airport",
+    "country": "France"
+  },
+  {
+    "code": "CQF",
+    "city": "Calais",
+    "name": "Calais-Dunkerque Airport",
+    "country": "France"
+  },
+  {
+    "code": "CLY",
+    "city": "Calvi",
+    "name": "Calvi-Sainte-Catherine Airport",
+    "country": "France"
+  },
+  {
+    "code": "CEQ",
+    "city": "Cannes",
+    "name": "Cannes-Mandelieu Airport",
+    "country": "France"
+  },
+  {
+    "code": "CCF",
+    "city": "Carcassonne",
+    "name": "Carcassonne Airport",
+    "country": "France"
+  },
+  {
+    "code": "DCM",
+    "city": "Castres",
+    "name": "Castres-Mazamet Airport",
+    "country": "France"
+  },
+  {
+    "code": "XCR",
+    "city": "Chalons",
+    "name": "Châlons-Vatry Airport",
+    "country": "France"
+  },
+  {
+    "code": "CMF",
+    "city": "Chambery",
+    "name": "Chambéry-Savoie Airport",
+    "country": "France"
+  },
+  {
+    "code": "XCZ",
+    "city": "Charleville",
+    "name": "Charleville-Mézières Airport",
+    "country": "France"
+  },
+  {
+    "code": "CHR",
+    "city": "Chateauroux",
+    "name": "Châteauroux-Déols \"\"Marcel Dassault\"\" Airport",
+    "country": "France"
+  },
+  {
+    "code": "CER",
+    "city": "Cherbourg",
+    "name": "Cherbourg-Maupertus Airport",
+    "country": "France"
+  },
+  {
+    "code": "CET",
+    "city": "Cholet",
+    "name": "Cholet Le Pontreau Airport",
+    "country": "France"
+  },
+  {
+    "code": "CFE",
+    "city": "Clermont-Ferrand",
+    "name": "Clermont-Ferrand Auvergne Airport",
+    "country": "France"
+  },
+  {
+    "code": "CNG",
+    "city": "Cognac",
+    "name": "Cognac-Châteaubernard (BA 709) Air Base",
+    "country": "France"
+  },
+  {
+    "code": "CMR",
+    "city": "Colmar",
+    "name": "Colmar-Houssen Airport",
+    "country": "France"
+  },
+  {
+    "code": "CVF",
+    "city": "Courcheval",
+    "name": "Courchevel Airport",
+    "country": "France"
+  },
+  {
+    "code": "CSF",
+    "city": "Creil",
+    "name": "Creil Air Base",
+    "country": "France"
+  },
+  {
+    "code": "DOL",
+    "city": "Deauville",
+    "name": "Deauville-Saint-Gatien Airport",
+    "country": "France"
+  },
+  {
+    "code": "DIJ",
+    "city": "Dijon",
+    "name": "Dijon-Bourgogne Airport",
+    "country": "France"
+  },
+  {
+    "code": "DNR",
+    "city": "Dinard",
+    "name": "Dinard-Pleurtuit-Saint-Malo Airport",
+    "country": "France"
+  },
+  {
+    "code": "DLE",
+    "city": "Dole",
+    "name": "Dole-Tavaux Airport",
+    "country": "France"
+  },
+  {
+    "code": "EPL",
+    "city": "Epinal",
+    "name": "Épinal-Mirecourt Airport",
+    "country": "France"
+  },
+  {
+    "code": "EVX",
+    "city": "Evreux",
+    "name": "Évreux-Fauville (BA 105) Air Base",
+    "country": "France"
+  },
+  {
+    "code": "FSC",
+    "city": "Figari",
+    "name": "Figari Sud-Corse Airport",
+    "country": "France"
+  },
+  {
+    "code": "FRJ",
+    "city": "Frejus",
+    "name": "Fréjus Airport",
+    "country": "France"
+  },
+  {
+    "code": "GFR",
+    "city": "Granville",
+    "name": "Granville Airport",
+    "country": "France"
+  },
+  {
+    "code": "GNB",
+    "city": "Grenoble",
+    "name": "Grenoble-Isère Airport",
+    "country": "France"
+  },
+  {
+    "code": "SBH",
+    "city": "Gustavia",
+    "name": "Gustaf III Airport",
+    "country": "France"
+  },
+  {
+    "code": "TLN",
+    "city": "Hyeres",
+    "name": "Toulon-Hyères Airport",
+    "country": "France"
+  },
+  {
+    "code": "IDY",
+    "city": "Île d'Yeu",
+    "name": "Île d'Yeu Airport",
+    "country": "France"
+  },
+  {
+    "code": "LBY",
+    "city": "La Baule",
+    "name": "La Baule-Escoublac Airport",
+    "country": "France"
+  },
+  {
+    "code": "LTT",
+    "city": "La Môle",
+    "name": "La Môle Airport",
+    "country": "France"
+  },
+  {
+    "code": "EDM",
+    "city": "La Roche-sur-yon",
+    "name": "La Roche-sur-Yon Airport",
+    "country": "France"
+  },
+  {
+    "code": "LRH",
+    "city": "La Rochelle",
+    "name": "La Rochelle-Île de Ré Airport",
+    "country": "France"
+  },
+  {
+    "code": "LDV",
+    "city": "Landivisiau",
+    "name": "Landivisiau Air Base",
+    "country": "France"
+  },
+  {
+    "code": "LAI",
+    "city": "Lannion",
+    "name": "Lannion-Côte de Granit Airport",
+    "country": "France"
+  },
+  {
+    "code": "LVA",
+    "city": "Laval",
+    "name": "Laval-Entrammes Airport",
+    "country": "France"
+  },
+  {
+    "code": "CTT",
+    "city": "Le Castellet",
+    "name": "Le Castellet Airport",
+    "country": "France"
+  },
+  {
+    "code": "LEH",
+    "city": "Le Havre",
+    "name": "Le Havre Octeville Airport",
+    "country": "France"
+  },
+  {
+    "code": "LME",
+    "city": "Le Mans",
+    "name": "Le Mans-Arnage Airport",
+    "country": "France"
+  },
+  {
+    "code": "LPY",
+    "city": "Le Puy",
+    "name": "Le Puy-Loudes Airport",
+    "country": "France"
+  },
+  {
+    "code": "LTQ",
+    "city": "Le Tourquet",
+    "name": "Le Touquet-Côte d'Opale Airport",
+    "country": "France"
+  },
+  {
+    "code": "LIL",
+    "city": "Lille",
+    "name": "Lille-Lesquin Airport",
+    "country": "France"
+  },
+  {
+    "code": "LIG",
+    "city": "Limoges",
+    "name": "Limoges Airport",
+    "country": "France"
+  },
+  {
+    "code": "LRT",
+    "city": "Lorient",
+    "name": "Lorient South Brittany (Bretagne Sud) Airport",
+    "country": "France"
+  },
+  {
+    "code": "LYN",
+    "city": "Lyon",
+    "name": "Lyon-Bron Airport",
+    "country": "France"
+  },
+  {
+    "code": "LYS",
+    "city": "Lyon",
+    "name": "Lyon Saint-Exupéry Airport",
+    "country": "France"
+  },
+  {
+    "code": "MRS",
+    "city": "Marseille",
+    "name": "Marseille Provence Airport",
+    "country": "France"
+  },
+  {
+    "code": "XME",
+    "city": "Maubeuge",
+    "name": "Maubeuge-Élesmes Airport",
+    "country": "France"
+  },
+  {
+    "code": "MEN",
+    "city": "Mende",
+    "name": "Mende-Brenoux Airfield",
+    "country": "France"
+  },
+  {
+    "code": "HZB",
+    "city": "Merville",
+    "name": "Merville-Calonne Airport",
+    "country": "France"
+  },
+  {
+    "code": "ETZ",
+    "city": "Metz",
+    "name": "Metz-Nancy-Lorraine Airport",
+    "country": "France"
+  },
+  {
+    "code": "MZM",
+    "city": "Metz",
+    "name": "Metz-Frescaty (BA 128) Air Base",
+    "country": "France"
+  },
+  {
+    "code": "XMW",
+    "city": "Montauban",
+    "name": "Montauban Airport",
+    "country": "France"
+  },
+  {
+    "code": "MCU",
+    "city": "Montlucon-gueret",
+    "name": "Montluçon-Guéret Airport",
+    "country": "France"
+  },
+  {
+    "code": "MPL",
+    "city": "Montpellier",
+    "name": "Montpellier-Méditerranée Airport",
+    "country": "France"
+  },
+  {
+    "code": "MXN",
+    "city": "Morlaix",
+    "name": "Morlaix-Ploujean Airport",
+    "country": "France"
+  },
+  {
+    "code": "BSL",
+    "city": "Mulhouse",
+    "name": "EuroAirport Basel-Mulhouse-Freiburg Airport",
+    "country": "France"
+  },
+  {
+    "code": "ENC",
+    "city": "Nancy",
+    "name": "Nancy-Essey Airport",
+    "country": "France"
+  },
+  {
+    "code": "NTE",
+    "city": "Nantes",
+    "name": "Nantes Atlantique Airport",
+    "country": "France"
+  },
+  {
+    "code": "NVS",
+    "city": "Nevers",
+    "name": "Nevers-Fourchambault Airport",
+    "country": "France"
+  },
+  {
+    "code": "NCE",
+    "city": "Nice",
+    "name": "Nice-Côte d'Azur Airport",
+    "country": "France"
+  },
+  {
+    "code": "FNI",
+    "city": "Nimes",
+    "name": "Nîmes-Arles-Camargue Airport",
+    "country": "France"
+  },
+  {
+    "code": "NIT",
+    "city": "Niort",
+    "name": "Niort-Souché Airport",
+    "country": "France"
+  },
+  {
+    "code": "XOG",
+    "city": "Orange",
+    "name": "Orange-Caritat (BA 115) Air Base",
+    "country": "France"
+  },
+  {
+    "code": "ORE",
+    "city": "Orleans",
+    "name": "Orléans-Bricy (BA 123) Air Base",
+    "country": "France"
+  },
+  {
+    "code": "CDG",
+    "city": "Paris",
+    "name": "Charles de Gaulle International Airport",
+    "country": "France"
+  },
+  {
+    "code": "LBG",
+    "city": "Paris",
+    "name": "Paris-Le Bourget Airport",
+    "country": "France"
+  },
+  {
+    "code": "ORY",
+    "city": "Paris",
+    "name": "Paris-Orly Airport",
+    "country": "France"
+  },
+  {
+    "code": "PUF",
+    "city": "Pau",
+    "name": "Pau Pyrénées Airport",
+    "country": "France"
+  },
+  {
+    "code": "PGX",
+    "city": "Perigueux",
+    "name": "Périgueux-Bassillac Airport",
+    "country": "France"
+  },
+  {
+    "code": "PGF",
+    "city": "Perpignan",
+    "name": "Perpignan-Rivesaltes (Llabanère) Airport",
+    "country": "France"
+  },
+  {
+    "code": "PIS",
+    "city": "Poitiers",
+    "name": "Poitiers-Biard Airport",
+    "country": "France"
+  },
+  {
+    "code": "POX",
+    "city": "Pontoise",
+    "name": "Pontoise - Cormeilles-en-Vexin Airport",
+    "country": "France"
+  },
+  {
+    "code": "PRP",
+    "city": "Propriano",
+    "name": "Propriano Airport",
+    "country": "France"
+  },
+  {
+    "code": "UIP",
+    "city": "Quimper",
+    "name": "Quimper-Cornouaille Airport",
+    "country": "France"
+  },
+  {
+    "code": "RHE",
+    "city": "Reims",
+    "name": "Reims-Champagne (BA 112) Air Base",
+    "country": "France"
+  },
+  {
+    "code": "RNS",
+    "city": "Rennes",
+    "name": "Rennes-Saint-Jacques Airport",
+    "country": "France"
+  },
+  {
+    "code": "RNE",
+    "city": "Roanne",
+    "name": "Roanne-Renaison Airport",
+    "country": "France"
+  },
+  {
+    "code": "RCO",
+    "city": "Rochefort",
+    "name": "Rochefort-Saint-Agnant (BA 721) Airport",
+    "country": "France"
+  },
+  {
+    "code": "RDZ",
+    "city": "Rodez",
+    "name": "Rodez-Marcillac Airport",
+    "country": "France"
+  },
+  {
+    "code": "URO",
+    "city": "Rouen",
+    "name": "Rouen Airport",
+    "country": "France"
+  },
+  {
+    "code": "RYN",
+    "city": "Royan",
+    "name": "Royan-Médis Airport",
+    "country": "France"
+  },
+  {
+    "code": "SOZ",
+    "city": "Solenzara",
+    "name": "Solenzara (BA 126) Air Base",
+    "country": "France"
+  },
+  {
+    "code": "EBU",
+    "city": "St-Etienne",
+    "name": "Saint-Étienne-Bouthéon Airport",
+    "country": "France"
+  },
+  {
+    "code": "SBK",
+    "city": "St.-brieuc Armor",
+    "name": "Saint-Brieuc-Armor Airport",
+    "country": "France"
+  },
+  {
+    "code": "SNR",
+    "city": "St.-nazaire",
+    "name": "Saint-Nazaire-Montoir Airport",
+    "country": "France"
+  },
+  {
+    "code": "SYT",
+    "city": "St.-yan",
+    "name": "Saint-Yan Airport",
+    "country": "France"
+  },
+  {
+    "code": "SXB",
+    "city": "Strasbourg",
+    "name": "Strasbourg Airport",
+    "country": "France"
+  },
+  {
+    "code": "LDE",
+    "city": "Tarbes",
+    "name": "Tarbes-Lourdes-Pyrénées Airport",
+    "country": "France"
+  },
+  {
+    "code": "TLS",
+    "city": "Toulouse",
+    "name": "Toulouse-Blagnac Airport",
+    "country": "France"
+  },
+  {
+    "code": "TUF",
+    "city": "Tours",
+    "name": "Tours-Val-de-Loire Airport",
+    "country": "France"
+  },
+  {
+    "code": "TNF",
+    "city": "Toussous-le-noble",
+    "name": "Toussus-le-Noble Airport",
+    "country": "France"
+  },
+  {
+    "code": "VAF",
+    "city": "Valence",
+    "name": "Valence-Chabeuil Airport",
+    "country": "France"
+  },
+  {
+    "code": "XVS",
+    "city": "Valenciennes",
+    "name": "Valenciennes-Denain Airport",
+    "country": "France"
+  },
+  {
+    "code": "VNE",
+    "city": "Vannes",
+    "name": "Vannes-Meucon Airport",
+    "country": "France"
+  },
+  {
+    "code": "MVV",
+    "city": "Verdun",
+    "name": "Megève Airport",
+    "country": "France"
+  },
+  {
+    "code": "VHY",
+    "city": "Vichy",
+    "name": "Vichy-Charmeil Airport",
+    "country": "France"
+  },
+  {
+    "code": "VIY",
+    "city": "Villacoublay",
+    "name": "Villacoublay-Vélizy (BA 107) Air Base",
+    "country": "France"
+  },
+  {
+    "code": "BUS",
+    "city": "Batumi",
+    "name": "Batumi International Airport",
+    "country": "Georgia"
+  },
+  {
+    "code": "KUT",
+    "city": "Kutaisi",
+    "name": "Kopitnari Airport",
+    "country": "Georgia"
+  },
+  {
+    "code": "SUI",
+    "city": "Sukhumi",
+    "name": "Sukhumi Dranda Airport",
+    "country": "Georgia"
+  },
+  {
+    "code": "TBS",
+    "city": "Tbilisi",
+    "name": "Tbilisi International Airport",
+    "country": "Georgia"
+  },
+  {
+    "code": "AAH",
+    "city": "Aachen",
+    "name": "Aachen-Merzbrück Airport",
+    "country": "Germany"
+  },
+  {
+    "code": "AOC",
+    "city": "Altenburg",
+    "name": "Altenburg-Nobitz Airport",
+    "country": "Germany"
+  },
+  {
+    "code": "AGB",
+    "city": "Augsburg",
+    "name": "Augsburg Airport",
+    "country": "Germany"
+  },
+  {
+    "code": "BMR",
+    "city": "Baltrum",
+    "name": "Baltrum Airport",
+    "country": "Germany"
+  },
+  {
+    "code": "BBH",
+    "city": "Barth",
+    "name": "Barth Airport",
+    "country": "Germany"
+  },
+  {
+    "code": "BYU",
+    "city": "Bayreuth",
+    "name": "Bayreuth Airport",
+    "country": "Germany"
+  },
+  {
+    "code": "SXF",
+    "city": "Berlin",
+    "name": "Berlin-Schönefeld Airport",
+    "country": "Germany"
+  },
+  {
+    "code": "THF",
+    "city": "Berlin",
+    "name": "Berlin-Tempelhof International Airport",
+    "country": "Germany"
+  },
+  {
+    "code": "TXL",
+    "city": "Berlin",
+    "name": "Berlin-Tegel Airport",
+    "country": "Germany"
+  },
+  {
+    "code": "BFE",
+    "city": "Bielefeld",
+    "name": "Bielefeld Airport",
+    "country": "Germany"
+  },
+  {
+    "code": "BBJ",
+    "city": "Birburg",
+    "name": "Bitburg Airport",
+    "country": "Germany"
+  },
+  {
+    "code": "BMK",
+    "city": "Borkum",
+    "name": "Borkum Airport",
+    "country": "Germany"
+  },
+  {
+    "code": "BWE",
+    "city": "Braunschweig",
+    "name": "Braunschweig-Wolfsburg Airport",
+    "country": "Germany"
+  },
+  {
+    "code": "BRE",
+    "city": "Bremen",
+    "name": "Bremen Airport",
+    "country": "Germany"
+  },
+  {
+    "code": "BRV",
+    "city": "Bremerhaven",
+    "name": "Bremerhaven Airport",
+    "country": "Germany"
+  },
+  {
+    "code": "URD",
+    "city": "Burg Feuerstein",
+    "name": "Burg Feuerstein Airport",
+    "country": "Germany"
+  },
+  {
+    "code": "HEI",
+    "city": "Büsum",
+    "name": "Heide-Büsum Airport",
+    "country": "Germany"
+  },
+  {
+    "code": "ZCN",
+    "city": "Celle",
+    "name": "Celle Airport",
+    "country": "Germany"
+  },
+  {
+    "code": "CSO",
+    "city": "Cochstedt",
+    "name": "Cochstedt Airport",
+    "country": "Germany"
+  },
+  {
+    "code": "CGN",
+    "city": "Cologne",
+    "name": "Cologne Bonn Airport",
+    "country": "Germany"
+  },
+  {
+    "code": "CBU",
+    "city": "Cottbus",
+    "name": "Cottbus-Drewitz Airport",
+    "country": "Germany"
+  },
+  {
+    "code": "ZQL",
+    "city": "Donaueschingen",
+    "name": "Donaueschingen-Villingen Airport",
+    "country": "Germany"
+  },
+  {
+    "code": "DTM",
+    "city": "Dortmund",
+    "name": "Dortmund Airport",
+    "country": "Germany"
+  },
+  {
+    "code": "DRS",
+    "city": "Dresden",
+    "name": "Dresden Airport",
+    "country": "Germany"
+  },
+  {
+    "code": "DUS",
+    "city": "Duesseldorf",
+    "name": "Düsseldorf Airport",
+    "country": "Germany"
+  },
+  {
+    "code": "QEF",
+    "city": "Egelsbach",
+    "name": "Frankfurt-Egelsbach Airport",
+    "country": "Germany"
+  },
+  {
+    "code": "EIB",
+    "city": "Eisenach",
+    "name": "Eisenach-Kindel Airport",
+    "country": "Germany"
+  },
+  {
+    "code": "EME",
+    "city": "Emden",
+    "name": "Emden Airport",
+    "country": "Germany"
+  },
+  {
+    "code": "ERF",
+    "city": "Erfurt",
+    "name": "Erfurt Airport",
+    "country": "Germany"
+  },
+  {
+    "code": "ESS",
+    "city": "Essen",
+    "name": "Essen Mulheim Airport",
+    "country": "Germany"
+  },
+  {
+    "code": "FLF",
+    "city": "Flensburg",
+    "name": "Flensburg-Schäferhaus Airport",
+    "country": "Germany"
+  },
+  {
+    "code": "FRA",
+    "city": "Frankfurt",
+    "name": "Frankfurt am Main Airport",
+    "country": "Germany"
+  },
+  {
+    "code": "FDH",
+    "city": "Friedrichshafen",
+    "name": "Friedrichshafen Airport",
+    "country": "Germany"
+  },
+  {
+    "code": "FRZ",
+    "city": "Fritzlar",
+    "name": "Fritzlar Airport",
+    "country": "Germany"
+  },
+  {
+    "code": "FEL",
+    "city": "Fuerstenfeldbruck",
+    "name": "Fürstenfeldbruck Air Base",
+    "country": "Germany"
+  },
+  {
+    "code": "GKE",
+    "city": "Geilenkirchen",
+    "name": "Geilenkirchen Air Base",
+    "country": "Germany"
+  },
+  {
+    "code": "GHF",
+    "city": "Giebelstadt",
+    "name": "[Duplicate] Giebelstadt Army Air Field",
+    "country": "Germany"
+  },
+  {
+    "code": "GUT",
+    "city": "Guetersloh",
+    "name": "Gütersloh Air Base",
+    "country": "Germany"
+  },
+  {
+    "code": "HHN",
+    "city": "Hahn",
+    "name": "Frankfurt-Hahn Airport",
+    "country": "Germany"
+  },
+  {
+    "code": "HAM",
+    "city": "Hamburg",
+    "name": "Hamburg Airport",
+    "country": "Germany"
+  },
+  {
+    "code": "XFW",
+    "city": "Hamburg",
+    "name": "Hamburg-Finkenwerder Airport",
+    "country": "Germany"
+  },
+  {
+    "code": "ZNF",
+    "city": "Hanau",
+    "name": "Hanau Army Air Field",
+    "country": "Germany"
+  },
+  {
+    "code": "HAJ",
+    "city": "Hannover",
+    "name": "Hannover Airport",
+    "country": "Germany"
+  },
+  {
+    "code": "HGL",
+    "city": "Helgoland",
+    "name": "Helgoland-Düne Airport",
+    "country": "Germany"
+  },
+  {
+    "code": "HDF",
+    "city": "Heringsdorf",
+    "name": "Heringsdorf Airport",
+    "country": "Germany"
+  },
+  {
+    "code": "HOQ",
+    "city": "Hof",
+    "name": "Hof-Plauen Airport",
+    "country": "Germany"
+  },
+  {
+    "code": "IGS",
+    "city": "Ingolstadt",
+    "name": "Ingolstadt Manching Airport",
+    "country": "Germany"
+  },
+  {
+    "code": "JUI",
+    "city": "Juist",
+    "name": "Juist Airport",
+    "country": "Germany"
+  },
+  {
+    "code": "FKB",
+    "city": "Karlsruhe/Baden-Baden",
+    "name": "Karlsruhe Baden-Baden Airport",
+    "country": "Germany"
+  },
+  {
+    "code": "KSF",
+    "city": "Kassel",
+    "name": "Kassel-Calden Airport",
+    "country": "Germany"
+  },
+  {
+    "code": "EMP",
+    "city": "Kempten",
+    "name": "Emporia Municipal Airport",
+    "country": "Germany"
+  },
+  {
+    "code": "KEL",
+    "city": "Kiel",
+    "name": "Kiel-Holtenau Airport",
+    "country": "Germany"
+  },
+  {
+    "code": "KZG",
+    "city": "Kitzingen",
+    "name": "Flugplatz Kitzingen",
+    "country": "Germany"
+  },
+  {
+    "code": "KOQ",
+    "city": "Koethen",
+    "name": "Köthen Airport",
+    "country": "Germany"
+  },
+  {
+    "code": "RLG",
+    "city": "Laage",
+    "name": "Rostock-Laage Airport",
+    "country": "Germany"
+  },
+  {
+    "code": "LHA",
+    "city": "Lahr",
+    "name": "Lahr Airport",
+    "country": "Germany"
+  },
+  {
+    "code": "LGO",
+    "city": "Langeoog",
+    "name": "Langeoog Airport",
+    "country": "Germany"
+  },
+  {
+    "code": "LEJ",
+    "city": "Leipzig",
+    "name": "Leipzig/Halle Airport",
+    "country": "Germany"
+  },
+  {
+    "code": "LND",
+    "city": "Lindau",
+    "name": "Hunt Field",
+    "country": "Germany"
+  },
+  {
+    "code": "LBC",
+    "city": "Luebeck",
+    "name": "Lübeck Blankensee Airport",
+    "country": "Germany"
+  },
+  {
+    "code": "ZMG",
+    "city": "Magdeburg",
+    "name": "Magdeburg \"\"City\"\" Airport",
+    "country": "Germany"
+  },
+  {
+    "code": "MHG",
+    "city": "Mannheim",
+    "name": "Mannheim-City Airport",
+    "country": "Germany"
+  },
+  {
+    "code": "FMM",
+    "city": "Memmingen",
+    "name": "Memmingen Allgau Airport",
+    "country": "Germany"
+  },
+  {
+    "code": "MGL",
+    "city": "Moenchengladbach",
+    "name": "Mönchengladbach Airport",
+    "country": "Germany"
+  },
+  {
+    "code": "MUC",
+    "city": "Munich",
+    "name": "Munich Airport",
+    "country": "Germany"
+  },
+  {
+    "code": "FMO",
+    "city": "Munster",
+    "name": "Münster Osnabrück Airport",
+    "country": "Germany"
+  },
+  {
+    "code": "FNB",
+    "city": "Neubrandenburg",
+    "name": "Neubrandenburg Airport",
+    "country": "Germany"
+  },
+  {
+    "code": "EUM",
+    "city": "Neumuenster",
+    "name": "Neumünster Airport",
+    "country": "Germany"
+  },
+  {
+    "code": "NOD",
+    "city": "Norden",
+    "name": "Norden-Norddeich Airport",
+    "country": "Germany"
+  },
+  {
+    "code": "NRD",
+    "city": "Norderney",
+    "name": "Norderney Airport",
+    "country": "Germany"
+  },
+  {
+    "code": "FCN",
+    "city": "Nordholz",
+    "name": "Nordholz Naval Airbase",
+    "country": "Germany"
+  },
+  {
+    "code": "NUE",
+    "city": "Nuernberg",
+    "name": "Nuremberg Airport",
+    "country": "Germany"
+  },
+  {
+    "code": "OBF",
+    "city": "Oberpfaffenhofen",
+    "name": "Oberpfaffenhofen Airport",
+    "country": "Germany"
+  },
+  {
+    "code": "PAD",
+    "city": "Paderborn",
+    "name": "Paderborn Lippstadt Airport",
+    "country": "Germany"
+  },
+  {
+    "code": "SZW",
+    "city": "Parchim",
+    "name": "Schwerin Parchim Airport",
+    "country": "Germany"
+  },
+  {
+    "code": "PEF",
+    "city": "Peenemunde",
+    "name": "Peenemünde Airport",
+    "country": "Germany"
+  },
+  {
+    "code": "RMS",
+    "city": "Ramstein",
+    "name": "Ramstein Air Base",
+    "country": "Germany"
+  },
+  {
+    "code": "REB",
+    "city": "Rechlin-laerz",
+    "name": "Rechlin-Lärz Airport",
+    "country": "Germany"
+  },
+  {
+    "code": "IES",
+    "city": "Riesa",
+    "name": "Riesa-Göhlis Airport",
+    "country": "Germany"
+  },
+  {
+    "code": "GTI",
+    "city": "Ruegen",
+    "name": "Rügen Airport",
+    "country": "Germany"
+  },
+  {
+    "code": "SCN",
+    "city": "Saarbruecken",
+    "name": "Saarbrücken Airport",
+    "country": "Germany"
+  },
+  {
+    "code": "PSH",
+    "city": "Sankt Peter-Ording",
+    "name": "St. Peter-Ording Airport",
+    "country": "Germany"
+  },
+  {
+    "code": "BNJ",
+    "city": "Sankt-Augustin",
+    "name": "Bonn-Hangelar Airport",
+    "country": "Germany"
+  },
+  {
+    "code": "WBG",
+    "city": "Schleswig",
+    "name": "Schleswig Air Base",
+    "country": "Germany"
+  },
+  {
+    "code": "QXH",
+    "city": "Schoenhagen",
+    "name": "Schönhagen Airport",
+    "country": "Germany"
+  },
+  {
+    "code": "SGE",
+    "city": "Siegerland",
+    "name": "Siegerland Airport",
+    "country": "Germany"
+  },
+  {
+    "code": "SPM",
+    "city": "Spangdahlem",
+    "name": "Spangdahlem Air Base",
+    "country": "Germany"
+  },
+  {
+    "code": "RBM",
+    "city": "Straubing",
+    "name": "Straubing Airport",
+    "country": "Germany"
+  },
+  {
+    "code": "STR",
+    "city": "Stuttgart",
+    "name": "Stuttgart Airport",
+    "country": "Germany"
+  },
+  {
+    "code": "AGE",
+    "city": "Wangerooge",
+    "name": "Wangerooge Airport",
+    "country": "Germany"
+  },
+  {
+    "code": "NRN",
+    "city": "Weeze",
+    "name": "Weeze Airport",
+    "country": "Germany"
+  },
+  {
+    "code": "GWT",
+    "city": "Westerland",
+    "name": "Westerland Sylt Airport",
+    "country": "Germany"
+  },
+  {
+    "code": "WIE",
+    "city": "Wiesbaden",
+    "name": "Wiesbaden Army Airfield",
+    "country": "Germany"
+  },
+  {
+    "code": "WVN",
+    "city": "Wilhelmshaven",
+    "name": "Wilhelmshaven-Mariensiel Airport",
+    "country": "Germany"
+  },
+  {
+    "code": "ZQW",
+    "city": "Zweibruecken",
+    "name": "Zweibrücken Airport",
+    "country": "Germany"
+  },
+  {
+    "code": "GIB",
+    "city": "Gibraltar",
+    "name": "Gibraltar Airport",
+    "country": "Gibraltar"
+  },
+  {
+    "code": "AGQ",
+    "city": "Agrinion",
+    "name": "Agrinion Air Base",
+    "country": "Greece"
+  },
+  {
+    "code": "AXD",
+    "city": "Alexandroupolis",
+    "name": "Dimokritos Airport",
+    "country": "Greece"
+  },
+  {
+    "code": "PYR",
+    "city": "Andravida",
+    "name": "Andravida Air Base",
+    "country": "Greece"
+  },
+  {
+    "code": "JTY",
+    "city": "Astypalaia",
+    "name": "Astypalaia Airport",
+    "country": "Greece"
+  },
+  {
+    "code": "ATH",
+    "city": "Athens",
+    "name": "Eleftherios Venizelos International Airport",
+    "country": "Greece"
+  },
+  {
+    "code": "HEW",
+    "city": "Athens",
+    "name": "Athen Helenikon Airport",
+    "country": "Greece"
+  },
+  {
+    "code": "CHQ",
+    "city": "Chania",
+    "name": "Chania International Airport",
+    "country": "Greece"
+  },
+  {
+    "code": "JKH",
+    "city": "Chios",
+    "name": "Chios Island National Airport",
+    "country": "Greece"
+  },
+  {
+    "code": "JNX",
+    "city": "Cyclades Islands",
+    "name": "Naxos Airport",
+    "country": "Greece"
+  },
+  {
+    "code": "HER",
+    "city": "Heraklion",
+    "name": "Heraklion International Nikos Kazantzakis Airport",
+    "country": "Greece"
+  },
+  {
+    "code": "JIK",
+    "city": "Ikaria",
+    "name": "Ikaria Airport",
+    "country": "Greece"
+  },
+  {
+    "code": "IOA",
+    "city": "Ioannina",
+    "name": "Ioannina Airport",
+    "country": "Greece"
+  },
+  {
+    "code": "KLX",
+    "city": "Kalamata",
+    "name": "Kalamata Airport",
+    "country": "Greece"
+  },
+  {
+    "code": "JKL",
+    "city": "Kalymnos",
+    "name": "Kalymnos Airport",
+    "country": "Greece"
+  },
+  {
+    "code": "AOK",
+    "city": "Karpathos",
+    "name": "Karpathos Airport",
+    "country": "Greece"
+  },
+  {
+    "code": "KSJ",
+    "city": "Kasos",
+    "name": "Kasos Airport",
+    "country": "Greece"
+  },
+  {
+    "code": "KZS",
+    "city": "Kastelorizo",
+    "name": "Kastelorizo Airport",
+    "country": "Greece"
+  },
+  {
+    "code": "KSO",
+    "city": "Kastoria",
+    "name": "Kastoria National Airport",
+    "country": "Greece"
+  },
+  {
+    "code": "KVA",
+    "city": "Kavala",
+    "name": "Alexander the Great International Airport",
+    "country": "Greece"
+  },
+  {
+    "code": "EFL",
+    "city": "Keffallinia",
+    "name": "Kefallinia Airport",
+    "country": "Greece"
+  },
+  {
+    "code": "CFU",
+    "city": "Kerkyra/corfu",
+    "name": "Ioannis Kapodistrias International Airport",
+    "country": "Greece"
+  },
+  {
+    "code": "KIT",
+    "city": "Kithira",
+    "name": "Kithira Airport",
+    "country": "Greece"
+  },
+  {
+    "code": "KGS",
+    "city": "Kos",
+    "name": "Kos Airport",
+    "country": "Greece"
+  },
+  {
+    "code": "KZI",
+    "city": "Kozani",
+    "name": "Filippos Airport",
+    "country": "Greece"
+  },
+  {
+    "code": "LRA",
+    "city": "Larissa",
+    "name": "Larisa Airport",
+    "country": "Greece"
+  },
+  {
+    "code": "LRS",
+    "city": "Leros",
+    "name": "Leros Airport",
+    "country": "Greece"
+  },
+  {
+    "code": "LXS",
+    "city": "Limnos",
+    "name": "Limnos Airport",
+    "country": "Greece"
+  },
+  {
+    "code": "MLO",
+    "city": "Milos",
+    "name": "Milos Airport",
+    "country": "Greece"
+  },
+  {
+    "code": "JMK",
+    "city": "Mykonos",
+    "name": "Mikonos Airport",
+    "country": "Greece"
+  },
+  {
+    "code": "MJT",
+    "city": "Mytilini",
+    "name": "Mytilene International Airport",
+    "country": "Greece"
+  },
+  {
+    "code": "VOL",
+    "city": "Nea Anghialos",
+    "name": "Nea Anchialos Airport",
+    "country": "Greece"
+  },
+  {
+    "code": "PAS",
+    "city": "Paros",
+    "name": "Paros National Airport",
+    "country": "Greece"
+  },
+  {
+    "code": "GPA",
+    "city": "Patras",
+    "name": "Araxos Airport",
+    "country": "Greece"
+  },
+  {
+    "code": "PKH",
+    "city": "Porto Heli",
+    "name": "Porto Cheli Airport",
+    "country": "Greece"
+  },
+  {
+    "code": "PVK",
+    "city": "Preveza",
+    "name": "Aktion National Airport",
+    "country": "Greece"
+  },
+  {
+    "code": "RHO",
+    "city": "Rhodos",
+    "name": "Diagoras Airport",
+    "country": "Greece"
+  },
+  {
+    "code": "SMI",
+    "city": "Samos",
+    "name": "Samos Airport",
+    "country": "Greece"
+  },
+  {
+    "code": "JSH",
+    "city": "Sitia",
+    "name": "Sitia Airport",
+    "country": "Greece"
+  },
+  {
+    "code": "JSI",
+    "city": "Skiathos",
+    "name": "Skiathos Island National Airport",
+    "country": "Greece"
+  },
+  {
+    "code": "SKU",
+    "city": "Skiros",
+    "name": "Skiros Airport",
+    "country": "Greece"
+  },
+  {
+    "code": "SPJ",
+    "city": "Sparti",
+    "name": "Sparti Airport",
+    "country": "Greece"
+  },
+  {
+    "code": "JSY",
+    "city": "Syros Island",
+    "name": "Syros Airport",
+    "country": "Greece"
+  },
+  {
+    "code": "SKG",
+    "city": "Thessaloniki",
+    "name": "Thessaloniki Macedonia International Airport",
+    "country": "Greece"
+  },
+  {
+    "code": "JTR",
+    "city": "Thira",
+    "name": "Santorini Airport",
+    "country": "Greece"
+  },
+  {
+    "code": "ZTH",
+    "city": "Zakynthos",
+    "name": "Zakynthos International Airport \"\"Dionysios Solomos\"\"",
+    "country": "Greece"
+  },
+  {
+    "code": "BUD",
+    "city": "Budapest",
+    "name": "Budapest Liszt Ferenc International Airport",
+    "country": "Hungary"
+  },
+  {
+    "code": "DEB",
+    "city": "Debrecen",
+    "name": "Debrecen International Airport",
+    "country": "Hungary"
+  },
+  {
+    "code": "PEV",
+    "city": "Pécs-Pogány",
+    "name": "Pécs-Pogány Airport",
+    "country": "Hungary"
+  },
+  {
+    "code": "SOB",
+    "city": "Sármellék",
+    "name": "Sármellék International Airport",
+    "country": "Hungary"
+  },
+  {
+    "code": "AEY",
+    "city": "Akureyri",
+    "name": "Akureyri Airport",
+    "country": "Iceland"
+  },
+  {
+    "code": "BIU",
+    "city": "Bildudalur",
+    "name": "Bildudalur Airport",
+    "country": "Iceland"
+  },
+  {
+    "code": "EGS",
+    "city": "Egilsstadir",
+    "name": "Egilsstaðir Airport",
+    "country": "Iceland"
+  },
+  {
+    "code": "GJR",
+    "city": "Gjogur",
+    "name": "Gjögur Airport",
+    "country": "Iceland"
+  },
+  {
+    "code": "GRY",
+    "city": "Grímsey",
+    "name": "Grímsey Airport",
+    "country": "Iceland"
+  },
+  {
+    "code": "GUU",
+    "city": "Grundarfjordur",
+    "name": "Grundarfjörður Airport",
+    "country": "Iceland"
+  },
+  {
+    "code": "HFN",
+    "city": "Hofn",
+    "name": "Hornafjörður Airport",
+    "country": "Iceland"
+  },
+  {
+    "code": "HZK",
+    "city": "Husavik",
+    "name": "Húsavík Airport",
+    "country": "Iceland"
+  },
+  {
+    "code": "IFJ",
+    "city": "Isafjordur",
+    "name": "Ísafjörður Airport",
+    "country": "Iceland"
+  },
+  {
+    "code": "KEF",
+    "city": "Keflavik",
+    "name": "Keflavik International Airport",
+    "country": "Iceland"
+  },
+  {
+    "code": "MVA",
+    "city": "Myvatn",
+    "name": "Reykjahlíð Airport",
+    "country": "Iceland"
+  },
+  {
+    "code": "NOR",
+    "city": "Nordfjordur",
+    "name": "Norðfjörður Airport",
+    "country": "Iceland"
+  },
+  {
+    "code": "PFJ",
+    "city": "Patreksfjordur",
+    "name": "Patreksfjörður Airport",
+    "country": "Iceland"
+  },
+  {
+    "code": "RKV",
+    "city": "Reykjavik",
+    "name": "Reykjavik Airport",
+    "country": "Iceland"
+  },
+  {
+    "code": "SAK",
+    "city": "Saudarkrokur",
+    "name": "Sauðárkrókur Airport",
+    "country": "Iceland"
+  },
+  {
+    "code": "SIJ",
+    "city": "Siglufjordur",
+    "name": "Siglufjörður Airport",
+    "country": "Iceland"
+  },
+  {
+    "code": "THO",
+    "city": "Thorshofn",
+    "name": "Thorshofn Airport",
+    "country": "Iceland"
+  },
+  {
+    "code": "VEY",
+    "city": "Vestmannaeyjar",
+    "name": "Vestmannaeyjar Airport",
+    "country": "Iceland"
+  },
+  {
+    "code": "VPN",
+    "city": "Vopnafjörður",
+    "name": "Vopnafjörður Airport",
+    "country": "Iceland"
+  },
+  {
+    "code": "BYT",
+    "city": "Bantry",
+    "name": "Bantry Aerodrome",
+    "country": "Ireland"
+  },
+  {
+    "code": "NOC",
+    "city": "Connaught",
+    "name": "Ireland West Knock Airport",
+    "country": "Ireland"
+  },
+  {
+    "code": "ORK",
+    "city": "Cork",
+    "name": "Cork Airport",
+    "country": "Ireland"
+  },
+  {
+    "code": "CFN",
+    "city": "Dongloe",
+    "name": "Donegal Airport",
+    "country": "Ireland"
+  },
+  {
+    "code": "DUB",
+    "city": "Dublin",
+    "name": "Dublin Airport",
+    "country": "Ireland"
+  },
+  {
+    "code": "GWY",
+    "city": "Galway",
+    "name": "Galway Airport",
+    "country": "Ireland"
+  },
+  {
+    "code": "NNR",
+    "city": "Indreabhan",
+    "name": "Connemara Regional Airport",
+    "country": "Ireland"
+  },
+  {
+    "code": "IOR",
+    "city": "Inis Mor",
+    "name": "Inishmore Aerodrome",
+    "country": "Ireland"
+  },
+  {
+    "code": "INQ",
+    "city": "Inisheer",
+    "name": "Inisheer Aerodrome",
+    "country": "Ireland"
+  },
+  {
+    "code": "IIA",
+    "city": "Inishmaan",
+    "name": "Inishmaan Aerodrome",
+    "country": "Ireland"
+  },
+  {
+    "code": "KIR",
+    "city": "Kerry",
+    "name": "Kerry Airport",
+    "country": "Ireland"
+  },
+  {
+    "code": "SNN",
+    "city": "Shannon",
+    "name": "Shannon Airport",
+    "country": "Ireland"
+  },
+  {
+    "code": "SXL",
+    "city": "Sligo",
+    "name": "Sligo Airport",
+    "country": "Ireland"
+  },
+  {
+    "code": "WAT",
+    "city": "Waterford",
+    "name": "Waterford Airport",
+    "country": "Ireland"
+  },
+  {
+    "code": "ALL",
+    "city": "Albenga",
+    "name": "Villanova D'Albenga International Airport",
+    "country": "Italy"
+  },
+  {
+    "code": "AHO",
+    "city": "Alghero",
+    "name": "Alghero-Fertilia Airport",
+    "country": "Italy"
+  },
+  {
+    "code": "AOI",
+    "city": "Ancona",
+    "name": "Ancona Falconara Airport",
+    "country": "Italy"
+  },
+  {
+    "code": "AOT",
+    "city": "Aosta",
+    "name": "Aosta Airport",
+    "country": "Italy"
+  },
+  {
+    "code": "AVB",
+    "city": "Aviano",
+    "name": "Aviano Air Base",
+    "country": "Italy"
+  },
+  {
+    "code": "BRI",
+    "city": "Bari",
+    "name": "Bari Karol Wojtyła Airport",
+    "country": "Italy"
+  },
+  {
+    "code": "BGY",
+    "city": "Bergamo",
+    "name": "Il Caravaggio International Airport",
+    "country": "Italy"
+  },
+  {
+    "code": "BLQ",
+    "city": "Bologna",
+    "name": "Bologna Guglielmo Marconi Airport",
+    "country": "Italy"
+  },
+  {
+    "code": "BZO",
+    "city": "Bolzano",
+    "name": "Bolzano Airport",
+    "country": "Italy"
+  },
+  {
+    "code": "VBS",
+    "city": "Brescia",
+    "name": "Brescia Airport",
+    "country": "Italy"
+  },
+  {
+    "code": "BDS",
+    "city": "Brindisi",
+    "name": "Brindisi – Salento Airport",
+    "country": "Italy"
+  },
+  {
+    "code": "CAG",
+    "city": "Cagliari",
+    "name": "Cagliari Elmas Airport",
+    "country": "Italy"
+  },
+  {
+    "code": "CTA",
+    "city": "Catania",
+    "name": "Catania-Fontanarossa Airport",
+    "country": "Italy"
+  },
+  {
+    "code": "CIY",
+    "city": "Comiso",
+    "name": "Comiso Airport",
+    "country": "Italy"
+  },
+  {
+    "code": "CRV",
+    "city": "Crotone",
+    "name": "Crotone Airport",
+    "country": "Italy"
+  },
+  {
+    "code": "CUF",
+    "city": "Cuneo",
+    "name": "Cuneo International Airport",
+    "country": "Italy"
+  },
+  {
+    "code": "DCI",
+    "city": "Decimomannu",
+    "name": "Decimomannu Air Base",
+    "country": "Italy"
+  },
+  {
+    "code": "FLR",
+    "city": "Florence",
+    "name": "Peretola Airport",
+    "country": "Italy"
+  },
+  {
+    "code": "FOG",
+    "city": "Foggia",
+    "name": "Foggia \"\"Gino Lisa\"\" Airport",
+    "country": "Italy"
+  },
+  {
+    "code": "FRL",
+    "city": "Forli",
+    "name": "Forlì Airport",
+    "country": "Italy"
+  },
+  {
+    "code": "GOA",
+    "city": "Genoa",
+    "name": "Genoa Cristoforo Colombo Airport",
+    "country": "Italy"
+  },
+  {
+    "code": "GRS",
+    "city": "Grosseto",
+    "name": "Grosseto Air Base",
+    "country": "Italy"
+  },
+  {
+    "code": "TAR",
+    "city": "Grottaglie",
+    "name": "Taranto-Grottaglie \"\"Marcello Arlotta\"\" Airport",
+    "country": "Italy"
+  },
+  {
+    "code": "SUF",
+    "city": "Lamezia",
+    "name": "Lamezia Terme Airport",
+    "country": "Italy"
+  },
+  {
+    "code": "LMP",
+    "city": "Lampedusa",
+    "name": "Lampedusa Airport",
+    "country": "Italy"
+  },
+  {
+    "code": "QLT",
+    "city": "Latina",
+    "name": "Latina Air Base",
+    "country": "Italy"
+  },
+  {
+    "code": "LCC",
+    "city": "Lecce",
+    "name": "Lecce Galatina Air Base",
+    "country": "Italy"
+  },
+  {
+    "code": "EBA",
+    "city": "Marina Di Campo",
+    "name": "Marina Di Campo Airport",
+    "country": "Italy"
+  },
+  {
+    "code": "LIN",
+    "city": "Milan",
+    "name": "Milano Linate Airport",
+    "country": "Italy"
+  },
+  {
+    "code": "MXP",
+    "city": "Milano",
+    "name": "Malpensa International Airport",
+    "country": "Italy"
+  },
+  {
+    "code": "NAP",
+    "city": "Naples",
+    "name": "Naples International Airport",
+    "country": "Italy"
+  },
+  {
+    "code": "OLB",
+    "city": "Olbia",
+    "name": "Olbia Costa Smeralda Airport",
+    "country": "Italy"
+  },
+  {
+    "code": "FNU",
+    "city": "Oristano",
+    "name": "Oristano-Fenosu Airport",
+    "country": "Italy"
+  },
+  {
+    "code": "QPA",
+    "city": "Padova",
+    "name": "Padova Airport",
+    "country": "Italy"
+  },
+  {
+    "code": "PMO",
+    "city": "Palermo",
+    "name": "Falcone–Borsellino Airport",
+    "country": "Italy"
+  },
+  {
+    "code": "PNL",
+    "city": "Pantelleria",
+    "name": "Pantelleria Airport",
+    "country": "Italy"
+  },
+  {
+    "code": "PMF",
+    "city": "Parma",
+    "name": "Parma Airport",
+    "country": "Italy"
+  },
+  {
+    "code": "PEG",
+    "city": "Perugia",
+    "name": "Perugia San Francesco d'Assisi – Umbria International Airport",
+    "country": "Italy"
+  },
+  {
+    "code": "PSR",
+    "city": "Pescara",
+    "name": "Pescara International Airport",
+    "country": "Italy"
+  },
+  {
+    "code": "PSA",
+    "city": "Pisa",
+    "name": "Pisa International Airport",
+    "country": "Italy"
+  },
+  {
+    "code": "REG",
+    "city": "Reggio Calabria",
+    "name": "Reggio Calabria Airport",
+    "country": "Italy"
+  },
+  {
+    "code": "RMI",
+    "city": "Rimini",
+    "name": "Federico Fellini International Airport",
+    "country": "Italy"
+  },
+  {
+    "code": "CIA",
+    "city": "Rome",
+    "name": "Ciampino–G. B. Pastine International Airport",
+    "country": "Italy"
+  },
+  {
+    "code": "FCO",
+    "city": "Rome",
+    "name": "Leonardo da Vinci–Fiumicino Airport",
+    "country": "Italy"
+  },
+  {
+    "code": "TRS",
+    "city": "Ronchi De Legionari",
+    "name": "Trieste–Friuli Venezia Giulia Airport",
+    "country": "Italy"
+  },
+  {
+    "code": "QSR",
+    "city": "Salerno",
+    "name": "Salerno Costa d'Amalfi Airport",
+    "country": "Italy"
+  },
+  {
+    "code": "QLP",
+    "city": "Sarzana (SP)",
+    "name": "Sarzana-Luni Air Base",
+    "country": "Italy"
+  },
+  {
+    "code": "SAY",
+    "city": "Siena",
+    "name": "Siena-Ampugnano Airport",
+    "country": "Italy"
+  },
+  {
+    "code": "NSY",
+    "city": "Sigonella",
+    "name": "Sigonella Navy Air Base",
+    "country": "Italy"
+  },
+  {
+    "code": "TRN",
+    "city": "Torino",
+    "name": "Turin Airport",
+    "country": "Italy"
+  },
+  {
+    "code": "TTB",
+    "city": "Tortoli",
+    "name": "Tortolì Airport",
+    "country": "Italy"
+  },
+  {
+    "code": "TPS",
+    "city": "Trapani",
+    "name": "Vincenzo Florio Airport Trapani-Birgi",
+    "country": "Italy"
+  },
+  {
+    "code": "TSF",
+    "city": "Treviso",
+    "name": "Treviso-Sant'Angelo Airport",
+    "country": "Italy"
+  },
+  {
+    "code": "VCE",
+    "city": "Venice",
+    "name": "Venice Marco Polo Airport",
+    "country": "Italy"
+  },
+  {
+    "code": "VIC",
+    "city": "Vicenza",
+    "name": "Vicenza Airport",
+    "country": "Italy"
+  },
+  {
+    "code": "VRN",
+    "city": "Villafranca",
+    "name": "Verona Villafranca Airport",
+    "country": "Italy"
+  },
+  {
+    "code": "DGP",
+    "city": "Daugavpils",
+    "name": "Daugavpils Intrenational Airport",
+    "country": "Latvia"
+  },
+  {
+    "code": "LPX",
+    "city": "Liepaja",
+    "name": "Liepāja International Airport",
+    "country": "Latvia"
+  },
+  {
+    "code": "RIX",
+    "city": "Riga",
+    "name": "Riga International Airport",
+    "country": "Latvia"
+  },
+  {
+    "code": "VNT",
+    "city": "Ventspils",
+    "name": "Ventspils International Airport",
+    "country": "Latvia"
+  },
+  {
+    "code": "HLJ",
+    "city": "Barysiai",
+    "name": "Barysiai Airport",
+    "country": "Lithuania"
+  },
+  {
+    "code": "KUN",
+    "city": "Kaunas",
+    "name": "Kaunas International Airport",
+    "country": "Lithuania"
+  },
+  {
+    "code": "KLJ",
+    "city": "Klaipeda",
+    "name": "Klaipėda Airport",
+    "country": "Lithuania"
+  },
+  {
+    "code": "PLQ",
+    "city": "Palanga",
+    "name": "Palanga International Airport",
+    "country": "Lithuania"
+  },
+  {
+    "code": "PNV",
+    "city": "Panevezys",
+    "name": "Panevėžys Air Base",
+    "country": "Lithuania"
+  },
+  {
+    "code": "SQQ",
+    "city": "Siauliai",
+    "name": "Šiauliai International Airport",
+    "country": "Lithuania"
+  },
+  {
+    "code": "VNO",
+    "city": "Vilnius",
+    "name": "Vilnius International Airport",
+    "country": "Lithuania"
+  },
+  {
+    "code": "LUX",
+    "city": "Luxemburg",
+    "name": "Luxembourg-Findel International Airport",
+    "country": "Luxembourg"
+  },
+  {
+    "code": "GZM",
+    "city": "Gozo",
+    "name": "Xewkija Heliport",
+    "country": "Malta"
+  },
+  {
+    "code": "MLA",
+    "city": "Malta",
+    "name": "Malta International Airport",
+    "country": "Malta"
+  },
+  {
+    "code": "KIV",
+    "city": "Chisinau",
+    "name": "Chişinău International Airport",
+    "country": "Moldova"
+  },
+  {
+    "code": "BZY",
+    "city": "Saltsy",
+    "name": "Bălți International Airport",
+    "country": "Moldova"
+  },
+  {
+    "code": "TGD",
+    "city": "Podgorica",
+    "name": "Podgorica Airport",
+    "country": "Montenegro"
+  },
+  {
+    "code": "TIV",
+    "city": "Tivat",
+    "name": "Tivat Airport",
+    "country": "Montenegro"
+  },
+  {
+    "code": "AMS",
+    "city": "Amsterdam",
+    "name": "Amsterdam Airport Schiphol",
+    "country": "Netherlands"
+  },
+  {
+    "code": "DHR",
+    "city": "De Kooy",
+    "name": "De Kooy Airport",
+    "country": "Netherlands"
+  },
+  {
+    "code": "EIN",
+    "city": "Eindhoven",
+    "name": "Eindhoven Airport",
+    "country": "Netherlands"
+  },
+  {
+    "code": "ENS",
+    "city": "Enschede",
+    "name": "Twente Airport",
+    "country": "Netherlands"
+  },
+  {
+    "code": "GLZ",
+    "city": "Gilze-rijen",
+    "name": "Gilze Rijen Air Base",
+    "country": "Netherlands"
+  },
+  {
+    "code": "GRQ",
+    "city": "Groningen",
+    "name": "Eelde Airport",
+    "country": "Netherlands"
+  },
+  {
+    "code": "LWR",
+    "city": "Leeuwarden",
+    "name": "Leeuwarden Air Base",
+    "country": "Netherlands"
+  },
+  {
+    "code": "LEY",
+    "city": "Lelystad",
+    "name": "Lelystad Airport",
+    "country": "Netherlands"
+  },
+  {
+    "code": "MST",
+    "city": "Maastricht",
+    "name": "Maastricht Aachen Airport",
+    "country": "Netherlands"
+  },
+  {
+    "code": "RTM",
+    "city": "Rotterdam",
+    "name": "Rotterdam The Hague Airport",
+    "country": "Netherlands"
+  },
+  {
+    "code": "UTC",
+    "city": "Soesterberg",
+    "name": "Soesterberg Air Base",
+    "country": "Netherlands"
+  },
+  {
+    "code": "LID",
+    "city": "Valkenburg",
+    "name": "Valkenburg Naval Air Base",
+    "country": "Netherlands"
+  },
+  {
+    "code": "WOE",
+    "city": "Woensdrecht",
+    "name": "Woensdrecht Air Base",
+    "country": "Netherlands"
+  },
+  {
+    "code": "AES",
+    "city": "Alesund",
+    "name": "Ålesund Airport",
+    "country": "Norway"
+  },
+  {
+    "code": "ALF",
+    "city": "Alta",
+    "name": "Alta Airport",
+    "country": "Norway"
+  },
+  {
+    "code": "ANX",
+    "city": "Andoya",
+    "name": "Andøya Airport",
+    "country": "Norway"
+  },
+  {
+    "code": "BDU",
+    "city": "Bardufoss",
+    "name": "Bardufoss Airport",
+    "country": "Norway"
+  },
+  {
+    "code": "BJF",
+    "city": "Batsfjord",
+    "name": "Båtsfjord Airport",
+    "country": "Norway"
+  },
+  {
+    "code": "BGO",
+    "city": "Bergen",
+    "name": "Bergen Airport Flesland",
+    "country": "Norway"
+  },
+  {
+    "code": "BVG",
+    "city": "Berlevag",
+    "name": "Berlevåg Airport",
+    "country": "Norway"
+  },
+  {
+    "code": "BOO",
+    "city": "Bodo",
+    "name": "Bodø Airport",
+    "country": "Norway"
+  },
+  {
+    "code": "BNN",
+    "city": "Bronnoysund",
+    "name": "Brønnøysund Airport",
+    "country": "Norway"
+  },
+  {
+    "code": "VDB",
+    "city": "Fagernes",
+    "name": "Leirin Airport",
+    "country": "Norway"
+  },
+  {
+    "code": "FAN",
+    "city": "Farsund",
+    "name": "Lista Airport",
+    "country": "Norway"
+  },
+  {
+    "code": "FRO",
+    "city": "Floro",
+    "name": "Florø Airport",
+    "country": "Norway"
+  },
+  {
+    "code": "DLD",
+    "city": "Geilo",
+    "name": "Geilo Airport Dagali",
+    "country": "Norway"
+  },
+  {
+    "code": "HMR",
+    "city": "Hamar",
+    "name": "Stafsberg Airport",
+    "country": "Norway"
+  },
+  {
+    "code": "HFT",
+    "city": "Hammerfest",
+    "name": "Hammerfest Airport",
+    "country": "Norway"
+  },
+  {
+    "code": "EVE",
+    "city": "Harstad/Narvik",
+    "name": "Harstad/Narvik Airport, Evenes",
+    "country": "Norway"
+  },
+  {
+    "code": "HAA",
+    "city": "Hasvik",
+    "name": "Hasvik Airport",
+    "country": "Norway"
+  },
+  {
+    "code": "HAU",
+    "city": "Haugesund",
+    "name": "Haugesund Airport",
+    "country": "Norway"
+  },
+  {
+    "code": "HVG",
+    "city": "Honningsvag",
+    "name": "Valan Airport",
+    "country": "Norway"
+  },
+  {
+    "code": "QKX",
+    "city": "Kautokeino",
+    "name": "Kautokeino Air Base",
+    "country": "Norway"
+  },
+  {
+    "code": "KKN",
+    "city": "Kirkenes",
+    "name": "Kirkenes Airport (Høybuktmoen)",
+    "country": "Norway"
+  },
+  {
+    "code": "KRS",
+    "city": "Kristiansand",
+    "name": "Kristiansand Airport",
+    "country": "Norway"
+  },
+  {
+    "code": "KSU",
+    "city": "Kristiansund",
+    "name": "Kristiansund Airport (Kvernberget)",
+    "country": "Norway"
+  },
+  {
+    "code": "LKL",
+    "city": "Lakselv",
+    "name": "Banak Airport",
+    "country": "Norway"
+  },
+  {
+    "code": "LKN",
+    "city": "Leknes",
+    "name": "Leknes Airport",
+    "country": "Norway"
+  },
+  {
+    "code": "MEH",
+    "city": "Mehamn",
+    "name": "Mehamn Airport",
+    "country": "Norway"
+  },
+  {
+    "code": "MQN",
+    "city": "Mo i Rana",
+    "name": "Mo i Rana Airport, Røssvoll",
+    "country": "Norway"
+  },
+  {
+    "code": "MOL",
+    "city": "Molde",
+    "name": "Molde Airport",
+    "country": "Norway"
+  },
+  {
+    "code": "MJF",
+    "city": "Mosjoen",
+    "name": "Mosjøen Airport (Kjærstad)",
+    "country": "Norway"
+  },
+  {
+    "code": "OSY",
+    "city": "Namsos",
+    "name": "Namsos Høknesøra Airport",
+    "country": "Norway"
+  },
+  {
+    "code": "NVK",
+    "city": "Narvik",
+    "name": "Narvik Framnes Airport",
+    "country": "Norway"
+  },
+  {
+    "code": "NTB",
+    "city": "Notodden",
+    "name": "Notodden Airport",
+    "country": "Norway"
+  },
+  {
+    "code": "OLA",
+    "city": "Orland",
+    "name": "Ørland Airport",
+    "country": "Norway"
+  },
+  {
+    "code": "HOV",
+    "city": "Orsta-Volda",
+    "name": "Ørsta-Volda Airport, Hovden",
+    "country": "Norway"
+  },
+  {
+    "code": "FBU",
+    "city": "Oslo",
+    "name": "Oslo, Fornebu Airport",
+    "country": "Norway"
+  },
+  {
+    "code": "OSL",
+    "city": "Oslo",
+    "name": "Oslo Lufthavn",
+    "country": "Norway"
+  },
+  {
+    "code": "RRS",
+    "city": "Roros",
+    "name": "Røros Airport",
+    "country": "Norway"
+  },
+  {
+    "code": "RVK",
+    "city": "Rørvik",
+    "name": "Rørvik Airport, Ryum",
+    "country": "Norway"
+  },
+  {
+    "code": "RET",
+    "city": "Røst",
+    "name": "Røst Airport",
+    "country": "Norway"
+  },
+  {
+    "code": "RYG",
+    "city": "Rygge",
+    "name": "Moss Airport, Rygge",
+    "country": "Norway"
+  },
+  {
+    "code": "SDN",
+    "city": "Sandane",
+    "name": "Sandane Airport (Anda)",
+    "country": "Norway"
+  },
+  {
+    "code": "TRF",
+    "city": "Sandefjord",
+    "name": "Sandefjord Airport, Torp",
+    "country": "Norway"
+  },
+  {
+    "code": "SSJ",
+    "city": "Sandnessjoen",
+    "name": "Sandnessjøen Airport (Stokka)",
+    "country": "Norway"
+  },
+  {
+    "code": "SKE",
+    "city": "Skien",
+    "name": "Skien Airport",
+    "country": "Norway"
+  },
+  {
+    "code": "SOG",
+    "city": "Sogndal",
+    "name": "Sogndal Airport",
+    "country": "Norway"
+  },
+  {
+    "code": "SOJ",
+    "city": "Sorkjosen",
+    "name": "Sørkjosen Airport",
+    "country": "Norway"
+  },
+  {
+    "code": "SVG",
+    "city": "Stavanger",
+    "name": "Stavanger Airport Sola",
+    "country": "Norway"
+  },
+  {
+    "code": "SKN",
+    "city": "Stokmarknes",
+    "name": "Stokmarknes Skagen Airport",
+    "country": "Norway"
+  },
+  {
+    "code": "SRP",
+    "city": "Stord",
+    "name": "Stord Airport",
+    "country": "Norway"
+  },
+  {
+    "code": "LYR",
+    "city": "Svalbard",
+    "name": "Svalbard Airport, Longyear",
+    "country": "Norway"
+  },
+  {
+    "code": "SVJ",
+    "city": "Svolvær",
+    "name": "Svolvær Helle Airport",
+    "country": "Norway"
+  },
+  {
+    "code": "TOS",
+    "city": "Tromso",
+    "name": "Tromsø Airport,",
+    "country": "Norway"
+  },
+  {
+    "code": "TRD",
+    "city": "Trondheim",
+    "name": "Trondheim Airport Værnes",
+    "country": "Norway"
+  },
+  {
+    "code": "VDS",
+    "city": "Vadsø",
+    "name": "Vadsø Airport",
+    "country": "Norway"
+  },
+  {
+    "code": "VRY",
+    "city": "Værøy",
+    "name": "Værøy Heliport",
+    "country": "Norway"
+  },
+  {
+    "code": "VAW",
+    "city": "Vardø",
+    "name": "Vardø Airport, Svartnes",
+    "country": "Norway"
+  },
+  {
+    "code": "BXP",
+    "city": "Biała Podlaska",
+    "name": "Biała Podlaska Airfield",
+    "country": "Poland"
+  },
+  {
+    "code": "BZG",
+    "city": "Bydgoszcz",
+    "name": "Bydgoszcz Ignacy Jan Paderewski Airport",
+    "country": "Poland"
+  },
+  {
+    "code": "GDN",
+    "city": "Gdansk",
+    "name": "Gdańsk Lech Wałęsa Airport",
+    "country": "Poland"
+  },
+  {
+    "code": "QYD",
+    "city": "Gdynia",
+    "name": "Oksywie Military Air Base",
+    "country": "Poland"
+  },
+  {
+    "code": "KTW",
+    "city": "Katowice",
+    "name": "Katowice International Airport",
+    "country": "Poland"
+  },
+  {
+    "code": "KRK",
+    "city": "Krakow",
+    "name": "Kraków John Paul II International Airport",
+    "country": "Poland"
+  },
+  {
+    "code": "LCJ",
+    "city": "Lodz",
+    "name": "Łódź Władysław Reymont Airport",
+    "country": "Poland"
+  },
+  {
+    "code": "LUZ",
+    "city": "Lublin",
+    "name": "Lublin Airport",
+    "country": "Poland"
+  },
+  {
+    "code": "POZ",
+    "city": "Poznan",
+    "name": "Poznań-Ławica Airport",
+    "country": "Poland"
+  },
+  {
+    "code": "RDO",
+    "city": "RADOM",
+    "name": "Radom Airport",
+    "country": "Poland"
+  },
+  {
+    "code": "RZE",
+    "city": "Rzeszow",
+    "name": "Rzeszów-Jasionka Airport",
+    "country": "Poland"
+  },
+  {
+    "code": "OSP",
+    "city": "Slupsk",
+    "name": "Redzikowo Air Base",
+    "country": "Poland"
+  },
+  {
+    "code": "SZZ",
+    "city": "Szczecin",
+    "name": "Szczecin-Goleniów \"\"Solidarność\"\" Airport",
+    "country": "Poland"
+  },
+  {
+    "code": "SZY",
+    "city": "Szczytno-Szymany",
+    "name": "Olsztyn-Mazury Airport",
+    "country": "Poland"
+  },
+  {
+    "code": "WAW",
+    "city": "Warsaw",
+    "name": "Warsaw Chopin Airport",
+    "country": "Poland"
+  },
+  {
+    "code": "WMI",
+    "city": "Warsaw",
+    "name": "Modlin Airport",
+    "country": "Poland"
+  },
+  {
+    "code": "WRO",
+    "city": "Wroclaw",
+    "name": "Copernicus Wrocław Airport",
+    "country": "Poland"
+  },
+  {
+    "code": "IEG",
+    "city": "Zielona Gora",
+    "name": "Zielona Góra-Babimost Airport",
+    "country": "Poland"
+  },
+  {
+    "code": "AVR",
+    "city": "Alverca",
+    "name": "Alverca Air Base",
+    "country": "Portugal"
+  },
+  {
+    "code": "BYJ",
+    "city": "Beja (madeira)",
+    "name": "Beja Airport / Airbase",
+    "country": "Portugal"
+  },
+  {
+    "code": "BGZ",
+    "city": "Braga",
+    "name": "Braga Municipal Aerodrome",
+    "country": "Portugal"
+  },
+  {
+    "code": "BGC",
+    "city": "Braganca",
+    "name": "Bragança Airport",
+    "country": "Portugal"
+  },
+  {
+    "code": "CAT",
+    "city": "Cascais",
+    "name": "Cascais Airport",
+    "country": "Portugal"
+  },
+  {
+    "code": "CVU",
+    "city": "Corvo",
+    "name": "Corvo Airport",
+    "country": "Portugal"
+  },
+  {
+    "code": "FAO",
+    "city": "Faro",
+    "name": "Faro Airport",
+    "country": "Portugal"
+  },
+  {
+    "code": "FLW",
+    "city": "Flores",
+    "name": "Flores Airport",
+    "country": "Portugal"
+  },
+  {
+    "code": "FNC",
+    "city": "Funchal",
+    "name": "Madeira Airport",
+    "country": "Portugal"
+  },
+  {
+    "code": "GRW",
+    "city": "Graciosa Island",
+    "name": "Graciosa Airport",
+    "country": "Portugal"
+  },
+  {
+    "code": "HOR",
+    "city": "Horta",
+    "name": "Horta Airport",
+    "country": "Portugal"
+  },
+  {
+    "code": "TER",
+    "city": "Lajes (terceira Island)",
+    "name": "Lajes Airport",
+    "country": "Portugal"
+  },
+  {
+    "code": "LIS",
+    "city": "Lisbon",
+    "name": "Humberto Delgado Airport (Lisbon Portela Airport)",
+    "country": "Portugal"
+  },
+  {
+    "code": "QLR",
+    "city": "Monte Real",
+    "name": "Monte Real Air Base",
+    "country": "Portugal"
+  },
+  {
+    "code": "PIX",
+    "city": "Pico",
+    "name": "Pico Airport",
+    "country": "Portugal"
+  },
+  {
+    "code": "PDL",
+    "city": "Ponta Delgada",
+    "name": "João Paulo II Airport",
+    "country": "Portugal"
+  },
+  {
+    "code": "PRM",
+    "city": "Portimao",
+    "name": "Portimão Airport",
+    "country": "Portugal"
+  },
+  {
+    "code": "OPO",
+    "city": "Porto",
+    "name": "Francisco de Sá Carneiro Airport",
+    "country": "Portugal"
+  },
+  {
+    "code": "PXO",
+    "city": "Porto Santo",
+    "name": "Porto Santo Airport",
+    "country": "Portugal"
+  },
+  {
+    "code": "SMA",
+    "city": "Santa Maria (island)",
+    "name": "Santa Maria Airport",
+    "country": "Portugal"
+  },
+  {
+    "code": "SJZ",
+    "city": "Sao Jorge Island",
+    "name": "São Jorge Airport",
+    "country": "Portugal"
+  },
+  {
+    "code": "VRL",
+    "city": "Vila Real",
+    "name": "Vila Real Airport",
+    "country": "Portugal"
+  },
+  {
+    "code": "VSE",
+    "city": "Viseu",
+    "name": "Aerodromo Goncalves Lobato (Viseu Airport)",
+    "country": "Portugal"
+  },
+  {
+    "code": "ARW",
+    "city": "Arad",
+    "name": "Arad International Airport",
+    "country": "Romania"
+  },
+  {
+    "code": "BCM",
+    "city": "Bacau",
+    "name": "Bacău Airport",
+    "country": "Romania"
+  },
+  {
+    "code": "BAY",
+    "city": "Baia Mare",
+    "name": "Tautii Magheraus Airport",
+    "country": "Romania"
+  },
+  {
+    "code": "BBU",
+    "city": "Bucharest",
+    "name": "Băneasa International Airport",
+    "country": "Romania"
+  },
+  {
+    "code": "OTP",
+    "city": "Bucharest",
+    "name": "Henri Coandă International Airport",
+    "country": "Romania"
+  },
+  {
+    "code": "CSB",
+    "city": "Caransebes",
+    "name": "Caransebeş Airport",
+    "country": "Romania"
+  },
+  {
+    "code": "CLJ",
+    "city": "Cluj-napoca",
+    "name": "Cluj-Napoca International Airport",
+    "country": "Romania"
+  },
+  {
+    "code": "CND",
+    "city": "Constanta",
+    "name": "Mihail Kogălniceanu International Airport",
+    "country": "Romania"
+  },
+  {
+    "code": "CRA",
+    "city": "Craiova",
+    "name": "Craiova Airport",
+    "country": "Romania"
+  },
+  {
+    "code": "IAS",
+    "city": "Iasi",
+    "name": "Iaşi Airport",
+    "country": "Romania"
+  },
+  {
+    "code": "OMR",
+    "city": "Oradea",
+    "name": "Oradea International Airport",
+    "country": "Romania"
+  },
+  {
+    "code": "SUJ",
+    "city": "Satu Mare",
+    "name": "Satu Mare Airport",
+    "country": "Romania"
+  },
+  {
+    "code": "SBZ",
+    "city": "Sibiu",
+    "name": "Sibiu International Airport",
+    "country": "Romania"
+  },
+  {
+    "code": "SCV",
+    "city": "Suceava",
+    "name": "Suceava Stefan cel Mare Airport",
+    "country": "Romania"
+  },
+  {
+    "code": "TSR",
+    "city": "Timisoara",
+    "name": "Timişoara Traian Vuia Airport",
+    "country": "Romania"
+  },
+  {
+    "code": "TGM",
+    "city": "Tirgu Mures",
+    "name": "Transilvania Târgu Mureş International Airport",
+    "country": "Romania"
+  },
+  {
+    "code": "TCE",
+    "city": "Tulcea",
+    "name": "Tulcea Airport",
+    "country": "Romania"
+  },
+  {
+    "code": "ABA",
+    "city": "Abakan",
+    "name": "Abakan Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "ACS",
+    "city": "Achinsk",
+    "name": "Achinsk Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "ADH",
+    "city": "Aldan",
+    "name": "Aldan Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "AMV",
+    "city": "Amderma",
+    "name": "Amderma Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "DYR",
+    "city": "Anadyr",
+    "name": "Ugolny Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "AAQ",
+    "city": "Anapa",
+    "name": "Anapa Vityazevo Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "KVK",
+    "city": "Apatity",
+    "name": "Kirovsk-Apatity Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "ARH",
+    "city": "Arkhangelsk",
+    "name": "Talagi Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "LDG",
+    "city": "Arkhangelsk",
+    "name": "Leshukonskoye Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "ASF",
+    "city": "Astrakhan",
+    "name": "Astrakhan Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "BWO",
+    "city": "Balakovo",
+    "name": "Balakovo Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "BAX",
+    "city": "Barnaul",
+    "name": "Barnaul Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "BQJ",
+    "city": "Batagay",
+    "name": "Batagay Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "SUK",
+    "city": "Batagay-Alyta",
+    "name": "Sakkyryr Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "BGN",
+    "city": "Belaya Gora Airport",
+    "name": "Belaya Gora Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "EGO",
+    "city": "Belgorod",
+    "name": "Belgorod International Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "EYK",
+    "city": "Beloyarsky",
+    "name": "Beloyarskiy Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "EZV",
+    "city": "Berezovo",
+    "name": "Berezovo Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "OGZ",
+    "city": "Beslan",
+    "name": "Beslan Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "BQS",
+    "city": "Blagoveschensk",
+    "name": "Ignatyevo Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "ODO",
+    "city": "Bodaibo",
+    "name": "Bodaybo Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "BQG",
+    "city": "Bogorodskoe",
+    "name": "Bogorodskoye Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "TGP",
+    "city": "Bor",
+    "name": "Podkamennaya Tunguska Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "BTK",
+    "city": "Bratsk",
+    "name": "Bratsk Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "BZK",
+    "city": "Bryansk",
+    "name": "Bryansk Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "UUA",
+    "city": "Bugulma",
+    "name": "Bugulma Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "CSY",
+    "city": "Cheboksary",
+    "name": "Cheboksary Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "CEK",
+    "city": "Chelyabinsk",
+    "name": "Chelyabinsk Balandino Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "CEE",
+    "city": "Cherepovets",
+    "name": "Cherepovets Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "CYX",
+    "city": "Cherskiy",
+    "name": "Cherskiy Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "HTA",
+    "city": "Chita",
+    "name": "Chita-Kadala Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "CKH",
+    "city": "Chokurdah",
+    "name": "Chokurdakh Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "DKS",
+    "city": "Dikson",
+    "name": "Dikson Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "ESL",
+    "city": "Elista",
+    "name": "Elista Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "EIK",
+    "city": "Eysk",
+    "name": "Yeysk Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "GDZ",
+    "city": "Gelendzhik",
+    "name": "Gelendzhik Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "RGK",
+    "city": "Gorno-Altaysk",
+    "name": "Gorno-Altaysk Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "MQJ",
+    "city": "Honuu",
+    "name": "Moma Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "IAA",
+    "city": "Igarka",
+    "name": "Igarka Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "INA",
+    "city": "Inta",
+    "name": "Inta Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "IKT",
+    "city": "Irkutsk",
+    "name": "Irkutsk Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "IWA",
+    "city": "Ivanovo",
+    "name": "Ivanovo South Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "IJK",
+    "city": "Izhevsk",
+    "name": "Izhevsk Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "KGD",
+    "city": "Kaliningrad",
+    "name": "Khrabrovo Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "KLF",
+    "city": "Kaluga",
+    "name": "Grabtsevo Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "KVR",
+    "city": "Kavalerovo",
+    "name": "Kavalerovo Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "KZN",
+    "city": "Kazan",
+    "name": "Kazan International Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "KEJ",
+    "city": "Kemorovo",
+    "name": "Kemerovo Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "KHV",
+    "city": "Khabarovsk",
+    "name": "Khabarovsk-Novy Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "KDY",
+    "city": "Khandyga",
+    "name": "Typliy Klyuch Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "HMA",
+    "city": "Khanty-Mansiysk",
+    "name": "Khanty Mansiysk Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "HTG",
+    "city": "Khatanga",
+    "name": "Khatanga Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "KCK",
+    "city": "Kirensk",
+    "name": "Kirensk Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "KVX",
+    "city": "Kirov",
+    "name": "Pobedilovo Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "KGP",
+    "city": "Kogalym",
+    "name": "Kogalym International Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "KXK",
+    "city": "Komsomolsk-on-Amur",
+    "name": "Komsomolsk-on-Amur Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "KMW",
+    "city": "Kostroma",
+    "name": "Kostroma Sokerkino Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "KSZ",
+    "city": "Kotlas",
+    "name": "Kotlas Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "KRR",
+    "city": "Krasnodar",
+    "name": "Krasnodar Pashkovsky International Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "KJA",
+    "city": "Krasnoyarsk",
+    "name": "Yemelyanovo Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "KRO",
+    "city": "Kurgan",
+    "name": "Kurgan Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "URS",
+    "city": "Kursk",
+    "name": "Kursk East Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "KYZ",
+    "city": "Kyzyl",
+    "name": "Kyzyl Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "ULK",
+    "city": "Lensk",
+    "name": "Lensk Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "LPK",
+    "city": "Lipetsk",
+    "name": "Lipetsk Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "GDX",
+    "city": "Magadan",
+    "name": "Sokol Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "IGT",
+    "city": "Magas",
+    "name": "Magas Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "MQF",
+    "city": "Magnetiogorsk",
+    "name": "Magnitogorsk International Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "MCX",
+    "city": "Makhachkala",
+    "name": "Uytash Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "KVM",
+    "city": "Markovo",
+    "name": "Markovo Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "MRV",
+    "city": "Mineralnye Vody",
+    "name": "Mineralnyye Vody Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "MJZ",
+    "city": "Mirnyj",
+    "name": "Mirny Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "BKA",
+    "city": "Moscow",
+    "name": "Bykovo Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "DME",
+    "city": "Moscow",
+    "name": "Domodedovo International Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "OSF",
+    "city": "Moscow",
+    "name": "Ostafyevo International Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "SVO",
+    "city": "Moscow",
+    "name": "Sheremetyevo International Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "VKO",
+    "city": "Moscow",
+    "name": "Vnukovo International Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "MMK",
+    "city": "Murmansk",
+    "name": "Murmansk Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "NYM",
+    "city": "Nadym",
+    "name": "Nadym Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "NAL",
+    "city": "Nalchik",
+    "name": "Nalchik Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "NNM",
+    "city": "Naryan-Mar",
+    "name": "Naryan Mar Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "NFG",
+    "city": "Nefteyugansk",
+    "name": "Nefteyugansk Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "NER",
+    "city": "Neryungri",
+    "name": "Chulman Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "NLI",
+    "city": "Nikolayevsk-na-Amure Airport",
+    "name": "Nikolayevsk-na-Amure Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "NBC",
+    "city": "Nizhnekamsk",
+    "name": "Begishevo Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "NJC",
+    "city": "Nizhnevartovsk",
+    "name": "Nizhnevartovsk Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "GOJ",
+    "city": "Nizhniy Novgorod",
+    "name": "Nizhny Novgorod Strigino International Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "NGK",
+    "city": "Nogliki",
+    "name": "Nogliki Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "NSK",
+    "city": "Norilsk",
+    "name": "Norilsk-Alykel Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "NOZ",
+    "city": "Novokuznetsk",
+    "name": "Spichenkovo Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "OVB",
+    "city": "Novosibirsk",
+    "name": "Tolmachevo Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "NUX",
+    "city": "Novy Urengoy",
+    "name": "Novy Urengoy Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "NOJ",
+    "city": "Noyabrsk",
+    "name": "Noyabrsk Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "NYA",
+    "city": "Nyagan",
+    "name": "Nyagan Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "NYR",
+    "city": "Nyurba",
+    "name": "Nyurba Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "OHO",
+    "city": "Okhotsk",
+    "name": "Okhotsk Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "OLZ",
+    "city": "Olekminsk",
+    "name": "Olyokminsk Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "ONK",
+    "city": "Olenyok",
+    "name": "Olenyok Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "OMS",
+    "city": "Omsk",
+    "name": "Omsk Central Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "REN",
+    "city": "Orenburg",
+    "name": "Orenburg Central Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "OSW",
+    "city": "Orsk",
+    "name": "Orsk Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "PEX",
+    "city": "Pechora",
+    "name": "Pechora Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "PEZ",
+    "city": "Penza",
+    "name": "Penza Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "PEE",
+    "city": "Perm",
+    "name": "Bolshoye Savino Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "PKC",
+    "city": "Petropavlovsk",
+    "name": "Yelizovo Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "PES",
+    "city": "Petrozavodsk",
+    "name": "Petrozavodsk Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "PWE",
+    "city": "Pevek",
+    "name": "Pevek Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "PVS",
+    "city": "Provideniya Bay",
+    "name": "Provideniya Bay Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "PKV",
+    "city": "Pskov",
+    "name": "Pskov Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "RAT",
+    "city": "Raduzhnyi",
+    "name": "Raduzhny Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "ZIA",
+    "city": "Ramenskoe",
+    "name": "Zhukovsky International Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "ROV",
+    "city": "Rostov",
+    "name": "Platov International Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "RYB",
+    "city": "Rybinsk",
+    "name": "Staroselye Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "SBT",
+    "city": "Sabetta",
+    "name": "Sabetta International Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "SLY",
+    "city": "Salekhard",
+    "name": "Salekhard Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "KUF",
+    "city": "Samara",
+    "name": "Kurumoch International Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "SKX",
+    "city": "Saransk",
+    "name": "Saransk Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "RTW",
+    "city": "Saratov",
+    "name": "Saratov Central Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "SYS",
+    "city": "Saskylakh",
+    "name": "Saskylakh Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "EKS",
+    "city": "Shakhtyorsk",
+    "name": "Shakhtyorsk Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "CKL",
+    "city": "Shchyolkovo",
+    "name": "Chkalovskiy Air Base",
+    "country": "Russia"
+  },
+  {
+    "code": "LNX",
+    "city": "Smolensk",
+    "name": "Smolensk North Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "AER",
+    "city": "Sochi",
+    "name": "Sochi International Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "CSH",
+    "city": "Solovetsky Islands",
+    "name": "Solovki Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "GVN",
+    "city": "Sovetskaya Gavan",
+    "name": "Maygatka Airport.",
+    "country": "Russia"
+  },
+  {
+    "code": "OVS",
+    "city": "Sovetskiy",
+    "name": "Sovetskiy Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "SEK",
+    "city": "Srednekolymsk",
+    "name": "Srednekolymsk Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "LED",
+    "city": "St. Petersburg",
+    "name": "Pulkovo Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "STW",
+    "city": "Stavropol",
+    "name": "Stavropol Shpakovskoye Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "SWT",
+    "city": "Strezhevoy",
+    "name": "Strezhevoy Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "SUY",
+    "city": "Suntar",
+    "name": "Suntar Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "SGC",
+    "city": "Surgut",
+    "name": "Surgut Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "SCW",
+    "city": "Syktyvkar",
+    "name": "Syktyvkar Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "TGK",
+    "city": "Taganrog",
+    "name": "Taganrog Yuzhny Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "TLK",
+    "city": "Talakan",
+    "name": "Talakan Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "TBW",
+    "city": "Tambow",
+    "name": "Donskoye Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "TQL",
+    "city": "Tarko-Sale",
+    "name": "Tarko-Sale Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "IKS",
+    "city": "Tiksi",
+    "name": "Tiksi Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "TOF",
+    "city": "Tomsk",
+    "name": "Bogashevo Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "THX",
+    "city": "Turukhansk",
+    "name": "Turukhansk Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "KLD",
+    "city": "Tver",
+    "name": "Migalovo Air Base",
+    "country": "Russia"
+  },
+  {
+    "code": "TJM",
+    "city": "Tyumen",
+    "name": "Roshchino International Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "UFA",
+    "city": "Ufa",
+    "name": "Ufa International Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "UCT",
+    "city": "Ukhta",
+    "name": "Ukhta Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "UUD",
+    "city": "Ulan-ude",
+    "name": "Ulan-Ude Airport (Mukhino)",
+    "country": "Russia"
+  },
+  {
+    "code": "ULV",
+    "city": "Ulyanovsk",
+    "name": "Ulyanovsk Baratayevka Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "ULY",
+    "city": "Ulyanovsk",
+    "name": "Ulyanovsk East Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "URJ",
+    "city": "Uraj",
+    "name": "Uray Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "USK",
+    "city": "Usinsk",
+    "name": "Usinsk Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "UIK",
+    "city": "Ust Ilimsk",
+    "name": "Ust-Ilimsk Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "UKX",
+    "city": "Ust-Kut",
+    "name": "Ust-Kut Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "UKG",
+    "city": "Ust-Kuyga",
+    "name": "Ust-Kuyga Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "UMS",
+    "city": "Ust-Maya",
+    "name": "Ust-Maya Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "USR",
+    "city": "Ust-Nera",
+    "name": "Ust-Nera Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "UTS",
+    "city": "Ust-Tsylma",
+    "name": "Ust-Tsylma Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "VLU",
+    "city": "Velikiye Luki",
+    "name": "Velikiye Luki Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "VUS",
+    "city": "Veliky Ustyug",
+    "name": "Velikiy Ustyug Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "VHV",
+    "city": "Verkhnevilyuysk",
+    "name": "Verkhnevilyuisk Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "VYI",
+    "city": "Vilyuisk",
+    "name": "Vilyuisk Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "VVO",
+    "city": "Vladivostok",
+    "name": "Vladivostok International Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "VLK",
+    "city": "Volgodonsk Airport",
+    "name": "Volgodonsk Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "VOG",
+    "city": "Volgograd",
+    "name": "Volgograd International Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "VGD",
+    "city": "Vologda",
+    "name": "Vologda Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "VKT",
+    "city": "Vorkuta",
+    "name": "Vorkuta Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "VOZ",
+    "city": "Voronezh",
+    "name": "Voronezh International Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "PYJ",
+    "city": "Yakutia",
+    "name": "Polyarny Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "GYG",
+    "city": "Yakutsk",
+    "name": "Magan Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "YKS",
+    "city": "Yakutsk",
+    "name": "Yakutsk Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "IAR",
+    "city": "Yaroslavl",
+    "name": "Tunoshna Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "SVX",
+    "city": "Yekaterinburg",
+    "name": "Koltsovo Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "EIE",
+    "city": "Yeniseysk",
+    "name": "Yeniseysk Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "ERG",
+    "city": "Yerbogachen",
+    "name": "Yerbogachen Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "JOK",
+    "city": "Yoshkar-Ola",
+    "name": "Yoshkar-Ola Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "DEE",
+    "city": "Yuzhno-Kurilsk",
+    "name": "Mendeleyevo Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "UUS",
+    "city": "Yuzhno-sakhalinsk",
+    "name": "Yuzhno-Sakhalinsk Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "ZIX",
+    "city": "Zhigansk",
+    "name": "Zhigansk Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "ZKP",
+    "city": "Zyryanka",
+    "name": "Zyryanka Airport",
+    "country": "Russia"
+  },
+  {
+    "code": "BJY",
+    "city": "Batajnica",
+    "name": "Batajnica Air Base",
+    "country": "Serbia"
+  },
+  {
+    "code": "BEG",
+    "city": "Belgrade",
+    "name": "Belgrade Nikola Tesla Airport",
+    "country": "Serbia"
+  },
+  {
+    "code": "INI",
+    "city": "Nis",
+    "name": "Nis Airport",
+    "country": "Serbia"
+  },
+  {
+    "code": "QND",
+    "city": "Novi Sad",
+    "name": "Cenej Airport",
+    "country": "Serbia"
+  },
+  {
+    "code": "PRN",
+    "city": "Pristina",
+    "name": "Priština International Airport",
+    "country": "Serbia"
+  },
+  {
+    "code": "BTS",
+    "city": "Bratislava",
+    "name": "M. R. Štefánik Airport",
+    "country": "Slovakia"
+  },
+  {
+    "code": "KSC",
+    "city": "Kosice",
+    "name": "Košice Airport",
+    "country": "Slovakia"
+  },
+  {
+    "code": "PZY",
+    "city": "Piestany",
+    "name": "Piešťany Airport",
+    "country": "Slovakia"
+  },
+  {
+    "code": "TAT",
+    "city": "Poprad",
+    "name": "Poprad-Tatry Airport",
+    "country": "Slovakia"
+  },
+  {
+    "code": "SLD",
+    "city": "Sliac",
+    "name": "Sliač Airport",
+    "country": "Slovakia"
+  },
+  {
+    "code": "ILZ",
+    "city": "Žilina",
+    "name": "Žilina Airport",
+    "country": "Slovakia"
+  },
+  {
+    "code": "LJU",
+    "city": "Ljubljana",
+    "name": "Ljubljana Jože Pučnik Airport",
+    "country": "Slovenia"
+  },
+  {
+    "code": "MBX",
+    "city": "Maribor",
+    "name": "Maribor Airport",
+    "country": "Slovenia"
+  },
+  {
+    "code": "POW",
+    "city": "Portoroz",
+    "name": "Portoroz Airport",
+    "country": "Slovenia"
+  },
+  {
+    "code": "ABC",
+    "city": "Albacete",
+    "name": "Albacete-Los Llanos Airport",
+    "country": "Spain"
+  },
+  {
+    "code": "AEI",
+    "city": "Algeciras",
+    "name": "Algeciras Heliport",
+    "country": "Spain"
+  },
+  {
+    "code": "ALC",
+    "city": "Alicante",
+    "name": "Alicante International Airport",
+    "country": "Spain"
+  },
+  {
+    "code": "LEI",
+    "city": "Almeria",
+    "name": "Almería International Airport",
+    "country": "Spain"
+  },
+  {
+    "code": "ACE",
+    "city": "Arrecife",
+    "name": "Lanzarote Airport",
+    "country": "Spain"
+  },
+  {
+    "code": "OVD",
+    "city": "Aviles",
+    "name": "Asturias Airport",
+    "country": "Spain"
+  },
+  {
+    "code": "BJZ",
+    "city": "Badajoz",
+    "name": "Badajoz Airport",
+    "country": "Spain"
+  },
+  {
+    "code": "BCN",
+    "city": "Barcelona",
+    "name": "Barcelona International Airport",
+    "country": "Spain"
+  },
+  {
+    "code": "BIO",
+    "city": "Bilbao",
+    "name": "Bilbao Airport",
+    "country": "Spain"
+  },
+  {
+    "code": "RGS",
+    "city": "Burgos",
+    "name": "Burgos Airport",
+    "country": "Spain"
+  },
+  {
+    "code": "CDT",
+    "city": "Castellón de la Plana",
+    "name": "Castellón-Costa Azahar Airport",
+    "country": "Spain"
+  },
+  {
+    "code": "CQM",
+    "city": "Ciudad Real",
+    "name": "Ciudad Real Central Airport",
+    "country": "Spain"
+  },
+  {
+    "code": "ODB",
+    "city": "Cordoba",
+    "name": "Córdoba Airport",
+    "country": "Spain"
+  },
+  {
+    "code": "FUE",
+    "city": "Fuerteventura",
+    "name": "Fuerteventura Airport",
+    "country": "Spain"
+  },
+  {
+    "code": "GRO",
+    "city": "Gerona",
+    "name": "Girona Airport",
+    "country": "Spain"
+  },
+  {
+    "code": "LPA",
+    "city": "Gran Canaria",
+    "name": "Gran Canaria Airport",
+    "country": "Spain"
+  },
+  {
+    "code": "GRX",
+    "city": "Granada",
+    "name": "Federico Garcia Lorca Airport",
+    "country": "Spain"
+  },
+  {
+    "code": "VDE",
+    "city": "Hierro",
+    "name": "Hierro Airport",
+    "country": "Spain"
+  },
+  {
+    "code": "HSK",
+    "city": "Huesca",
+    "name": "Huesca/Pirineos Airport",
+    "country": "Spain"
+  },
+  {
+    "code": "IBZ",
+    "city": "Ibiza",
+    "name": "Ibiza Airport",
+    "country": "Spain"
+  },
+  {
+    "code": "XRY",
+    "city": "Jerez",
+    "name": "Jerez Airport",
+    "country": "Spain"
+  },
+  {
+    "code": "LCG",
+    "city": "La Coruna",
+    "name": "A Coruña Airport",
+    "country": "Spain"
+  },
+  {
+    "code": "GMZ",
+    "city": "La Gomera",
+    "name": "La Gomera Airport",
+    "country": "Spain"
+  },
+  {
+    "code": "LEN",
+    "city": "Leon",
+    "name": "Leon Airport",
+    "country": "Spain"
+  },
+  {
+    "code": "ILD",
+    "city": "Lleida",
+    "name": "Lleida-Alguaire Airport",
+    "country": "Spain"
+  },
+  {
+    "code": "RJL",
+    "city": "Logroño-Agoncillo",
+    "name": "Logroño-Agoncillo Airport",
+    "country": "Spain"
+  },
+  {
+    "code": "ECV",
+    "city": "Madrid",
+    "name": "Cuatro Vientos Airport",
+    "country": "Spain"
+  },
+  {
+    "code": "MAD",
+    "city": "Madrid",
+    "name": "Adolfo Suárez Madrid–Barajas Airport",
+    "country": "Spain"
+  },
+  {
+    "code": "TOJ",
+    "city": "Madrid",
+    "name": "Torrejón Airport",
+    "country": "Spain"
+  },
+  {
+    "code": "AGP",
+    "city": "Malaga",
+    "name": "Málaga Airport",
+    "country": "Spain"
+  },
+  {
+    "code": "MLN",
+    "city": "Melilla",
+    "name": "Melilla Airport",
+    "country": "Spain"
+  },
+  {
+    "code": "MAH",
+    "city": "Menorca",
+    "name": "Menorca Airport",
+    "country": "Spain"
+  },
+  {
+    "code": "MJV",
+    "city": "Murcia",
+    "name": "San Javier Airport",
+    "country": "Spain"
+  },
+  {
+    "code": "RMU",
+    "city": "Murcia",
+    "name": "Región de Murcia International Airport",
+    "country": "Spain"
+  },
+  {
+    "code": "PMI",
+    "city": "Palma de Mallorca",
+    "name": "Palma De Mallorca Airport",
+    "country": "Spain"
+  },
+  {
+    "code": "PNA",
+    "city": "Pamplona",
+    "name": "Pamplona Airport",
+    "country": "Spain"
+  },
+  {
+    "code": "REU",
+    "city": "Reus",
+    "name": "Reus Air Base",
+    "country": "Spain"
+  },
+  {
+    "code": "ROZ",
+    "city": "Rota",
+    "name": "Rota Naval Station Airport",
+    "country": "Spain"
+  },
+  {
+    "code": "QSA",
+    "city": "Sabadell",
+    "name": "Sabadell Airport",
+    "country": "Spain"
+  },
+  {
+    "code": "SLM",
+    "city": "Salamanca",
+    "name": "Salamanca Airport",
+    "country": "Spain"
+  },
+  {
+    "code": "EAS",
+    "city": "San Sebastian",
+    "name": "San Sebastian Airport",
+    "country": "Spain"
+  },
+  {
+    "code": "SPC",
+    "city": "Santa Cruz De La Palma",
+    "name": "La Palma Airport",
+    "country": "Spain"
+  },
+  {
+    "code": "SDR",
+    "city": "Santander",
+    "name": "Santander Airport",
+    "country": "Spain"
+  },
+  {
+    "code": "SCQ",
+    "city": "Santiago",
+    "name": "Santiago de Compostela Airport",
+    "country": "Spain"
+  },
+  {
+    "code": "LEU",
+    "city": "Seo De Urgel",
+    "name": "Pirineus - la Seu d'Urgel Airport",
+    "country": "Spain"
+  },
+  {
+    "code": "OZP",
+    "city": "Sevilla",
+    "name": "Moron Air Base",
+    "country": "Spain"
+  },
+  {
+    "code": "SVQ",
+    "city": "Sevilla",
+    "name": "Sevilla Airport",
+    "country": "Spain"
+  },
+  {
+    "code": "TFN",
+    "city": "Tenerife",
+    "name": "Tenerife Norte Airport",
+    "country": "Spain"
+  },
+  {
+    "code": "TFS",
+    "city": "Tenerife",
+    "name": "Tenerife South Airport",
+    "country": "Spain"
+  },
+  {
+    "code": "TEV",
+    "city": "Teruel",
+    "name": "Teruel Airport",
+    "country": "Spain"
+  },
+  {
+    "code": "VLC",
+    "city": "Valencia",
+    "name": "Valencia Airport",
+    "country": "Spain"
+  },
+  {
+    "code": "VLL",
+    "city": "Valladolid",
+    "name": "Valladolid Airport",
+    "country": "Spain"
+  },
+  {
+    "code": "VGO",
+    "city": "Vigo",
+    "name": "Vigo Airport",
+    "country": "Spain"
+  },
+  {
+    "code": "VIT",
+    "city": "Vitoria",
+    "name": "Vitoria/Foronda Airport",
+    "country": "Spain"
+  },
+  {
+    "code": "ZAZ",
+    "city": "Zaragoza",
+    "name": "Zaragoza Air Base",
+    "country": "Spain"
+  },
+  {
+    "code": "AGH",
+    "city": "Ängelholm",
+    "name": "Ängelholm-Helsingborg Airport",
+    "country": "Sweden"
+  },
+  {
+    "code": "AJR",
+    "city": "Arvidsjaur",
+    "name": "Arvidsjaur Airport",
+    "country": "Sweden"
+  },
+  {
+    "code": "BLE",
+    "city": "Borlange",
+    "name": "Borlange Airport",
+    "country": "Sweden"
+  },
+  {
+    "code": "EKT",
+    "city": "Eskilstuna",
+    "name": "Eskilstuna Airport",
+    "country": "Sweden"
+  },
+  {
+    "code": "GEV",
+    "city": "Gallivare",
+    "name": "Gällivare Airport",
+    "country": "Sweden"
+  },
+  {
+    "code": "GVX",
+    "city": "Gavle",
+    "name": "Gävle Sandviken Airport",
+    "country": "Sweden"
+  },
+  {
+    "code": "GOT",
+    "city": "Gothenborg",
+    "name": "Gothenburg-Landvetter Airport",
+    "country": "Sweden"
+  },
+  {
+    "code": "GSE",
+    "city": "Gothenborg",
+    "name": "Gothenburg City Airport",
+    "country": "Sweden"
+  },
+  {
+    "code": "HFS",
+    "city": "Hagfors",
+    "name": "Hagfors Airport",
+    "country": "Sweden"
+  },
+  {
+    "code": "HAD",
+    "city": "Halmstad",
+    "name": "Halmstad Airport",
+    "country": "Sweden"
+  },
+  {
+    "code": "HMV",
+    "city": "Hemavan",
+    "name": "Hemavan Airport",
+    "country": "Sweden"
+  },
+  {
+    "code": "HUV",
+    "city": "Hudiksvall",
+    "name": "Hudiksvall Airport",
+    "country": "Sweden"
+  },
+  {
+    "code": "HLF",
+    "city": "Hultsfred",
+    "name": "Hultsfred Airport",
+    "country": "Sweden"
+  },
+  {
+    "code": "JKG",
+    "city": "Joenkoeping",
+    "name": "Jönköping Airport",
+    "country": "Sweden"
+  },
+  {
+    "code": "KLR",
+    "city": "Kalkmar",
+    "name": "Kalmar Airport",
+    "country": "Sweden"
+  },
+  {
+    "code": "KSK",
+    "city": "Karlskoga",
+    "name": "Karlskoga Airport",
+    "country": "Sweden"
+  },
+  {
+    "code": "KSD",
+    "city": "Karlstad",
+    "name": "Karlstad Airport",
+    "country": "Sweden"
+  },
+  {
+    "code": "KRN",
+    "city": "Kiruna",
+    "name": "Kiruna Airport",
+    "country": "Sweden"
+  },
+  {
+    "code": "KRF",
+    "city": "Kramfors",
+    "name": "Kramfors Sollefteå Airport",
+    "country": "Sweden"
+  },
+  {
+    "code": "KID",
+    "city": "Kristianstad",
+    "name": "Kristianstad Airport",
+    "country": "Sweden"
+  },
+  {
+    "code": "LDK",
+    "city": "Lidkoping",
+    "name": "Lidköping-Hovby Airport",
+    "country": "Sweden"
+  },
+  {
+    "code": "LPI",
+    "city": "Linkoeping",
+    "name": "Linköping City Airport",
+    "country": "Sweden"
+  },
+  {
+    "code": "LLA",
+    "city": "Lulea",
+    "name": "Luleå Airport",
+    "country": "Sweden"
+  },
+  {
+    "code": "LYC",
+    "city": "Lycksele",
+    "name": "Lycksele Airport",
+    "country": "Sweden"
+  },
+  {
+    "code": "MMX",
+    "city": "Malmoe",
+    "name": "Malmö Sturup Airport",
+    "country": "Sweden"
+  },
+  {
+    "code": "SQO",
+    "city": "Mohed",
+    "name": "Storuman Airport",
+    "country": "Sweden"
+  },
+  {
+    "code": "MXX",
+    "city": "Mora",
+    "name": "Mora Airport",
+    "country": "Sweden"
+  },
+  {
+    "code": "NRK",
+    "city": "Norrkoeping",
+    "name": "Norrköping Airport",
+    "country": "Sweden"
+  },
+  {
+    "code": "ORB",
+    "city": "Orebro",
+    "name": "Örebro Airport",
+    "country": "Sweden"
+  },
+  {
+    "code": "OER",
+    "city": "Ornskoldsvik",
+    "name": "Örnsköldsvik Airport",
+    "country": "Sweden"
+  },
+  {
+    "code": "OSK",
+    "city": "Oskarshamn",
+    "name": "Oskarshamn Airport",
+    "country": "Sweden"
+  },
+  {
+    "code": "OSD",
+    "city": "Östersund",
+    "name": "Åre Östersund Airport",
+    "country": "Sweden"
+  },
+  {
+    "code": "PJA",
+    "city": "Pajala",
+    "name": "Pajala Airport",
+    "country": "Sweden"
+  },
+  {
+    "code": "RNB",
+    "city": "Ronneby",
+    "name": "Ronneby Airport",
+    "country": "Sweden"
+  },
+  {
+    "code": "SFT",
+    "city": "Skelleftea",
+    "name": "Skellefteå Airport",
+    "country": "Sweden"
+  },
+  {
+    "code": "KVB",
+    "city": "Skovde",
+    "name": "Skövde Airport",
+    "country": "Sweden"
+  },
+  {
+    "code": "SOO",
+    "city": "Soderhamn",
+    "name": "Söderhamn Airport",
+    "country": "Sweden"
+  },
+  {
+    "code": "ARN",
+    "city": "Stockholm",
+    "name": "Stockholm-Arlanda Airport",
+    "country": "Sweden"
+  },
+  {
+    "code": "BMA",
+    "city": "Stockholm",
+    "name": "Stockholm-Bromma Airport",
+    "country": "Sweden"
+  },
+  {
+    "code": "NYO",
+    "city": "Stockholm",
+    "name": "Stockholm Skavsta Airport",
+    "country": "Sweden"
+  },
+  {
+    "code": "SDL",
+    "city": "Sundsvall",
+    "name": "Sundsvall-Härnösand Airport",
+    "country": "Sweden"
+  },
+  {
+    "code": "EVG",
+    "city": "Sveg",
+    "name": "Sveg Airport",
+    "country": "Sweden"
+  },
+  {
+    "code": "TYF",
+    "city": "Torsby",
+    "name": "Torsby Airport",
+    "country": "Sweden"
+  },
+  {
+    "code": "THN",
+    "city": "Trollhattan",
+    "name": "Trollhättan-Vänersborg Airport",
+    "country": "Sweden"
+  },
+  {
+    "code": "UME",
+    "city": "Umea",
+    "name": "Umeå Airport",
+    "country": "Sweden"
+  },
+  {
+    "code": "VST",
+    "city": "Vasteras",
+    "name": "Stockholm Västerås Airport",
+    "country": "Sweden"
+  },
+  {
+    "code": "VXO",
+    "city": "Vaxjo",
+    "name": "Växjö Kronoberg Airport",
+    "country": "Sweden"
+  },
+  {
+    "code": "VHM",
+    "city": "Vilhelmina",
+    "name": "Vilhelmina Airport",
+    "country": "Sweden"
+  },
+  {
+    "code": "VBY",
+    "city": "Visby",
+    "name": "Visby Airport",
+    "country": "Sweden"
+  },
+  {
+    "code": "ACH",
+    "city": "Altenrhein",
+    "name": "St Gallen Altenrhein Airport",
+    "country": "Switzerland"
+  },
+  {
+    "code": "BRN",
+    "city": "Bern",
+    "name": "Bern Belp Airport",
+    "country": "Switzerland"
+  },
+  {
+    "code": "BXO",
+    "city": "Buochs",
+    "name": "Buochs Airport",
+    "country": "Switzerland"
+  },
+  {
+    "code": "EML",
+    "city": "Emmen",
+    "name": "Emmen Air Base",
+    "country": "Switzerland"
+  },
+  {
+    "code": "GVA",
+    "city": "Geneva",
+    "name": "Geneva Cointrin International Airport",
+    "country": "Switzerland"
+  },
+  {
+    "code": "ZHI",
+    "city": "Grenchen",
+    "name": "Grenchen Airport",
+    "country": "Switzerland"
+  },
+  {
+    "code": "ZIN",
+    "city": "Interlaken",
+    "name": "Interlaken Air Base",
+    "country": "Switzerland"
+  },
+  {
+    "code": "QLS",
+    "city": "Lausanne",
+    "name": "Lausanne-Blécherette Airport",
+    "country": "Switzerland"
+  },
+  {
+    "code": "ZJI",
+    "city": "Locarno",
+    "name": "Locarno Airport",
+    "country": "Switzerland"
+  },
+  {
+    "code": "LUG",
+    "city": "Lugano",
+    "name": "Lugano Airport",
+    "country": "Switzerland"
+  },
+  {
+    "code": "QNC",
+    "city": "Neuchatel",
+    "name": "Neuchatel Airport",
+    "country": "Switzerland"
+  },
+  {
+    "code": "SMV",
+    "city": "Samedan",
+    "name": "Samedan Airport",
+    "country": "Switzerland"
+  },
+  {
+    "code": "SIR",
+    "city": "Sion",
+    "name": "Sion Airport",
+    "country": "Switzerland"
+  },
+  {
+    "code": "ZRH",
+    "city": "Zurich",
+    "name": "Zürich Airport",
+    "country": "Switzerland"
+  },
+  {
+    "code": "ADA",
+    "city": "Adana",
+    "name": "Adana Airport",
+    "country": "Turkey"
+  },
+  {
+    "code": "UAB",
+    "city": "Adana",
+    "name": "İncirlik Air Base",
+    "country": "Turkey"
+  },
+  {
+    "code": "ADF",
+    "city": "Adiyaman",
+    "name": "Adıyaman Airport",
+    "country": "Turkey"
+  },
+  {
+    "code": "AFY",
+    "city": "Afyon",
+    "name": "Afyon Airport",
+    "country": "Turkey"
+  },
+  {
+    "code": "AJI",
+    "city": "Agri",
+    "name": "Ağrı Airport",
+    "country": "Turkey"
+  },
+  {
+    "code": "GZP",
+    "city": "Alanya",
+    "name": "Gazipaşa Airport",
+    "country": "Turkey"
+  },
+  {
+    "code": "ANK",
+    "city": "Ankara",
+    "name": "Etimesgut Air Base",
+    "country": "Turkey"
+  },
+  {
+    "code": "ESB",
+    "city": "Ankara",
+    "name": "Esenboğa International Airport",
+    "country": "Turkey"
+  },
+  {
+    "code": "AYT",
+    "city": "Antalya",
+    "name": "Antalya International Airport",
+    "country": "Turkey"
+  },
+  {
+    "code": "BZI",
+    "city": "Balikesir",
+    "name": "Balıkesir Merkez Airport",
+    "country": "Turkey"
+  },
+  {
+    "code": "EDO",
+    "city": "Balikesir Korfez",
+    "name": "Balıkesir Körfez Airport",
+    "country": "Turkey"
+  },
+  {
+    "code": "BDM",
+    "city": "Bandirma",
+    "name": "Bandırma Airport",
+    "country": "Turkey"
+  },
+  {
+    "code": "BAL",
+    "city": "Batman",
+    "name": "Batman Airport",
+    "country": "Turkey"
+  },
+  {
+    "code": "BGG",
+    "city": "Bingol",
+    "name": "Bingöl Çeltiksuyu Airport",
+    "country": "Turkey"
+  },
+  {
+    "code": "BJV",
+    "city": "Bodrum",
+    "name": "Milas Bodrum International Airport",
+    "country": "Turkey"
+  },
+  {
+    "code": "BXN",
+    "city": "Bodrum",
+    "name": "Imsık Airport",
+    "country": "Turkey"
+  },
+  {
+    "code": "BTZ",
+    "city": "Bursa",
+    "name": "Bursa Airport",
+    "country": "Turkey"
+  },
+  {
+    "code": "CKZ",
+    "city": "Canakkale",
+    "name": "Çanakkale Airport",
+    "country": "Turkey"
+  },
+  {
+    "code": "NKT",
+    "city": "Cizre",
+    "name": "Şırnak Şerafettin Elçi Airport",
+    "country": "Turkey"
+  },
+  {
+    "code": "TEQ",
+    "city": "Çorlu",
+    "name": "Tekirdağ Çorlu Airport",
+    "country": "Turkey"
+  },
+  {
+    "code": "DLM",
+    "city": "Dalaman",
+    "name": "Dalaman International Airport",
+    "country": "Turkey"
+  },
+  {
+    "code": "DNZ",
+    "city": "Denizli",
+    "name": "Çardak Airport",
+    "country": "Turkey"
+  },
+  {
+    "code": "DIY",
+    "city": "Diyabakir",
+    "name": "Diyarbakir Airport",
+    "country": "Turkey"
+  },
+  {
+    "code": "EZS",
+    "city": "Elazig",
+    "name": "Elazığ Airport",
+    "country": "Turkey"
+  },
+  {
+    "code": "ERC",
+    "city": "Erzincan",
+    "name": "Erzincan Airport",
+    "country": "Turkey"
+  },
+  {
+    "code": "ERZ",
+    "city": "Erzurum",
+    "name": "Erzurum International Airport",
+    "country": "Turkey"
+  },
+  {
+    "code": "ESK",
+    "city": "Eskisehir",
+    "name": "Eskişehir Air Base",
+    "country": "Turkey"
+  },
+  {
+    "code": "AOE",
+    "city": "Eskissehir",
+    "name": "Anadolu Airport",
+    "country": "Turkey"
+  },
+  {
+    "code": "GZT",
+    "city": "Gaziantep",
+    "name": "Gaziantep International Airport",
+    "country": "Turkey"
+  },
+  {
+    "code": "YKO",
+    "city": "Hakkari",
+    "name": "Hakkari Yüksekova Airport",
+    "country": "Turkey"
+  },
+  {
+    "code": "HTY",
+    "city": "Hatay",
+    "name": "Hatay Airport",
+    "country": "Turkey"
+  },
+  {
+    "code": "IGD",
+    "city": "Igdir",
+    "name": "Iğdır Airport",
+    "country": "Turkey"
+  },
+  {
+    "code": "ISE",
+    "city": "Isparta",
+    "name": "Süleyman Demirel International Airport",
+    "country": "Turkey"
+  },
+  {
+    "code": "ISL",
+    "city": "Istanbul",
+    "name": "Atatürk International Airport",
+    "country": "Turkey"
+  },
+  {
+    "code": "IST",
+    "city": "Istanbul",
+    "name": "Istanbul Airport",
+    "country": "Turkey"
+  },
+  {
+    "code": "SAW",
+    "city": "Istanbul",
+    "name": "Sabiha Gökçen International Airport",
+    "country": "Turkey"
+  },
+  {
+    "code": "ADB",
+    "city": "Izmir",
+    "name": "Adnan Menderes International Airport",
+    "country": "Turkey"
+  },
+  {
+    "code": "IGL",
+    "city": "Izmir",
+    "name": "Çiğli Airport",
+    "country": "Turkey"
+  },
+  {
+    "code": "KCM",
+    "city": "Kahramanmaras",
+    "name": "Kahramanmaraş Airport",
+    "country": "Turkey"
+  },
+  {
+    "code": "KSY",
+    "city": "Kars",
+    "name": "Kars Airport",
+    "country": "Turkey"
+  },
+  {
+    "code": "KFS",
+    "city": "Kastamonu",
+    "name": "Kastamonu Airport",
+    "country": "Turkey"
+  },
+  {
+    "code": "ASR",
+    "city": "Kayseri",
+    "name": "Kayseri Erkilet Airport",
+    "country": "Turkey"
+  },
+  {
+    "code": "KYA",
+    "city": "Konya",
+    "name": "Konya Airport",
+    "country": "Turkey"
+  },
+  {
+    "code": "KZR",
+    "city": "Kutahya",
+    "name": "Zafer Airport",
+    "country": "Turkey"
+  },
+  {
+    "code": "MLX",
+    "city": "Malatya",
+    "name": "Malatya Erhaç Airport",
+    "country": "Turkey"
+  },
+  {
+    "code": "MQM",
+    "city": "Mardin",
+    "name": "Mardin Airport",
+    "country": "Turkey"
+  },
+  {
+    "code": "MZH",
+    "city": "Merzifon",
+    "name": "Amasya Merzifon Airport",
+    "country": "Turkey"
+  },
+  {
+    "code": "MSR",
+    "city": "Mus",
+    "name": "Muş Airport",
+    "country": "Turkey"
+  },
+  {
+    "code": "NAV",
+    "city": "Nevsehir",
+    "name": "Nevşehir Kapadokya Airport",
+    "country": "Turkey"
+  },
+  {
+    "code": "OGU",
+    "city": "Ordu-Giresun",
+    "name": "Ordu Giresun Airport",
+    "country": "Turkey"
+  },
+  {
+    "code": "SZF",
+    "city": "Samsun",
+    "name": "Samsun Çarşamba Airport",
+    "country": "Turkey"
+  },
+  {
+    "code": "GNY",
+    "city": "Sanliurfa",
+    "name": "Şanlıurfa GAP Airport",
+    "country": "Turkey"
+  },
+  {
+    "code": "SFQ",
+    "city": "Sanliurfa",
+    "name": "Şanlıurfa Airport",
+    "country": "Turkey"
+  },
+  {
+    "code": "SXZ",
+    "city": "Siirt",
+    "name": "Siirt Airport",
+    "country": "Turkey"
+  },
+  {
+    "code": "NOP",
+    "city": "Sinop",
+    "name": "Sinop Airport",
+    "country": "Turkey"
+  },
+  {
+    "code": "VAS",
+    "city": "Sivas",
+    "name": "Sivas Nuri Demirağ Airport",
+    "country": "Turkey"
+  },
+  {
+    "code": "TJK",
+    "city": "Tokat",
+    "name": "Tokat Airport",
+    "country": "Turkey"
+  },
+  {
+    "code": "KCO",
+    "city": "Topel",
+    "name": "Cengiz Topel Airport",
+    "country": "Turkey"
+  },
+  {
+    "code": "TZX",
+    "city": "Trabzon",
+    "name": "Trabzon International Airport",
+    "country": "Turkey"
+  },
+  {
+    "code": "USQ",
+    "city": "Usak",
+    "name": "Uşak Airport",
+    "country": "Turkey"
+  },
+  {
+    "code": "VAN",
+    "city": "Van",
+    "name": "Van Ferit Melen Airport",
+    "country": "Turkey"
+  },
+  {
+    "code": "YEI",
+    "city": "Yenisehir",
+    "name": "Bursa Yenişehir Airport",
+    "country": "Turkey"
+  },
+  {
+    "code": "ONQ",
+    "city": "Zonguldak",
+    "name": "Zonguldak Airport",
+    "country": "Turkey"
+  },
+  {
+    "code": "ERD",
+    "city": "Berdyansk",
+    "name": "Berdyansk Airport",
+    "country": "Ukraine"
+  },
+  {
+    "code": "CKC",
+    "city": "Cherkassy",
+    "name": "Cherkasy International Airport",
+    "country": "Ukraine"
+  },
+  {
+    "code": "CEJ",
+    "city": "Chernigov",
+    "name": "Chernihiv Shestovitsa Airport",
+    "country": "Ukraine"
+  },
+  {
+    "code": "CWC",
+    "city": "Chernovtsk",
+    "name": "Chernivtsi International Airport",
+    "country": "Ukraine"
+  },
+  {
+    "code": "DNK",
+    "city": "Dnepropetrovsk",
+    "name": "Dnipropetrovsk International Airport",
+    "country": "Ukraine"
+  },
+  {
+    "code": "DOK",
+    "city": "Donetsk",
+    "name": "Donetsk International Airport",
+    "country": "Ukraine"
+  },
+  {
+    "code": "IFO",
+    "city": "Ivano-Frankivsk",
+    "name": "Ivano-Frankivsk International Airport",
+    "country": "Ukraine"
+  },
+  {
+    "code": "KHC",
+    "city": "Kerch",
+    "name": "Kerch Airport",
+    "country": "Ukraine"
+  },
+  {
+    "code": "HRK",
+    "city": "Kharkov",
+    "name": "Kharkiv International Airport",
+    "country": "Ukraine"
+  },
+  {
+    "code": "KHE",
+    "city": "Kherson",
+    "name": "Kherson International Airport",
+    "country": "Ukraine"
+  },
+  {
+    "code": "HMJ",
+    "city": "Khmeinitskiy",
+    "name": "Khmelnytskyi Airport",
+    "country": "Ukraine"
+  },
+  {
+    "code": "GML",
+    "city": "Kiev",
+    "name": "Gostomel Airport",
+    "country": "Ukraine"
+  },
+  {
+    "code": "IEV",
+    "city": "Kiev",
+    "name": "Kiev Zhuliany International Airport",
+    "country": "Ukraine"
+  },
+  {
+    "code": "KBP",
+    "city": "Kiev",
+    "name": "Boryspil International Airport",
+    "country": "Ukraine"
+  },
+  {
+    "code": "KGO",
+    "city": "Kirovograd",
+    "name": "Kirovograd Airport",
+    "country": "Ukraine"
+  },
+  {
+    "code": "KRQ",
+    "city": "Kramatorsk",
+    "name": "Kramatorsk Airport",
+    "country": "Ukraine"
+  },
+  {
+    "code": "KWG",
+    "city": "Krivoy Rog",
+    "name": "Kryvyi Rih International Airport",
+    "country": "Ukraine"
+  },
+  {
+    "code": "VSG",
+    "city": "Lugansk",
+    "name": "Luhansk International Airport",
+    "country": "Ukraine"
+  },
+  {
+    "code": "UCK",
+    "city": "Lutsk",
+    "name": "Lutsk Airport",
+    "country": "Ukraine"
+  },
+  {
+    "code": "LWO",
+    "city": "Lvov",
+    "name": "Lviv International Airport",
+    "country": "Ukraine"
+  },
+  {
+    "code": "MPW",
+    "city": "Mariupol International",
+    "name": "Mariupol International Airport",
+    "country": "Ukraine"
+  },
+  {
+    "code": "NLV",
+    "city": "Nikolayev",
+    "name": "Mykolaiv International Airport",
+    "country": "Ukraine"
+  },
+  {
+    "code": "ODS",
+    "city": "Odessa",
+    "name": "Odessa International Airport",
+    "country": "Ukraine"
+  },
+  {
+    "code": "PLV",
+    "city": "Poltava",
+    "name": "Suprunovka Airport",
+    "country": "Ukraine"
+  },
+  {
+    "code": "RWN",
+    "city": "Rivne",
+    "name": "Rivne International Airport",
+    "country": "Ukraine"
+  },
+  {
+    "code": "UKS",
+    "city": "Sevastopol",
+    "name": "Belbek Airport",
+    "country": "Ukraine"
+  },
+  {
+    "code": "SIP",
+    "city": "Simferopol",
+    "name": "Simferopol International Airport",
+    "country": "Ukraine"
+  },
+  {
+    "code": "UDJ",
+    "city": "Uzhgorod",
+    "name": "Uzhhorod International Airport",
+    "country": "Ukraine"
+  },
+  {
+    "code": "VIN",
+    "city": "Vinnitsa",
+    "name": "Vinnytsia/Gavyryshivka Airport",
+    "country": "Ukraine"
+  },
+  {
+    "code": "OZH",
+    "city": "Zaporozhye",
+    "name": "Zaporizhzhia International Airport",
+    "country": "Ukraine"
+  },
+  {
+    "code": "ZTR",
+    "city": "Zhytomyr",
+    "name": "Zhytomyr Airport",
+    "country": "Ukraine"
+  },
+  {
+    "code": "ABZ",
+    "city": "Aberdeen",
+    "name": "Aberdeen Dyce Airport",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "VLY",
+    "city": "Angelsey",
+    "name": "Anglesey Airport",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "BRR",
+    "city": "Barra",
+    "name": "Barra Airport",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "BWF",
+    "city": "Barrow Island",
+    "name": "Barrow Walney Island Airport",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "BFS",
+    "city": "Belfast",
+    "name": "Belfast International Airport",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "BHD",
+    "city": "Belfast",
+    "name": "George Best Belfast City Airport",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "BBP",
+    "city": "Bembridge",
+    "name": "Bembridge Airport",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "BEB",
+    "city": "Benbecula",
+    "name": "Benbecula Airport",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "BEX",
+    "city": "Benson",
+    "name": "RAF Benson",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "BQH",
+    "city": "Biggin Hill",
+    "name": "London Biggin Hill Airport",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "BHX",
+    "city": "Birmingham",
+    "name": "Birmingham International Airport",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "BBS",
+    "city": "Blackbushe",
+    "name": "Blackbushe Airport",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "BLK",
+    "city": "Blackpool",
+    "name": "Blackpool International Airport",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "BOH",
+    "city": "Bournemouth",
+    "name": "Bournemouth Airport",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "BRS",
+    "city": "Bristol",
+    "name": "Bristol Airport",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "FZO",
+    "city": "Bristol",
+    "name": "Bristol Filton Airport",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "BZZ",
+    "city": "Brize Norton",
+    "name": "RAF Brize Norton",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "CBG",
+    "city": "Cambridge",
+    "name": "Cambridge Airport",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "CAL",
+    "city": "Campbeltown",
+    "name": "Campbeltown Airport",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "CWL",
+    "city": "Cardiff",
+    "name": "Cardiff International Airport",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "CAX",
+    "city": "Carlisle",
+    "name": "Carlisle Airport",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "CSA",
+    "city": "Colonsay",
+    "name": "Colonsay Airstrip",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "QCY",
+    "city": "Coningsby",
+    "name": "RAF Coningsby",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "CVT",
+    "city": "Coventry",
+    "name": "Coventry Airport",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "DSA",
+    "city": "Doncaster, Sheffield",
+    "name": "Robin Hood Doncaster Sheffield Airport",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "DND",
+    "city": "Dundee",
+    "name": "Dundee Airport",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "QFO",
+    "city": "Duxford",
+    "name": "Duxford Aerodrome",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "EMA",
+    "city": "East Midlands",
+    "name": "East Midlands Airport",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "EOI",
+    "city": "Eday",
+    "name": "Eday Airport",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "EDI",
+    "city": "Edinburgh",
+    "name": "Edinburgh Airport",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "ENK",
+    "city": "Enniskillen",
+    "name": "St Angelo Airport",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "EXT",
+    "city": "Exeter",
+    "name": "Exeter International Airport",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "FIE",
+    "city": "Fair Isle",
+    "name": "Fair Isle Airport",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "FFD",
+    "city": "Fairford",
+    "name": "RAF Fairford",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "FAB",
+    "city": "Farnborough",
+    "name": "Farnborough Airport",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "GLA",
+    "city": "Glasgow",
+    "name": "Glasgow International Airport",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "GLO",
+    "city": "Golouchestershire",
+    "name": "Gloucestershire Airport",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "QUG",
+    "city": "Goodwood",
+    "name": "Chichester/Goodwood Airport",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "HAW",
+    "city": "Haverfordwest",
+    "name": "Haverfordwest Airport",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "CEG",
+    "city": "Hawarden",
+    "name": "Hawarden Airport",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "BEQ",
+    "city": "Honington",
+    "name": "RAF Honington",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "HUY",
+    "city": "Humberside",
+    "name": "Humberside Airport",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "INV",
+    "city": "Inverness",
+    "name": "Inverness Airport",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "ILY",
+    "city": "Islay",
+    "name": "Islay Airport",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "FSS",
+    "city": "Kinloss",
+    "name": "RAF Kinloss",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "KOI",
+    "city": "Kirkwall",
+    "name": "Kirkwall Airport",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "LKZ",
+    "city": "Lakenheath",
+    "name": "RAF Lakenheath",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "LEQ",
+    "city": "Land's End",
+    "name": "Land's End Airport",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "QLA",
+    "city": "Lasham",
+    "name": "Lasham Airport",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "LBA",
+    "city": "Leeds",
+    "name": "Leeds Bradford Airport",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "LWK",
+    "city": "Lerwick",
+    "name": "Lerwick / Tingwall Airport",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "ADX",
+    "city": "Leuchars",
+    "name": "RAF Leuchars",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "HRT",
+    "city": "Linton-on-ouse",
+    "name": "RAF Linton-On-Ouse",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "LPL",
+    "city": "Liverpool",
+    "name": "Liverpool John Lennon Airport",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "LCY",
+    "city": "London",
+    "name": "London City Airport",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "LGW",
+    "city": "London",
+    "name": "London Gatwick Airport",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "LHR",
+    "city": "London",
+    "name": "London Heathrow Airport",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "LTN",
+    "city": "London",
+    "name": "London Luton Airport",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "STN",
+    "city": "London",
+    "name": "London Stansted Airport",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "LDY",
+    "city": "Londonderry",
+    "name": "City of Derry Airport",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "HLE",
+    "city": "Longwood",
+    "name": "St. Helena Airport",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "LMO",
+    "city": "Lossiemouth",
+    "name": "RAF Lossiemouth",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "LYX",
+    "city": "Lydd",
+    "name": "Lydd Airport",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "LYM",
+    "city": "Lympne",
+    "name": "Lympne Airport",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "LYE",
+    "city": "Lyneham",
+    "name": "RAF Lyneham",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "MAN",
+    "city": "Manchester",
+    "name": "Manchester Airport",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "MSE",
+    "city": "Manston",
+    "name": "Kent International Airport",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "KNF",
+    "city": "Marham",
+    "name": "RAF Marham",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "MHZ",
+    "city": "Mildenhall",
+    "name": "RAF Mildenhall",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "NCL",
+    "city": "Newcastle",
+    "name": "Newcastle Airport",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "NQY",
+    "city": "Newquai",
+    "name": "Newquay Cornwall Airport",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "OBN",
+    "city": "North Connel",
+    "name": "Oban Airport",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "NRL",
+    "city": "North Ronaldsay",
+    "name": "North Ronaldsay Airport",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "NHT",
+    "city": "Northolt",
+    "name": "RAF Northolt",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "NWI",
+    "city": "Norwich",
+    "name": "Norwich International Airport",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "NQT",
+    "city": "Nottingham",
+    "name": "Nottingham Airport",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "ODH",
+    "city": "Odiham",
+    "name": "RAF Odiham",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "OUK",
+    "city": "Outer Skerries",
+    "name": "Outer Skerries Airport",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "OXF",
+    "city": "Oxford",
+    "name": "Oxford (Kidlington) Airport",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "GBA",
+    "city": "Pailton",
+    "name": "Cotswold Airport",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "PPW",
+    "city": "Papa Westray",
+    "name": "Papa Westray Airport",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "PZE",
+    "city": "Penzance",
+    "name": "Penzance Heliport",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "PSL",
+    "city": "Perth",
+    "name": "Perth/Scone Airport",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "PLH",
+    "city": "Plymouth",
+    "name": "Plymouth City Airport",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "PIK",
+    "city": "Prestwick",
+    "name": "Glasgow Prestwick Airport",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "KRH",
+    "city": "Redhill",
+    "name": "Redhill Aerodrome",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "RCS",
+    "city": "Rochester",
+    "name": "Rochester Airport",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "NDY",
+    "city": "Sanday",
+    "name": "Sanday Airport",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "SQZ",
+    "city": "Scampton",
+    "name": "RAF Scampton",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "SCS",
+    "city": "Scatsta",
+    "name": "Scatsta Airport",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "ESH",
+    "city": "Shoreham By Sea",
+    "name": "Shoreham Airport",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "SOU",
+    "city": "Southampton",
+    "name": "Southampton Airport",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "SEN",
+    "city": "Southend",
+    "name": "Southend Airport",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "ISC",
+    "city": "ST MARY\\'S",
+    "name": "St. Mary's Airport",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "SYY",
+    "city": "Stornoway",
+    "name": "Stornoway Airport",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "SOY",
+    "city": "Stronsay",
+    "name": "Stronsay Airport",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "LSI",
+    "city": "Sumburgh",
+    "name": "Sumburgh Airport",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "SWS",
+    "city": "Swansea",
+    "name": "Swansea Airport",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "MME",
+    "city": "Teesside",
+    "name": "Durham Tees Valley Airport",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "TRE",
+    "city": "Tiree",
+    "name": "Tiree Airport",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "UNT",
+    "city": "Unst",
+    "name": "Unst Airport",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "WTN",
+    "city": "Waddington",
+    "name": "RAF Waddington",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "WRT",
+    "city": "Warton",
+    "name": "Warton Airport",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "WRY",
+    "city": "Westray",
+    "name": "Westray Airport",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "WIC",
+    "city": "Wick",
+    "name": "Wick Airport",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "HYC",
+    "city": "Wycombe",
+    "name": "Wycombe Air Park",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "QUY",
+    "city": "Wyton",
+    "name": "RAF Wyton",
+    "country": "United Kingdom"
+  },
+  {
+    "code": "YEO",
+    "city": "Yeovilton",
+    "name": "RNAS Yeovilton",
+    "country": "United Kingdom"
+  }
+]

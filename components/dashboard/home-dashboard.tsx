@@ -1,42 +1,50 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import europeAirports from "@/data/europe-airports.json";
 
 type Airport = {
   code: string;
   city: string;
   name: string;
+  country: string;
 };
-
-const AIRPORTS: Airport[] = [
-  { code: "MDE", city: "Medellín", name: "José María Córdova" },
-  { code: "BOG", city: "Bogotá", name: "El Dorado" },
-  { code: "CLO", city: "Cali", name: "Alfonso Bonilla Aragón" },
-  { code: "CTG", city: "Cartagena", name: "Rafael Núñez" },
-  { code: "BAQ", city: "Barranquilla", name: "Ernesto Cortissoz" },
-  { code: "SMR", city: "Santa Marta", name: "Simón Bolívar" },
-  { code: "ADZ", city: "San Andrés", name: "Gustavo Rojas Pinilla" },
-  { code: "PEI", city: "Pereira", name: "Matecaña" },
-  { code: "MEX", city: "Ciudad de México", name: "Benito Juárez" },
-  { code: "JFK", city: "New York", name: "John F. Kennedy" },
-];
 
 function AirportSelect({
   label,
   value,
   onChange,
+  airports,
 }: {
   label: string;
   value: string;
   onChange: (value: string) => void;
+  airports: Airport[];
 }) {
+  const [query, setQuery] = useState("");
+
+  const filtered = useMemo(() => {
+    const search = query.trim().toLowerCase();
+    if (!search) return airports.slice(0, 120);
+    return airports.filter((airport) =>
+      [airport.code, airport.city, airport.name, airport.country].some((field) =>
+        field.toLowerCase().includes(search),
+      ),
+    ).slice(0, 120);
+  }, [airports, query]);
+
   return (
     <label>
       {label}
+      <input
+        value={query}
+        onChange={(event) => setQuery(event.target.value)}
+        placeholder="Buscar aeropuerto, ciudad o país"
+      />
       <select value={value} onChange={(event) => onChange(event.target.value)}>
-        {AIRPORTS.map((airport) => (
-          <option key={airport.code} value={airport.code}>
-            {airport.code} - {airport.city} ({airport.name})
+        {filtered.map((airport) => (
+          <option key={`${airport.code}-${airport.city}`} value={airport.code}>
+            {airport.code} - {airport.city} ({airport.country})
           </option>
         ))}
       </select>
@@ -66,8 +74,8 @@ function TogglePill({
 }
 
 export function HomeDashboard() {
-  const [origin, setOrigin] = useState("MDE");
-  const [destination, setDestination] = useState("BOG");
+  const [origin, setOrigin] = useState("MAD");
+  const [destination, setDestination] = useState("CDG");
   const [targetPrice, setTargetPrice] = useState("180000");
   const [baggageType, setBaggageType] = useState("mano_10kg");
   const [nonStopOnly, setNonStopOnly] = useState(false);
@@ -75,11 +83,11 @@ export function HomeDashboard() {
   const [nightOnly, setNightOnly] = useState(false);
 
   const originAirport = useMemo(
-    () => AIRPORTS.find((airport) => airport.code === origin),
+    () => europeAirports.find((airport) => airport.code === origin),
     [origin]
   );
   const destinationAirport = useMemo(
-    () => AIRPORTS.find((airport) => airport.code === destination),
+    () => europeAirports.find((airport) => airport.code === destination),
     [destination]
   );
 
@@ -112,8 +120,18 @@ export function HomeDashboard() {
         <article className="panel">
           <h2>Buscar y alertar</h2>
           <div className="form-grid">
-            <AirportSelect label="Origen" value={origin} onChange={setOrigin} />
-            <AirportSelect label="Destino" value={destination} onChange={setDestination} />
+            <AirportSelect
+              label="Origen"
+              value={origin}
+              onChange={setOrigin}
+              airports={europeAirports}
+            />
+            <AirportSelect
+              label="Destino"
+              value={destination}
+              onChange={setDestination}
+              airports={europeAirports}
+            />
             <label>
               Precio objetivo
               <input value={targetPrice} onChange={(event) => setTargetPrice(event.target.value)} inputMode="numeric" />
@@ -193,4 +211,3 @@ export function HomeDashboard() {
     </main>
   );
 }
-
