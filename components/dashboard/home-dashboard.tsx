@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import europeAirports from "@/data/europe-airports.json";
+import airportsCatalog from "@/data/europe-latam-airports.json";
 
 type Airport = {
   code: string;
@@ -83,11 +83,11 @@ export function HomeDashboard() {
   const [nightOnly, setNightOnly] = useState(false);
 
   const originAirport = useMemo(
-    () => europeAirports.find((airport) => airport.code === origin),
+    () => airportsCatalog.find((airport) => airport.code === origin),
     [origin]
   );
   const destinationAirport = useMemo(
-    () => europeAirports.find((airport) => airport.code === destination),
+    () => airportsCatalog.find((airport) => airport.code === destination),
     [destination]
   );
 
@@ -124,13 +124,13 @@ export function HomeDashboard() {
               label="Origen"
               value={origin}
               onChange={setOrigin}
-              airports={europeAirports}
+              airports={airportsCatalog}
             />
             <AirportSelect
               label="Destino"
               value={destination}
               onChange={setDestination}
-              airports={europeAirports}
+              airports={airportsCatalog}
             />
             <label>
               Precio objetivo
