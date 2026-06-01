@@ -1,4 +1,12 @@
-import { buildKiwiParams, fetchKiwiFlights, isNightFlight, mapFlightToHistoryRow, violatesVisaFilter, type KiwiFlight, type TrackedFlight } from "./kiwi";
+import {
+  buildApifyInputForTrackedFlight,
+  fetchApifyFlights,
+  isNightFlight,
+  mapFlightToHistoryRow,
+  violatesVisaFilter,
+  type ApifyFlightItem,
+  type TrackedFlight,
+} from "./apify";
 
 type Group = {
   key: string;
@@ -28,13 +36,13 @@ export function groupTrackedFlights(flights: TrackedFlight[]): Group[] {
   return [...map.entries()].map(([key, groupedFlights]) => ({ key, flights: groupedFlights }));
 }
 
-function passesFlightFilters(flight: KiwiFlight, tracked: TrackedFlight): boolean {
+function passesFlightFilters(flight: ApifyFlightItem, tracked: TrackedFlight): boolean {
   if (tracked.night_only && !isNightFlight(flight)) return false;
   if (tracked.visa_exclusion && violatesVisaFilter(flight)) return false;
   return true;
 }
 
-function scoreFlight(flight: KiwiFlight, tracked: TrackedFlight): number {
+function scoreFlight(flight: ApifyFlightItem, tracked: TrackedFlight): number {
   const bag = mapFlightToHistoryRow({ trackedFlightId: tracked.id, flight, baggageType: tracked.baggage_type });
   return bag.price;
 }
@@ -48,20 +56,35 @@ export async function runTrackedFlights(flights: TrackedFlight[]) {
   const groups = groupTrackedFlights(flights);
   const now = new Date().toISOString();
   const historyRows: Array<ReturnType<typeof mapFlightToHistoryRow>> = [];
-  const alerts: Array<{ flightId: string; price: number; airline: string | null; departureTime: string | null; errorFare: boolean }> = [];
+  const alerts: Array<{
+    flightId: string;
+    price: number;
+    airline: string | null;
+    departureTime: string | null;
+    errorFare: boolean;
+  }> = [];
 
   for (const group of groups) {
     const seed = group.flights[0];
+
     try {
-      const params = buildKiwiParams(seed);
-      const results = await fetchKiwiFlights(params);
+      const input = buildApifyInputForTrackedFlight(seed);
+      const results = await fetchApifyFlights(input);
 
       for (const tracked of group.flights) {
         const valid = results.filter((flight) => passesFlightFilters(flight, tracked));
         if (valid.length === 0) continue;
 
-        const best = valid.reduce((min, flight) => (scoreFlight(flight, tracked) < scoreFlight(min, tracked) ? flight : min), valid[0]);
-        const row = mapFlightToHistoryRow({ trackedFlightId: tracked.id, flight: best, baggageType: tracked.baggage_type });
+        const best = valid.reduce((min, flight) =>
+          scoreFlight(flight, tracked) < scoreFlight(min, tracked) ? flight : min,
+        valid[0]);
+
+        const row = mapFlightToHistoryRow({
+          trackedFlightId: tracked.id,
+          flight: best,
+          baggageType: tracked.baggage_type,
+        });
+
         row.checked_at = now;
         historyRows.push(row);
         alerts.push({
@@ -80,7 +103,7 @@ export async function runTrackedFlights(flights: TrackedFlight[]) {
         departureTime: null,
         errorFare: false,
       });
-      console.error("[flight-tracker] Kiwi fetch failed", { groupKey: group.key, error });
+      console.error("[flight-tracker] Apify fetch failed", { groupKey: group.key, error });
     }
   }
 
