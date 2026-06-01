@@ -109,3 +109,97 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: false, error: message }, { status: 500 });
   }
 }
+
+export async function GET() {
+  try {
+    const { url, key } = await getSupabaseUrlAndKey();
+    const response = await fetch(
+      `${url}/rest/v1/tracked_flights?select=id,origin,destination,baggage_type,max_stops,visa_exclusion,night_only,flex_days,target_price,is_active,created_at&order=created_at.desc`,
+      {
+        headers: {
+          apikey: key,
+          Authorization: `Bearer ${key}`,
+          Accept: "application/json",
+        },
+        cache: "no-store",
+      }
+    );
+
+    if (!response.ok) {
+      const details = await response.text().catch(() => "");
+      throw new Error(`Supabase list failed ${response.status}: ${details}`);
+    }
+
+    const rows = await response.json();
+    return NextResponse.json({ ok: true, trackedFlights: rows });
+  } catch (error) {
+    const message = error instanceof Error ? error.message : "Unknown error";
+    return NextResponse.json({ ok: false, error: message }, { status: 500 });
+  }
+}
+
+export async function PATCH(request: Request) {
+  try {
+    const body = (await request.json()) as { id?: string; target_price?: number; is_active?: boolean };
+    if (!body.id) {
+      return NextResponse.json({ ok: false, error: "Missing id" }, { status: 400 });
+    }
+
+    const { url, key } = await getSupabaseUrlAndKey();
+    const updates: Record<string, unknown> = {};
+    if (typeof body.target_price === "number") updates.target_price = body.target_price;
+    if (typeof body.is_active === "boolean") updates.is_active = body.is_active;
+
+    const response = await fetch(`${url}/rest/v1/tracked_flights?id=eq.${encodeURIComponent(body.id)}`, {
+      method: "PATCH",
+      headers: {
+        apikey: key,
+        Authorization: `Bearer ${key}`,
+        "Content-Type": "application/json",
+        Prefer: "return=representation",
+      },
+      body: JSON.stringify(updates),
+    });
+
+    if (!response.ok) {
+      const details = await response.text().catch(() => "");
+      throw new Error(`Supabase update failed ${response.status}: ${details}`);
+    }
+
+    const rows = await response.json();
+    return NextResponse.json({ ok: true, trackedFlight: rows[0] ?? null });
+  } catch (error) {
+    const message = error instanceof Error ? error.message : "Unknown error";
+    return NextResponse.json({ ok: false, error: message }, { status: 500 });
+  }
+}
+
+export async function DELETE(request: Request) {
+  try {
+    const urlObj = new URL(request.url);
+    const id = urlObj.searchParams.get("id");
+    if (!id) {
+      return NextResponse.json({ ok: false, error: "Missing id" }, { status: 400 });
+    }
+
+    const { url, key } = await getSupabaseUrlAndKey();
+    const response = await fetch(`${url}/rest/v1/tracked_flights?id=eq.${encodeURIComponent(id)}`, {
+      method: "DELETE",
+      headers: {
+        apikey: key,
+        Authorization: `Bearer ${key}`,
+        Prefer: "return=representation",
+      },
+    });
+
+    if (!response.ok) {
+      const details = await response.text().catch(() => "");
+      throw new Error(`Supabase delete failed ${response.status}: ${details}`);
+    }
+
+    return NextResponse.json({ ok: true });
+  } catch (error) {
+    const message = error instanceof Error ? error.message : "Unknown error";
+    return NextResponse.json({ ok: false, error: message }, { status: 500 });
+  }
+}

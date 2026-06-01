@@ -97,6 +97,7 @@ export function HomeDashboard() {
   const [submitState, setSubmitState] = useState<"idle" | "saving" | "saved" | "error">("idle");
   const [submitMessage, setSubmitMessage] = useState("");
   const [alerts, setAlerts] = useState<ActiveAlert[]>([]);
+  const [loadingAlerts, setLoadingAlerts] = useState(true);
 
   useEffect(() => {
     const stored = window.localStorage.getItem("flighttracker_alerts");
@@ -115,6 +116,43 @@ export function HomeDashboard() {
   useEffect(() => {
     window.localStorage.setItem("flighttracker_alerts", JSON.stringify(alerts));
   }, [alerts]);
+
+  useEffect(() => {
+    async function loadAlerts() {
+      try {
+        const response = await fetch("/api/tracked-flights");
+        const payload = (await response.json()) as {
+          ok?: boolean;
+          error?: string;
+          trackedFlights?: Array<{
+            id: string;
+            origin: string;
+            destination: string;
+            target_price: number;
+            is_active: boolean;
+          }>;
+        };
+
+        if (!response.ok || !payload.ok) {
+          throw new Error(payload.error || "No se pudieron cargar las alertas");
+        }
+
+        const nextAlerts = (payload.trackedFlights ?? []).map((flight) => ({
+          id: flight.id,
+          route: `${flight.origin} -> ${flight.destination}`,
+          target: `COP ${Number(flight.target_price || 0).toLocaleString("es-CO")}`,
+          status: flight.is_active ? "Activa" : "Pausada",
+        }));
+        setAlerts(nextAlerts);
+      } catch {
+        // Keep local fallback if the server can't be reached.
+      } finally {
+        setLoadingAlerts(false);
+      }
+    }
+
+    loadAlerts();
+  }, []);
 
   const originAirport = useMemo(
     () => airportsCatalog.find((airport) => airport.code === origin),
@@ -173,6 +211,45 @@ export function HomeDashboard() {
       setSubmitState("error");
       setSubmitMessage(error instanceof Error ? error.message : "No se pudo registrar la alerta");
     }
+  }
+
+  async function handleDelete(alertId: string) {
+    const response = await fetch(`/api/tracked-flights?id=${encodeURIComponent(alertId)}`, {
+      method: "DELETE",
+    });
+
+    const payload = (await response.json()) as { ok?: boolean; error?: string };
+    if (!response.ok || !payload.ok) {
+      throw new Error(payload.error || "No se pudo borrar la alerta");
+    }
+
+    setAlerts((current) => current.filter((alert) => alert.id !== alertId));
+  }
+
+  async function handleEdit(alertId: string) {
+    const nextTarget = window.prompt("Nuevo precio objetivo en COP:");
+    if (!nextTarget) return;
+
+    const response = await fetch("/api/tracked-flights", {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        id: alertId,
+        target_price: Number(nextTarget),
+      }),
+    });
+
+    const payload = (await response.json()) as { ok?: boolean; error?: string; trackedFlight?: { target_price?: number } };
+    if (!response.ok || !payload.ok) {
+      throw new Error(payload.error || "No se pudo editar la alerta");
+    }
+
+    const updatedTarget = `COP ${Number(payload.trackedFlight?.target_price ?? Number(nextTarget)).toLocaleString("es-CO")}`;
+    setAlerts((current) =>
+      current.map((alert) => (alert.id === alertId ? { ...alert, target: updatedTarget } : alert)),
+    );
   }
 
   return (
@@ -245,7 +322,12 @@ export function HomeDashboard() {
 
         <article className="panel">
           <h2>Alertas activas</h2>
-          {alerts.length === 0 ? (
+          {loadingAlerts ? (
+            <div className="empty-state">
+              <strong>Cargando alertas...</strong>
+              <span>Estamos leyendo tus alertas guardadas en Supabase.</span>
+            </div>
+          ) : alerts.length === 0 ? (
             <div className="empty-state">
               <strong>No hay alertas activas todavía.</strong>
               <span>Cuando registres una alerta, aparecerá inmediatamente aquí.</span>
@@ -257,6 +339,10 @@ export function HomeDashboard() {
                   <strong>{alert.route}</strong>
                   <span>Meta: {alert.target}</span>
                   <span>{alert.status}</span>
+                  <div className="alert-actions">
+                    <button type="button" onClick={() => handleEdit(alert.id)}>Editar</button>
+                    <button type="button" onClick={() => handleDelete(alert.id)}>Borrar</button>
+                  </div>
                 </li>
               ))}
             </ul>

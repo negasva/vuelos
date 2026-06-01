@@ -185,6 +185,21 @@ select {
   gap: 4px;
 }
 
+.alert-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.alert-actions button {
+  border: 1px solid rgba(148, 163, 184, 0.24);
+  background: rgba(15, 23, 42, 0.9);
+  color: #f8fafc;
+  border-radius: 999px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
 .alert-list span,
 .panel-note {
   color: #94a3b8;
