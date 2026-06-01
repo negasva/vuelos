@@ -10,6 +10,13 @@ type Airport = {
   country: string;
 };
 
+type ActiveAlert = {
+  id: string;
+  route: string;
+  target: string;
+  status: string;
+};
+
 function AirportSelect({
   label,
   value,
@@ -74,6 +81,11 @@ function TogglePill({
   );
 }
 
+function airportLabel(airport?: Airport, fallback?: string) {
+  if (!airport) return fallback ?? "";
+  return `${airport.code} - ${airport.city}`;
+}
+
 export function HomeDashboard() {
   const [origin, setOrigin] = useState("MAD");
   const [destination, setDestination] = useState("CDG");
@@ -84,6 +96,7 @@ export function HomeDashboard() {
   const [nightOnly, setNightOnly] = useState(false);
   const [submitState, setSubmitState] = useState<"idle" | "saving" | "saved" | "error">("idle");
   const [submitMessage, setSubmitMessage] = useState("");
+  const [alerts, setAlerts] = useState<ActiveAlert[]>([]);
 
   const originAirport = useMemo(
     () => airportsCatalog.find((airport) => airport.code === origin),
@@ -93,12 +106,6 @@ export function HomeDashboard() {
     () => airportsCatalog.find((airport) => airport.code === destination),
     [destination],
   );
-
-  const activeAlerts: Array<{
-    route: string;
-    target: string;
-    status: string;
-  }> = [];
 
   const historyRows: Array<{ checkedAt: string; price: number }> = [];
 
@@ -124,11 +131,24 @@ export function HomeDashboard() {
         }),
       });
 
-      const payload = (await response.json()) as { ok?: boolean; error?: string };
+      const payload = (await response.json()) as {
+        ok?: boolean;
+        error?: string;
+        trackedFlight?: { id?: string };
+      };
+
       if (!response.ok || !payload.ok) {
         throw new Error(payload.error || "No se pudo registrar la alerta");
       }
 
+      const nextAlert: ActiveAlert = {
+        id: payload.trackedFlight?.id ?? `${origin}-${destination}-${Date.now()}`,
+        route: `${airportLabel(originAirport, origin)} → ${airportLabel(destinationAirport, destination)}`,
+        target: `COP ${Number(targetPrice || 0).toLocaleString("es-CO")}`,
+        status: "Activa",
+      };
+
+      setAlerts((current) => [nextAlert, ...current]);
       setSubmitState("saved");
       setSubmitMessage("Alerta registrada correctamente.");
     } catch (error) {
@@ -158,18 +178,8 @@ export function HomeDashboard() {
         <article className="panel">
           <h2>Buscar y alertar</h2>
           <div className="form-grid">
-            <AirportSelect
-              label="Origen"
-              value={origin}
-              onChange={setOrigin}
-              airports={airportsCatalog}
-            />
-            <AirportSelect
-              label="Destino"
-              value={destination}
-              onChange={setDestination}
-              airports={airportsCatalog}
-            />
+            <AirportSelect label="Origen" value={origin} onChange={setOrigin} airports={airportsCatalog} />
+            <AirportSelect label="Destino" value={destination} onChange={setDestination} airports={airportsCatalog} />
             <label>
               Precio objetivo
               <input
@@ -190,27 +200,13 @@ export function HomeDashboard() {
           </div>
 
           <div className="toggles">
-            <TogglePill
-              label="Sin escalas"
-              active={nonStopOnly}
-              onToggle={() => setNonStopOnly((value) => !value)}
-            />
-            <TogglePill
-              label="Excluir visa"
-              active={visaExclusion}
-              onToggle={() => setVisaExclusion((value) => !value)}
-            />
-            <TogglePill
-              label="Horario vampiro"
-              active={nightOnly}
-              onToggle={() => setNightOnly((value) => !value)}
-            />
+            <TogglePill label="Sin escalas" active={nonStopOnly} onToggle={() => setNonStopOnly((value) => !value)} />
+            <TogglePill label="Excluir visa" active={visaExclusion} onToggle={() => setVisaExclusion((value) => !value)} />
+            <TogglePill label="Horario vampiro" active={nightOnly} onToggle={() => setNightOnly((value) => !value)} />
           </div>
 
           <div className="summary-box">
-            <span>
-              Ruta: {origin} → {destination}
-            </span>
+            <span>Ruta: {airportLabel(originAirport, origin)} → {airportLabel(destinationAirport, destination)}</span>
             <span>Equipaje: {baggageType}</span>
             <span>Precio: COP {Number(targetPrice || 0).toLocaleString("es-CO")}</span>
           </div>
@@ -224,22 +220,19 @@ export function HomeDashboard() {
             {submitState === "saved" && submitMessage}
             {submitState === "error" && submitMessage}
           </p>
-          <p className="panel-note">
-            Origen: {originAirport?.city ?? origin} · Destino: {destinationAirport?.city ?? destination}
-          </p>
         </article>
 
         <article className="panel">
           <h2>Alertas activas</h2>
-          {activeAlerts.length === 0 ? (
+          {alerts.length === 0 ? (
             <div className="empty-state">
               <strong>No hay alertas activas todavía.</strong>
-              <span>Cuando conectes Supabase, aquí aparecerán solo las alertas que tú hayas creado.</span>
+              <span>Cuando registres una alerta, aparecerá inmediatamente aquí.</span>
             </div>
           ) : (
             <ul className="alert-list">
-              {activeAlerts.map((alert) => (
-                <li key={alert.route}>
+              {alerts.map((alert) => (
+                <li key={alert.id}>
                   <strong>{alert.route}</strong>
                   <span>Meta: {alert.target}</span>
                   <span>{alert.status}</span>
