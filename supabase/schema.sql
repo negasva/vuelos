@@ -46,6 +46,17 @@ create table if not exists public.price_history (
 create index if not exists price_history_flight_id_idx on public.price_history(flight_id);
 create index if not exists price_history_checked_at_idx on public.price_history(checked_at desc);
 
+-- Cron and backend error logs
+create table if not exists public.flight_tracking_logs (
+  id uuid primary key default gen_random_uuid(),
+  level text not null check (level in ('info', 'warn', 'error')),
+  message text not null,
+  details text,
+  created_at timestamptz not null default now()
+);
+
+create index if not exists flight_tracking_logs_created_at_idx on public.flight_tracking_logs(created_at desc);
+
 -- Keep updated_at in sync on write.
 create or replace function public.set_updated_at()
 returns trigger
@@ -98,4 +109,3 @@ using (
       and tf.user_id = auth.uid()
   )
 );
-
