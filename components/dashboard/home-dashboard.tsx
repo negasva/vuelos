@@ -98,6 +98,7 @@ export function HomeDashboard() {
   const [submitMessage, setSubmitMessage] = useState("");
   const [alerts, setAlerts] = useState<ActiveAlert[]>([]);
   const [loadingAlerts, setLoadingAlerts] = useState(true);
+  const [alertLoadError, setAlertLoadError] = useState("");
 
   useEffect(() => {
     const stored = window.localStorage.getItem("flighttracker_alerts");
@@ -137,15 +138,23 @@ export function HomeDashboard() {
           throw new Error(payload.error || "No se pudieron cargar las alertas");
         }
 
-        const nextAlerts = (payload.trackedFlights ?? []).map((flight) => ({
+        const remoteAlerts = (payload.trackedFlights ?? []).map((flight) => ({
           id: flight.id,
           route: `${flight.origin} -> ${flight.destination}`,
           target: `COP ${Number(flight.target_price || 0).toLocaleString("es-CO")}`,
           status: flight.is_active ? "Activa" : "Pausada",
         }));
-        setAlerts(nextAlerts);
+
+        setAlerts((current) => {
+          if (remoteAlerts.length === 0 && current.length > 0) return current;
+
+          const merged = new Map<string, ActiveAlert>();
+          for (const alert of current) merged.set(alert.id, alert);
+          for (const alert of remoteAlerts) merged.set(alert.id, alert);
+          return [...merged.values()];
+        });
       } catch {
-        // Keep local fallback if the server can't be reached.
+        setAlertLoadError("No se pudo leer Supabase; se muestra la caché local si existe.");
       } finally {
         setLoadingAlerts(false);
       }
@@ -322,6 +331,12 @@ export function HomeDashboard() {
 
         <article className="panel">
           <h2>Alertas activas</h2>
+          {alertLoadError ? (
+            <div className="empty-state">
+              <strong>Advertencia de carga</strong>
+              <span>{alertLoadError}</span>
+            </div>
+          ) : null}
           {loadingAlerts ? (
             <div className="empty-state">
               <strong>Cargando alertas...</strong>
