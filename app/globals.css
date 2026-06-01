@@ -1,0 +1,16 @@
+:root {
+  color-scheme: dark;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: #0b1020;
+  color: #f3f7ff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
