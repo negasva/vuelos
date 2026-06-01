@@ -19,7 +19,7 @@ create table if not exists public.tracked_flights (
   user_id uuid not null references public.users(id) on delete cascade,
   origin text not null,
   destination text not null,
-  baggage_type text not null check (baggage_type in ('morral', 'mano_10kg', 'bodega_23kg')),
+  baggage_type text not null default 'any' check (baggage_type in ('any', 'morral', 'mano_10kg', 'bodega_23kg')),
   max_stops integer not null default 0 check (max_stops >= 0),
   visa_exclusion boolean not null default false,
   night_only boolean not null default false,

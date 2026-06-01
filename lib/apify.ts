@@ -3,7 +3,7 @@ export type TrackedFlight = {
   user_id: string;
   origin: string;
   destination: string;
-  baggage_type: "morral" | "mano_10kg" | "bodega_23kg";
+  baggage_type: "any" | "morral" | "mano_10kg" | "bodega_23kg";
   max_stops: number;
   visa_exclusion: boolean;
   night_only: boolean;
@@ -148,6 +148,7 @@ export function getBaggageSurcharge(
   const hold = flight.baglimit?.hold ?? 0;
   const bags = flight.bags_price ?? {};
 
+  if (baggageType === "any") return 0;
   if (baggageType === "morral") return 0;
   if (baggageType === "mano_10kg") return hand > 10 ? Number(bags["1"] ?? 35000) : 0;
   if (baggageType === "bodega_23kg") return hold > 23 ? Number(bags["2"] ?? 90000) : 0;

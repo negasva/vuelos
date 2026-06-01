@@ -25,12 +25,13 @@ function AirportSelect({
 
   const filtered = useMemo(() => {
     const search = query.trim().toLowerCase();
-    if (!search) return airports.slice(0, 120);
-    return airports.filter((airport) =>
+    const matches = airports.filter((airport) =>
       [airport.code, airport.city, airport.name, airport.country].some((field) =>
         field.toLowerCase().includes(search),
       ),
-    ).slice(0, 120);
+    );
+
+    return (search ? matches : airports).slice(0, 120);
   }, [airports, query]);
 
   return (
@@ -77,18 +78,20 @@ export function HomeDashboard() {
   const [origin, setOrigin] = useState("MAD");
   const [destination, setDestination] = useState("CDG");
   const [targetPrice, setTargetPrice] = useState("180000");
-  const [baggageType, setBaggageType] = useState("mano_10kg");
+  const [baggageType, setBaggageType] = useState("any");
   const [nonStopOnly, setNonStopOnly] = useState(false);
   const [visaExclusion, setVisaExclusion] = useState(false);
   const [nightOnly, setNightOnly] = useState(false);
+  const [submitState, setSubmitState] = useState<"idle" | "saving" | "saved" | "error">("idle");
+  const [submitMessage, setSubmitMessage] = useState("");
 
   const originAirport = useMemo(
     () => airportsCatalog.find((airport) => airport.code === origin),
-    [origin]
+    [origin],
   );
   const destinationAirport = useMemo(
     () => airportsCatalog.find((airport) => airport.code === destination),
-    [destination]
+    [destination],
   );
 
   const activeAlerts: Array<{
@@ -98,6 +101,41 @@ export function HomeDashboard() {
   }> = [];
 
   const historyRows: Array<{ checkedAt: string; price: number }> = [];
+
+  async function handleSubmit() {
+    setSubmitState("saving");
+    setSubmitMessage("");
+
+    try {
+      const response = await fetch("/api/tracked-flights", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          origin,
+          destination,
+          baggage_type: baggageType,
+          max_stops: nonStopOnly ? 0 : 9,
+          visa_exclusion: visaExclusion,
+          night_only: nightOnly,
+          flex_days: 0,
+          target_price: Number(targetPrice || 0),
+        }),
+      });
+
+      const payload = (await response.json()) as { ok?: boolean; error?: string };
+      if (!response.ok || !payload.ok) {
+        throw new Error(payload.error || "No se pudo registrar la alerta");
+      }
+
+      setSubmitState("saved");
+      setSubmitMessage("Alerta registrada correctamente.");
+    } catch (error) {
+      setSubmitState("error");
+      setSubmitMessage(error instanceof Error ? error.message : "No se pudo registrar la alerta");
+    }
+  }
 
   return (
     <main className="page-shell">
@@ -134,11 +172,16 @@ export function HomeDashboard() {
             />
             <label>
               Precio objetivo
-              <input value={targetPrice} onChange={(event) => setTargetPrice(event.target.value)} inputMode="numeric" />
+              <input
+                value={targetPrice}
+                onChange={(event) => setTargetPrice(event.target.value)}
+                inputMode="numeric"
+              />
             </label>
             <label>
               Equipaje
               <select value={baggageType} onChange={(event) => setBaggageType(event.target.value)}>
+                <option value="any">Cualquiera</option>
                 <option value="morral">Solo morral</option>
                 <option value="mano_10kg">Mano 10kg</option>
                 <option value="bodega_23kg">Bodega 23kg</option>
@@ -147,9 +190,21 @@ export function HomeDashboard() {
           </div>
 
           <div className="toggles">
-            <TogglePill label="Sin escalas" active={nonStopOnly} onToggle={() => setNonStopOnly((value) => !value)} />
-            <TogglePill label="Excluir visa" active={visaExclusion} onToggle={() => setVisaExclusion((value) => !value)} />
-            <TogglePill label="Horario vampiro" active={nightOnly} onToggle={() => setNightOnly((value) => !value)} />
+            <TogglePill
+              label="Sin escalas"
+              active={nonStopOnly}
+              onToggle={() => setNonStopOnly((value) => !value)}
+            />
+            <TogglePill
+              label="Excluir visa"
+              active={visaExclusion}
+              onToggle={() => setVisaExclusion((value) => !value)}
+            />
+            <TogglePill
+              label="Horario vampiro"
+              active={nightOnly}
+              onToggle={() => setNightOnly((value) => !value)}
+            />
           </div>
 
           <div className="summary-box">
@@ -160,9 +215,15 @@ export function HomeDashboard() {
             <span>Precio: COP {Number(targetPrice || 0).toLocaleString("es-CO")}</span>
           </div>
 
-          <button className="primary-btn" type="button">
+          <button className="primary-btn" type="button" onClick={handleSubmit} disabled={submitState === "saving"}>
             Registrar alerta
           </button>
+          <p className={`panel-note ${submitState === "error" ? "panel-note-error" : ""}`}>
+            {submitState === "idle" && "La alerta se guardará en Supabase cuando presiones el botón."}
+            {submitState === "saving" && "Guardando alerta..."}
+            {submitState === "saved" && submitMessage}
+            {submitState === "error" && submitMessage}
+          </p>
           <p className="panel-note">
             Origen: {originAirport?.city ?? origin} · Destino: {destinationAirport?.city ?? destination}
           </p>
@@ -200,7 +261,10 @@ export function HomeDashboard() {
               <div className="buy-badge">COMPRA YA</div>
               <div className="line-chart" aria-hidden="true">
                 {historyRows.map((point, index) => (
-                  <span key={`${point.checkedAt}-${index}`} style={{ height: `${Math.max(20, Math.min(100, point.price / 5000))}%` }} />
+                  <span
+                    key={`${point.checkedAt}-${index}`}
+                    style={{ height: `${Math.max(20, Math.min(100, point.price / 5000))}%` }}
+                  />
                 ))}
               </div>
             </>
@@ -211,3 +275,4 @@ export function HomeDashboard() {
     </main>
   );
 }
+
