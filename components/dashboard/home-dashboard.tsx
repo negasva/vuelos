@@ -87,8 +87,8 @@ function airportLabel(airport?: Airport, fallback?: string) {
 }
 
 export function HomeDashboard() {
-  const [origin, setOrigin] = useState("MAD");
-  const [destination, setDestination] = useState("CDG");
+  const [origin, setOrigin] = useState("MDE");
+  const [destination, setDestination] = useState("BCN");
   const [targetPrice, setTargetPrice] = useState("180000");
   const [baggageType, setBaggageType] = useState("any");
   const [nonStopOnly, setNonStopOnly] = useState(false);
@@ -289,4 +289,3 @@ export function HomeDashboard() {
     </main>
   );
 }
-
