@@ -1,0 +1,28 @@
+name: Flight Price Tracker Cron
+
+on:
+  schedule:
+    - cron: "0 8 * * *"
+    - cron: "0 14 * * *"
+    - cron: "0 21 * * *"
+    - cron: "0 2 * * *"
+    - cron: "0 11 * * *"
+    - cron: "0 18 * * *"
+  workflow_dispatch:
+
+jobs:
+  ping-cron-endpoint:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Call Vercel cron endpoint
+        env:
+          CRON_SECRET: ${{ secrets.CRON_SECRET }}
+          APP_URL: ${{ secrets.APP_URL }}
+        run: |
+          curl -fsS \
+            -X GET \
+            -H "Authorization: Bearer ${CRON_SECRET}" \
+            "${APP_URL}/api/cron/track-prices"
+
