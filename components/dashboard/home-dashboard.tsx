@@ -86,6 +86,8 @@ function airportLabel(airport?: Airport, fallback?: string) {
   return `${airport.code} - ${airport.city}`;
 }
 
+const routeArrow = "→";
+
 export function HomeDashboard() {
   const [origin, setOrigin] = useState("MDE");
   const [destination, setDestination] = useState("BCN");
@@ -310,9 +312,9 @@ export function HomeDashboard() {
           </div>
 
           <div className="summary-box">
-            <span>Ruta: {origin} -> {destination}</span>
+            <span>Ruta: {origin} {routeArrow} {destination}</span>
             <span>
-              Aeropuertos: {airportLabel(originAirport, origin)} -> {airportLabel(destinationAirport, destination)}
+              Aeropuertos: {airportLabel(originAirport, origin)} {routeArrow} {airportLabel(destinationAirport, destination)}
             </span>
             <span>Equipaje: {baggageType}</span>
             <span>Precio: COP {Number(targetPrice || 0).toLocaleString("es-CO")}</span>
