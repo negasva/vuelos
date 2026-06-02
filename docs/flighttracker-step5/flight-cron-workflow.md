@@ -29,11 +29,25 @@ jobs:
     timeout-minutes: 5
 
     steps:
+      - name: Validate cron configuration
+        env:
+          APP_URL: ${{ vars.APP_URL || secrets.APP_URL }}
+        run: |
+          if [ -z "${APP_URL}" ]; then
+            echo "APP_URL is not configured. Set it as a repository variable or secret to your public deployment URL."
+            exit 1
+          fi
+
       - name: Call Vercel cron endpoint
         env:
           CRON_SECRET: ${{ secrets.CRON_SECRET }}
-          APP_URL: ${{ secrets.APP_URL }}
+          APP_URL: ${{ vars.APP_URL || secrets.APP_URL }}
         run: |
+          if [ -z "${CRON_SECRET}" ]; then
+            echo "CRON_SECRET is not configured."
+            exit 1
+          fi
+
           curl -fsS \
             -X GET \
             -H "Authorization: Bearer ${CRON_SECRET}" \
@@ -43,7 +57,7 @@ jobs:
 ## Required GitHub secrets
 
 - `CRON_SECRET`: Shared secret that must match the server route protection.
-- `APP_URL`: Public Vercel deployment URL, for example `https://your-project.vercel.app`.
+- `APP_URL`: Public Vercel deployment URL, for example `https://your-project.vercel.app`. You can store it as a repository variable or secret.
 
 ## Notes
 
