@@ -406,7 +406,7 @@ function Dashboard() {
         </div>
 
         {/* RIGHT SIDEBAR */}
-        <Sidebar />
+        <Sidebar alerts={alerts} history={history} />
       </main>
 
       {/* Modals */}
@@ -1588,7 +1588,14 @@ function PriceChart({ points, target }: { points: any[]; target: number }) {
   );
 }
 
-function Sidebar() {
+function Sidebar({
+  alerts,
+  history,
+}: {
+  alerts: TrackedFlight[];
+  history: HistoryPoint[];
+}) {
+  const latestHistory = history.at(-1);
   return (
     <aside style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
       {/* Notifications */}
@@ -1727,7 +1734,7 @@ function Sidebar() {
             </div>
             <div>
               <div style={{ fontSize: "13px", color: "#f1f1f1", lineHeight: 1.4 }}>
-                <b>MDE â†’ BCN</b> bajó a <span style={{ color: "#7ee2a8", fontFamily: "'Roboto Mono', monospace" }}>{history[history.length - 1] ? formatCOP(history[history.length - 1].price) : "$0"}</span>
+                <b>MDE â†’ BCN</b> bajó a <span style={{ color: "#7ee2a8", fontFamily: "'Roboto Mono', monospace" }}>{latestHistory ? formatCOP(latestHistory.price) : "$0"}</span>
               </div>
               <div style={{ fontSize: "11px", color: "#9aa0a6", marginTop: "2px" }}>Hace 2 min Â· enviado a Telegram</div>
             </div>
