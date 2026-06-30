@@ -11,45 +11,26 @@ on:
   workflow_dispatch:
 
 jobs:
-  ping-cron-endpoint:
+  track-prices:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 10
 
     steps:
-      - name: Validate cron configuration
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install "flights==0.9.0" requests
+
+      - name: Track prices and send alerts
         env:
-          APP_URL: ${{ vars.APP_URL || secrets.APP_URL }}
-        run: |
-          if [ -z "${APP_URL}" ]; then
-            echo "APP_URL is not configured. Set it as a repository variable or secret to your public deployment URL."
-            exit 1
-          fi
-
-      - name: Call Vercel cron endpoint
-        env:
-          CRON_SECRET: ${{ secrets.CRON_SECRET }}
-          APP_URL: ${{ vars.APP_URL || secrets.APP_URL }}
-        run: |
-          if [ -z "${CRON_SECRET}" ]; then
-            echo "CRON_SECRET is not configured."
-            exit 1
-          fi
-
-          # Capture body + HTTP status so failures show the real cause in the log.
-          http_code=$(curl -sS \
-            -o response.txt \
-            -w "%{http_code}" \
-            -X GET \
-            -H "Authorization: Bearer ${CRON_SECRET}" \
-            "${APP_URL}/api/cron/track-prices")
-
-          echo "HTTP status: ${http_code}"
-          echo "Response body:"
-          cat response.txt || true
-          echo
-
-          if [ "${http_code}" -lt 200 ] || [ "${http_code}" -ge 300 ]; then
-            echo "Cron endpoint returned a non-success status."
-            exit 1
-          fi
-
+          NEXT_PUBLIC_SUPABASE_URL: ${{ vars.NEXT_PUBLIC_SUPABASE_URL || secrets.NEXT_PUBLIC_SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_DEFAULT_CHAT_ID: ${{ vars.TELEGRAM_DEFAULT_CHAT_ID || secrets.TELEGRAM_DEFAULT_CHAT_ID }}
+        run: python scripts/track_prices.py
