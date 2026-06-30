@@ -81,6 +81,17 @@ function airportName(code: string): string {
   return airport ? `${airport.city} (${airport.code})` : code;
 }
 
+function buildPurchaseLink(alert: TrackedFlight): string {
+  const queryParts = [
+    `from ${alert.origin}`,
+    `to ${alert.destination}`,
+    alert.depart_date ? `departing ${alert.depart_date}` : "",
+    alert.trip_type === "round_trip" && alert.return_date ? `returning ${alert.return_date}` : "",
+  ].filter(Boolean);
+
+  return `https://www.google.com/travel/flights?q=${encodeURIComponent(queryParts.join(" "))}`;
+}
+
 export function HomeDashboard() {
   return (
     <ToastProvider>
@@ -1343,10 +1354,9 @@ function ActiveAlertsList({
                 borderRadius: "20px",
                 padding: "18px 20px",
                 display: "grid",
-                gridTemplateColumns: "auto 1fr auto auto",
+                gridTemplateColumns: "auto 1fr auto auto auto",
                 gap: "20px",
                 alignItems: "center",
-                cursor: "pointer",
               }}
             >
               <div
@@ -1449,6 +1459,75 @@ function ActiveAlertsList({
                   }}
                 >
                   {alert.is_active ? "98% cerca" : "pausada"}
+                </div>
+              </div>
+              <div style={{ display: "flex", flexDirection: "column", gap: "8px", alignItems: "flex-end" }}>
+                <a
+                  href={buildPurchaseLink(alert)}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "6px",
+                    padding: "8px 12px",
+                    borderRadius: "999px",
+                    background: "#2c3a4f",
+                    color: "#a8c7fa",
+                    fontSize: "12px",
+                    fontWeight: 500,
+                    whiteSpace: "nowrap",
+                  }}
+                >
+                  <span className="ms" style={{ fontSize: "14px" }}>travel_explore</span>
+                  Ver compra
+                </a>
+                <div style={{ display: "flex", gap: "6px", flexWrap: "wrap", justifyContent: "flex-end" }}>
+                  <button
+                    type="button"
+                    className="seg chip-hov"
+                    onClick={() => onEdit(alert)}
+                    style={{
+                      height: "32px",
+                      padding: "0 12px",
+                      borderRadius: "999px",
+                      background: "#26282b",
+                      color: "#e3e3e3",
+                      fontSize: "12px",
+                    }}
+                  >
+                    Editar
+                  </button>
+                  <button
+                    type="button"
+                    className="seg chip-hov"
+                    onClick={() => onToggle(alert)}
+                    style={{
+                      height: "32px",
+                      padding: "0 12px",
+                      borderRadius: "999px",
+                      background: "#26282b",
+                      color: "#e3e3e3",
+                      fontSize: "12px",
+                    }}
+                  >
+                    {alert.is_active ? "Pausar" : "Reanudar"}
+                  </button>
+                  <button
+                    type="button"
+                    className="seg chip-hov"
+                    onClick={() => onDelete(alert)}
+                    style={{
+                      height: "32px",
+                      padding: "0 12px",
+                      borderRadius: "999px",
+                      background: "#3b2626",
+                      color: "#f28b82",
+                      fontSize: "12px",
+                    }}
+                  >
+                    Borrar
+                  </button>
                 </div>
               </div>
             </article>
@@ -1601,6 +1680,7 @@ function Sidebar({
   alerts: TrackedFlight[];
   history: HistoryPoint[];
 }) {
+  const latestAlert = alerts[0] ?? null;
   const latestHistory = history.at(-1);
   return (
     <aside style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
@@ -1740,9 +1820,38 @@ function Sidebar({
             </div>
             <div>
               <div style={{ fontSize: "13px", color: "#f1f1f1", lineHeight: 1.4 }}>
-                <b>MDE → BCN</b> bajó a <span style={{ color: "#7ee2a8", fontFamily: "'Roboto Mono', monospace" }}>{latestHistory ? formatCOP(latestHistory.price) : "$0"}</span>
+                <b>{latestAlert ? `${latestAlert.origin} → ${latestAlert.destination}` : "Sin ruta"}</b> bajó a <span style={{ color: "#7ee2a8", fontFamily: "'Roboto Mono', monospace" }}>{latestHistory ? formatCOP(latestHistory.price) : "$0"}</span>
               </div>
               <div style={{ fontSize: "11px", color: "#9aa0a6", marginTop: "2px" }}>Hace 2 min · enviado a Telegram</div>
+              {(latestHistory?.airline || latestHistory?.departureTime) && (
+                <div style={{ fontSize: "11px", color: "#9aa0a6", marginTop: "4px" }}>
+                  {latestHistory?.airline ? `Aerolínea: ${latestHistory.airline}` : ""}
+                  {latestHistory?.airline && latestHistory?.departureTime ? " · " : ""}
+                  {latestHistory?.departureTime ? `Salida: ${latestHistory.departureTime}` : ""}
+                </div>
+              )}
+              {latestAlert && (
+                <a
+                  href={buildPurchaseLink(latestAlert)}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  style={{
+                    display: "inline-flex",
+                    marginTop: "8px",
+                    alignItems: "center",
+                    gap: "6px",
+                    padding: "6px 10px",
+                    borderRadius: "999px",
+                    background: "#2c3a4f",
+                    color: "#a8c7fa",
+                    fontSize: "12px",
+                    fontWeight: 500,
+                  }}
+                >
+                  <span className="ms" style={{ fontSize: "14px" }}>travel_explore</span>
+                  Ver compra
+                </a>
+              )}
             </div>
           </li>
         </ul>
