@@ -25,6 +25,8 @@ type TrackedFlight = {
   visa_exclusion: boolean;
   night_only: boolean;
   flex_days: number;
+  trip_type: "one_way" | "round_trip";
+  trip_length_days: number;
   target_price: number;
   is_active: boolean;
   created_at?: string;
@@ -61,6 +63,10 @@ function airportName(code: string): string {
   return airport ? `${airport.city} (${airport.code})` : code;
 }
 
+function tripLabel(tripType: string, lengthDays: number): string {
+  return tripType === "round_trip" ? `Ida y vuelta · ${lengthDays} día(s)` : "Solo ida";
+}
+
 export function HomeDashboard() {
   return (
     <ToastProvider>
@@ -79,6 +85,8 @@ function Dashboard() {
   const [baggageType, setBaggageType] = useState("any");
   const [maxStops, setMaxStops] = useState(9);
   const [flexDays, setFlexDays] = useState(0);
+  const [tripType, setTripType] = useState<"one_way" | "round_trip">("round_trip");
+  const [tripLengthDays, setTripLengthDays] = useState(7);
   const [visaExclusion, setVisaExclusion] = useState(false);
   const [nightOnly, setNightOnly] = useState(false);
   const [submitting, setSubmitting] = useState(false);
@@ -232,6 +240,8 @@ function Dashboard() {
           visa_exclusion: visaExclusion,
           night_only: nightOnly,
           flex_days: flexDays,
+          trip_type: tripType,
+          trip_length_days: tripLengthDays,
           target_price: targetNumber,
         }),
       });
@@ -431,6 +441,41 @@ function Dashboard() {
             </div>
           </div>
 
+          <div className="form-grid">
+            <div className="field">
+              <label htmlFor="trip-type">Tipo de viaje</label>
+              <select
+                id="trip-type"
+                value={tripType}
+                onChange={(event) =>
+                  setTripType(event.target.value as "one_way" | "round_trip")
+                }
+              >
+                <option value="round_trip">Ida y vuelta</option>
+                <option value="one_way">Solo ida</option>
+              </select>
+            </div>
+            {tripType === "round_trip" ? (
+              <div className="field">
+                <label htmlFor="trip-length">Duración del viaje (días)</label>
+                <input
+                  id="trip-length"
+                  type="number"
+                  min={1}
+                  max={60}
+                  value={tripLengthDays}
+                  onChange={(event) =>
+                    setTripLengthDays(
+                      Math.max(1, Math.min(60, Number(event.target.value) || 1))
+                    )
+                  }
+                />
+              </div>
+            ) : (
+              <div className="field" aria-hidden="true" />
+            )}
+          </div>
+
           <div className="toggles">
             <TogglePill
               label="Sin escalas"
@@ -453,6 +498,7 @@ function Dashboard() {
             <span>
               Ruta: <strong>{airportName(origin)}</strong> → <strong>{airportName(destination)}</strong>
             </span>
+            <span>Viaje: {tripLabel(tripType, tripLengthDays)}</span>
             <span>Equipaje: {baggageLabel(baggageType)}</span>
             <span>Escalas: {maxStopsLabel(maxStops)}</span>
             <span>Objetivo: {formatCOP(targetNumber)}</span>
@@ -540,6 +586,7 @@ function Dashboard() {
                   </span>
                   <span className="alert-target">Meta: {formatCOP(alert.target_price)}</span>
                   <div className="chip-row">
+                    <span className="chip">{tripLabel(alert.trip_type, alert.trip_length_days)}</span>
                     <span className="chip">{baggageLabel(alert.baggage_type)}</span>
                     <span className="chip">{maxStopsLabel(alert.max_stops)}</span>
                     {alert.flex_days > 0 ? (
@@ -749,6 +796,8 @@ function EditAlertModal({
   const [baggageType, setBaggageType] = useState(alert.baggage_type);
   const [maxStops, setMaxStops] = useState(alert.max_stops);
   const [flexDays, setFlexDays] = useState(alert.flex_days);
+  const [tripType, setTripType] = useState<"one_way" | "round_trip">(alert.trip_type);
+  const [tripLengthDays, setTripLengthDays] = useState(alert.trip_length_days);
   const [visaExclusion, setVisaExclusion] = useState(alert.visa_exclusion);
   const [nightOnly, setNightOnly] = useState(alert.night_only);
 
@@ -837,6 +886,36 @@ function EditAlertModal({
             </select>
           </div>
         </div>
+        <div className="form-grid">
+          <div className="field">
+            <label htmlFor="edit-trip-type">Tipo de viaje</label>
+            <select
+              id="edit-trip-type"
+              value={tripType}
+              onChange={(event) => setTripType(event.target.value as "one_way" | "round_trip")}
+            >
+              <option value="round_trip">Ida y vuelta</option>
+              <option value="one_way">Solo ida</option>
+            </select>
+          </div>
+          {tripType === "round_trip" ? (
+            <div className="field">
+              <label htmlFor="edit-trip-length">Duración del viaje (días)</label>
+              <input
+                id="edit-trip-length"
+                type="number"
+                min={1}
+                max={60}
+                value={tripLengthDays}
+                onChange={(event) =>
+                  setTripLengthDays(Math.max(1, Math.min(60, Number(event.target.value) || 1)))
+                }
+              />
+            </div>
+          ) : (
+            <div className="field" aria-hidden="true" />
+          )}
+        </div>
         <div className="toggles">
           <TogglePill
             label="Excluir visa"
@@ -871,6 +950,8 @@ function EditAlertModal({
                 baggage_type: baggageType as TrackedFlight["baggage_type"],
                 max_stops: maxStops,
                 flex_days: flexDays,
+                trip_type: tripType,
+                trip_length_days: tripLengthDays,
                 visa_exclusion: visaExclusion,
                 night_only: nightOnly,
               })

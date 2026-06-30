@@ -53,8 +53,9 @@ if any.
 Notes / limitations:
 - `fli` queries Google Flights' internal API and can be rate-limited from
   datacenter IPs; runs are best-effort with built-in retries.
-- The app stores no specific travel date, so the cron watches a rolling date
-  ~30 days out (`SEARCH_LEAD_DAYS` in the script).
+- The app stores no specific travel date, so the cron watches a rolling
+  departure ~30 days out (`SEARCH_LEAD_DAYS`). Round-trip alerts use a return
+  date of departure + `trip_length_days` (set per alert in the UI).
 - Baggage / visa / night-only filters are not yet applied in the `fli` path
   (only stops + economy cabin); they remain stored on each alert.
 
