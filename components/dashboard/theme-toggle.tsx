@@ -7,7 +7,7 @@ type Theme = "dark" | "light";
 function applyTheme(theme: Theme) {
   try {
     document.documentElement.dataset.theme = theme;
-    window.localStorage.setItem("flighttracker_theme", theme);
+    window.localStorage?.setItem("flighttracker_theme", theme);
   } catch {
     document.documentElement.dataset.theme = theme;
   }
@@ -19,7 +19,7 @@ export function ThemeToggle() {
   useEffect(() => {
     let initial: Theme = "light";
     try {
-      const stored = window.localStorage.getItem("flighttracker_theme");
+      const stored = window.localStorage?.getItem("flighttracker_theme");
       initial = stored === "light" || stored === "dark" ? stored : "light";
     } catch {
       initial = "light";

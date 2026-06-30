@@ -61,7 +61,7 @@ type SortKey = "recent" | "price-asc" | "price-desc" | "route";
 
 function readCachedAlerts(): TrackedFlight[] {
   try {
-    const cached = window.localStorage.getItem("flighttracker_alerts");
+    const cached = window.localStorage?.getItem("flighttracker_alerts");
     return cached ? (JSON.parse(cached) as TrackedFlight[]) : [];
   } catch {
     return [];
@@ -70,7 +70,7 @@ function readCachedAlerts(): TrackedFlight[] {
 
 function writeCachedAlerts(list: TrackedFlight[]) {
   try {
-    window.localStorage.setItem("flighttracker_alerts", JSON.stringify(list));
+    window.localStorage?.setItem("flighttracker_alerts", JSON.stringify(list));
   } catch {
     // Some browsers block storage access; keep the UI working without cache.
   }
