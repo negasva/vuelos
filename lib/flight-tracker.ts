@@ -7,6 +7,9 @@ import {
   type ApifyFlightItem,
   type TrackedFlight,
 } from "./apify";
+import type { FlightAlert } from "./telegram";
+
+export type PriceStats = { previous: number | null; average: number | null };
 
 type Group = {
   key: string;
@@ -52,17 +55,27 @@ export function detectErrorFare(currentPrice: number, historicalAverage: number 
   return currentPrice <= historicalAverage * 0.3;
 }
 
-export async function runTrackedFlights(flights: TrackedFlight[]) {
+function shouldAlert(
+  price: number,
+  tracked: TrackedFlight,
+  stats: PriceStats,
+  errorFare: boolean
+): boolean {
+  if (price <= tracked.target_price) return true;
+  if (stats.previous !== null && stats.previous > 0 && price <= stats.previous * 0.8) {
+    return true;
+  }
+  return errorFare;
+}
+
+export async function runTrackedFlights(
+  flights: TrackedFlight[],
+  priceStats: Map<string, PriceStats> = new Map()
+) {
   const groups = groupTrackedFlights(flights);
   const now = new Date().toISOString();
   const historyRows: Array<ReturnType<typeof mapFlightToHistoryRow>> = [];
-  const alerts: Array<{
-    flightId: string;
-    price: number;
-    airline: string | null;
-    departureTime: string | null;
-    errorFare: boolean;
-  }> = [];
+  const alerts: FlightAlert[] = [];
 
   for (const group of groups) {
     const seed = group.flights[0];
@@ -87,22 +100,25 @@ export async function runTrackedFlights(flights: TrackedFlight[]) {
 
         row.checked_at = now;
         historyRows.push(row);
-        alerts.push({
-          flightId: tracked.id,
-          price: row.price,
-          airline: row.airline,
-          departureTime: row.departure_time,
-          errorFare: false,
-        });
+
+        const stats = priceStats.get(tracked.id) ?? { previous: null, average: null };
+        const errorFare = detectErrorFare(row.price, stats.average);
+
+        if (shouldAlert(row.price, tracked, stats, errorFare)) {
+          alerts.push({
+            flightId: tracked.id,
+            origin: tracked.origin,
+            destination: tracked.destination,
+            price: row.price,
+            airline: row.airline,
+            departureTime: row.departure_time,
+            targetPrice: tracked.target_price,
+            errorFare,
+            telegramChatId: tracked.telegram_chat_id ?? null,
+          });
+        }
       }
     } catch (error) {
-      alerts.push({
-        flightId: seed.id,
-        price: 0,
-        airline: null,
-        departureTime: null,
-        errorFare: false,
-      });
       console.error("[flight-tracker] Apify fetch failed", { groupKey: group.key, error });
     }
   }

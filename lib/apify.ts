@@ -10,6 +10,7 @@ export type TrackedFlight = {
   flex_days: number;
   target_price: number;
   is_active: boolean;
+  telegram_chat_id?: string | null;
 };
 
 export type ApifySearchQuery = {
