@@ -59,6 +59,23 @@ const FLEX_OPTIONS = [0, 1, 2, 3];
 
 type SortKey = "recent" | "price-asc" | "price-desc" | "route";
 
+function readCachedAlerts(): TrackedFlight[] {
+  try {
+    const cached = window.localStorage.getItem("flighttracker_alerts");
+    return cached ? (JSON.parse(cached) as TrackedFlight[]) : [];
+  } catch {
+    return [];
+  }
+}
+
+function writeCachedAlerts(list: TrackedFlight[]) {
+  try {
+    window.localStorage.setItem("flighttracker_alerts", JSON.stringify(list));
+  } catch {
+    // Some browsers block storage access; keep the UI working without cache.
+  }
+}
+
 function airportName(code: string): string {
   const airport = AIRPORTS.find((item) => item.code === code);
   return airport ? `${airport.city} (${airport.code})` : code;
@@ -136,16 +153,10 @@ function Dashboard() {
       const list = payload.trackedFlights ?? [];
       setAlerts(list);
       setAlertLoadError("");
-      window.localStorage.setItem("flighttracker_alerts", JSON.stringify(list));
+      writeCachedAlerts(list);
     } catch (error) {
-      const cached = window.localStorage.getItem("flighttracker_alerts");
-      if (cached) {
-        try {
-          setAlerts(JSON.parse(cached) as TrackedFlight[]);
-        } catch {
-          /* ignore malformed cache */
-        }
-      }
+      const cached = readCachedAlerts();
+      if (cached.length > 0) setAlerts(cached);
       setAlertLoadError(
         error instanceof Error
           ? `No se pudo leer Supabase (${error.message}). Mostrando caché local si existe.`
@@ -292,7 +303,7 @@ function Dashboard() {
       if (!response.ok || !payload.ok) throw new Error(payload.error || "No se pudo borrar");
       setAlerts((current) => {
         const next = current.filter((item) => item.id !== alert.id);
-        window.localStorage.setItem("flighttracker_alerts", JSON.stringify(next));
+        writeCachedAlerts(next);
         return next;
       });
       notify("Alerta eliminada.", "success");

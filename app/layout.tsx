@@ -13,8 +13,10 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
-// Set the saved theme before paint to avoid a flash of the wrong theme.
-const themeScript = `(function(){try{var t=localStorage.getItem('flighttracker_theme');if(t==='light'||t==='dark'){document.documentElement.dataset.theme=t;}}catch(e){}})();`;
+function getThemeScript() {
+  // Avoid hard failures in browsers that block storage access.
+  return `(function(){try{var t=window.localStorage&&window.localStorage.getItem('flighttracker_theme');if(t==='light'||t==='dark'){document.documentElement.dataset.theme=t;}document.documentElement.style.backgroundColor='#1b1c1e';document.body.style.backgroundColor='#1b1c1e';}catch(e){document.documentElement.style.backgroundColor='#1b1c1e';document.body.style.backgroundColor='#1b1c1e';}})();`;
+}
 
 export default function RootLayout({
   children,
@@ -22,11 +24,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es">
+    <html lang="es" suppressHydrationWarning>
       <head>
-        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        <script dangerouslySetInnerHTML={{ __html: getThemeScript() }} />
       </head>
-      <body>{children}</body>
+      <body style={{ background: "var(--bg)" }}>{children}</body>
     </html>
   );
 }
