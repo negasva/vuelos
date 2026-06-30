@@ -1727,7 +1727,7 @@ function Sidebar() {
             </div>
             <div>
               <div style={{ fontSize: "13px", color: "#f1f1f1", lineHeight: 1.4 }}>
-                <b>MDE â†’ BCN</b> bajÃ³ a <span style={{ color: "#7ee2a8", fontFamily: "'Roboto Mono', monospace" }}>{alerts[0] ? formatCOP(alerts[0].target_price) : "$0"}</span>
+                <b>MDE â†’ BCN</b> bajó a <span style={{ color: "#7ee2a8", fontFamily: "'Roboto Mono', monospace" }}>{history[history.length - 1] ? formatCOP(history[history.length - 1].price) : "$0"}</span>
               </div>
               <div style={{ fontSize: "11px", color: "#9aa0a6", marginTop: "2px" }}>Hace 2 min Â· enviado a Telegram</div>
             </div>
