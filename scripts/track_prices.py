@@ -161,7 +161,16 @@ def search_cheapest(origin: str, destination: str, max_stops: int):
     results = SearchFlights().search(filters, top_n=5, currency=CURRENCY)
     if not results:
         return None
-    return min(results, key=lambda flight: flight.price)
+    # Some Google Flights results come back without a usable price; drop them
+    # before picking the cheapest so the comparison can't hit None < float.
+    priced = [
+        flight
+        for flight in results
+        if isinstance(getattr(flight, "price", None), (int, float)) and flight.price > 0
+    ]
+    if not priced:
+        return None
+    return min(priced, key=lambda flight: flight.price)
 
 
 def build_message(flight, origin: str, destination: str, target: float, error_fare: bool) -> str:
