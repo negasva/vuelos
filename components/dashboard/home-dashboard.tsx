@@ -694,33 +694,6 @@ function HeroSection({
         <p style={{ fontSize: "17px", lineHeight: 1.55, color: "#9aa0a6", maxWidth: "560px", margin: "0 0 28px" }}>
           Define una ruta y un precio objetivo. Revisamos seis veces al dÃ­a y te avisamos por Telegram o correo cuando alguien se equivoca y la tarifa cae.
         </p>
-        <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
-          <button
-            className="pill-btn"
-            style={{
-              fontFamily: "'Google Sans', system-ui, sans-serif",
-            }}
-          >
-            <span className="ms" style={{ fontSize: "20px" }}>
-              add
-            </span>
-            Nueva alerta
-          </button>
-          <button
-            className="pill-btn hov"
-            style={{
-              background: "transparent",
-              color: "#e3e3e3",
-              border: "1px solid #444746",
-              fontFamily: "'Google Sans', system-ui, sans-serif",
-            }}
-          >
-            <span className="ms" style={{ fontSize: "20px" }}>
-              play_circle
-            </span>
-            Ver cÃ³mo funciona
-          </button>
-        </div>
         <div style={{ display: "flex", gap: "32px", marginTop: "36px" }}>
           <div>
             <div style={{ fontSize: "28px", fontWeight: 500, color: "#f1f1f1", fontFamily: "'Google Sans', system-ui, sans-serif" }}>
