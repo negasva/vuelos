@@ -111,7 +111,7 @@ function Dashboard() {
   const [maxStops, setMaxStops] = useState(9);
   const [flexDays, setFlexDays] = useState(3);
   const [tripType, setTripType] = useState<"one_way" | "round_trip">("round_trip");
-  const [tripLengthDays, setTripLengthDays] = useState(14);
+  const [tripLengthDays, setTripLengthDays] = useState(30);
   const [departDate, setDepartDate] = useState("");
   const [returnDate, setReturnDate] = useState("");
   const [visaExclusion, setVisaExclusion] = useState(false);
@@ -1383,7 +1383,11 @@ function ActiveAlertsList({
                     flexWrap: "wrap",
                   }}
                 >
-                  <span>{alert.depart_date || "~30 dÃ­as"}</span>
+                  <span>
+                    {alert.depart_date
+                      ? alert.depart_date
+                      : `Cualquier fecha · ${alert.trip_length_days} días`}
+                  </span>
                   <span style={{ color: "#3c4043" }}>•</span>
                   <span>{maxStopsLabel(alert.max_stops)}</span>
                   <span style={{ color: "#3c4043" }}>•</span>
@@ -1883,6 +1887,8 @@ function EditAlertModal({
   onSave: (updated: Partial<TrackedFlight> & { id: string }) => void;
 }) {
   const [target, setTarget] = useState(formatThousands(String(alert.target_price)));
+  const [tripLength, setTripLength] = useState(alert.trip_length_days);
+  const [flexDays, setFlexDays] = useState(alert.flex_days);
 
   return (
     <div
@@ -1929,6 +1935,49 @@ function EditAlertModal({
             }}
           />
         </div>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "10px", marginBottom: "16px" }}>
+          <div>
+            <label style={{ fontSize: "12px", color: "#9aa0a6", display: "block", marginBottom: "6px" }}>
+              Duración del viaje (días)
+            </label>
+            <input
+              type="number"
+              value={tripLength}
+              onChange={(e) => setTripLength(Math.max(1, Math.min(60, Number(e.target.value))))}
+              style={{
+                width: "100%",
+                padding: "8px 12px",
+                background: "#26282b",
+                border: "1px solid #3c4043",
+                borderRadius: "8px",
+                color: "inherit",
+              }}
+            />
+          </div>
+          <div>
+            <label style={{ fontSize: "12px", color: "#9aa0a6", display: "block", marginBottom: "6px" }}>
+              Flexibilidad
+            </label>
+            <select
+              value={flexDays}
+              onChange={(e) => setFlexDays(Number(e.target.value))}
+              style={{
+                width: "100%",
+                padding: "8px 12px",
+                background: "#26282b",
+                border: "1px solid #3c4043",
+                borderRadius: "8px",
+                color: "inherit",
+              }}
+            >
+              {FLEX_OPTIONS.map((v) => (
+                <option key={v} value={v}>
+                  {v === 0 ? "Exacta" : `± ${v} día${v > 1 ? "s" : ""}`}
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
         <div style={{ display: "flex", gap: "10px", marginTop: "20px" }}>
           <button
             className="ghost-btn"
@@ -1955,6 +2004,8 @@ function EditAlertModal({
               onSave({
                 id: alert.id,
                 target_price: Number(onlyDigits(target)),
+                trip_length_days: tripLength,
+                flex_days: flexDays,
               })
             }
           >
