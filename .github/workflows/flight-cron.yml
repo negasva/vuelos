@@ -35,8 +35,21 @@ jobs:
             exit 1
           fi
 
-          curl -fsS \
+          # Capture body + HTTP status so failures show the real cause in the log.
+          http_code=$(curl -sS \
+            -o response.txt \
+            -w "%{http_code}" \
             -X GET \
             -H "Authorization: Bearer ${CRON_SECRET}" \
-            "${APP_URL}/api/cron/track-prices"
+            "${APP_URL}/api/cron/track-prices")
+
+          echo "HTTP status: ${http_code}"
+          echo "Response body:"
+          cat response.txt || true
+          echo
+
+          if [ "${http_code}" -lt 200 ] || [ "${http_code}" -ge 300 ]; then
+            echo "Cron endpoint returned a non-success status."
+            exit 1
+          fi
 

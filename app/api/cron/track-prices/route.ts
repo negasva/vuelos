@@ -11,17 +11,40 @@ type CronResult = {
   error?: string;
 };
 
-type SupabaseTrackedFlight = TrackedFlight & {
-  users?: { telegram_chat_id?: string | null } | null;
-};
+async function getTelegramChatIds(userIds: string[]): Promise<Map<string, string | null>> {
+  const map = new Map<string, string | null>();
+  if (userIds.length === 0) return map;
+
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  if (!url || !key) return map;
+
+  const idList = [...new Set(userIds)].map((id) => `"${id}"`).join(",");
+  // Tolerant: a failure here just means we fall back to TELEGRAM_DEFAULT_CHAT_ID.
+  try {
+    const response = await fetch(
+      `${url}/rest/v1/users?id=in.(${idList})&select=id,telegram_chat_id`,
+      {
+        headers: { apikey: key, Authorization: `Bearer ${key}`, Accept: "application/json" },
+        cache: "no-store",
+      }
+    );
+    if (!response.ok) return map;
+    const rows = (await response.json()) as Array<{ id: string; telegram_chat_id: string | null }>;
+    for (const row of rows) map.set(row.id, row.telegram_chat_id ?? null);
+  } catch {
+    return map;
+  }
+  return map;
+}
 
 async function getSupabaseFlights(): Promise<TrackedFlight[]> {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
-  if (!url || !key) throw new Error("Missing Supabase configuration");
+  if (!url || !key) throw new Error("Missing Supabase configuration (NEXT_PUBLIC_SUPABASE_URL / SUPABASE_SERVICE_ROLE_KEY)");
 
   const response = await fetch(
-    `${url}/rest/v1/tracked_flights?is_active=eq.true&select=*,users(telegram_chat_id)`,
+    `${url}/rest/v1/tracked_flights?is_active=eq.true&select=*`,
     {
       headers: {
         apikey: key,
@@ -33,13 +56,15 @@ async function getSupabaseFlights(): Promise<TrackedFlight[]> {
   );
 
   if (!response.ok) {
-    throw new Error(`Supabase error ${response.status}`);
+    const details = await response.text().catch(() => "");
+    throw new Error(`Supabase tracked_flights error ${response.status}: ${details.slice(0, 300)}`);
   }
 
-  const rows = (await response.json()) as SupabaseTrackedFlight[];
+  const rows = (await response.json()) as TrackedFlight[];
+  const chatIds = await getTelegramChatIds(rows.map((row) => row.user_id));
   return rows.map((row) => ({
     ...row,
-    telegram_chat_id: row.telegram_chat_id ?? row.users?.telegram_chat_id ?? null,
+    telegram_chat_id: row.telegram_chat_id ?? chatIds.get(row.user_id) ?? null,
   }));
 }
 
@@ -100,7 +125,10 @@ async function insertPriceHistory(rows: Array<Record<string, unknown>>) {
     },
     body: JSON.stringify(rows),
   });
-  if (!response.ok) throw new Error(`Supabase insert error ${response.status}`);
+  if (!response.ok) {
+    const details = await response.text().catch(() => "");
+    throw new Error(`Supabase price_history insert error ${response.status}: ${details.slice(0, 300)}`);
+  }
 }
 
 async function logCronError(message: string, details: string) {
@@ -155,8 +183,10 @@ export async function GET(request: Request): Promise<NextResponse<CronResult>> {
     await logCronError("track-prices cron failed", message);
     console.error("[flight-tracker] cron failed", error);
 
+    // This endpoint is protected by CRON_SECRET, so surfacing the real cause to
+    // the (authenticated) caller is safe and makes the GitHub Action log useful.
     return NextResponse.json(
-      { ok: false, error: "Cron execution failed" },
+      { ok: false, error: `Cron execution failed: ${message}` },
       { status: 500 }
     );
   }
