@@ -306,6 +306,13 @@ function Dashboard() {
       );
       const payload = (await response.json()) as { ok?: boolean; error?: string };
       if (!response.ok || !payload.ok) throw new Error(payload.error || "No se pudo borrar");
+      // Reflect the deletion immediately even if the follow-up reload fails
+      // (e.g. a pending DB migration making the list query error out).
+      setAlerts((current) => {
+        const next = current.filter((item) => item.id !== alert.id);
+        window.localStorage.setItem("flighttracker_alerts", JSON.stringify(next));
+        return next;
+      });
       notify("Alerta eliminada.", "success");
       await loadAlerts();
     } catch (error) {
