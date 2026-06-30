@@ -26,6 +26,7 @@ from fli.models import (
     PassengerInfo,
     SeatType,
     SortBy,
+    TripType,
 )
 from fli.search import SearchFlights
 
@@ -142,18 +143,41 @@ def send_telegram(chat_id: str, text: str) -> bool:
         return False
 
 
-def search_cheapest(origin: str, destination: str, max_stops: int):
-    """Return the cheapest one-way FlightResult, or None. Raises on transport errors."""
-    travel_date = (datetime.now() + timedelta(days=SEARCH_LEAD_DAYS)).strftime("%Y-%m-%d")
-    filters = FlightSearchFilters(
-        passenger_info=PassengerInfo(adults=1),
-        flight_segments=[
+def _price_of(item):
+    """Total price of a result. For round-trip tuples the combined total is on
+    the last (return) result, matching Google Flights' behaviour."""
+    target = item[-1] if isinstance(item, tuple) else item
+    price = getattr(target, "price", None)
+    return price if isinstance(price, (int, float)) else None
+
+
+def search_quote(origin, destination, max_stops, trip_type, trip_length_days):
+    """Return a normalized cheapest-fare dict, or None. Raises on transport errors."""
+    departure_date = datetime.now() + timedelta(days=SEARCH_LEAD_DAYS)
+    segments = [
+        FlightSegment(
+            departure_airport=[[Airport[origin], 0]],
+            arrival_airport=[[Airport[destination], 0]],
+            travel_date=departure_date.strftime("%Y-%m-%d"),
+        )
+    ]
+    if trip_type == "round_trip":
+        return_date = departure_date + timedelta(days=trip_length_days)
+        segments.append(
             FlightSegment(
-                departure_airport=[[Airport[origin], 0]],
-                arrival_airport=[[Airport[destination], 0]],
-                travel_date=travel_date,
+                departure_airport=[[Airport[destination], 0]],
+                arrival_airport=[[Airport[origin], 0]],
+                travel_date=return_date.strftime("%Y-%m-%d"),
             )
-        ],
+        )
+        fli_trip = TripType.ROUND_TRIP
+    else:
+        fli_trip = TripType.ONE_WAY
+
+    filters = FlightSearchFilters(
+        trip_type=fli_trip,
+        passenger_info=PassengerInfo(adults=1),
+        flight_segments=segments,
         seat_type=SeatType.ECONOMY,
         stops=STOPS_MAP.get(max_stops, MaxStops.ANY),
         sort_by=SortBy.CHEAPEST,
@@ -161,33 +185,41 @@ def search_cheapest(origin: str, destination: str, max_stops: int):
     results = SearchFlights().search(filters, top_n=5, currency=CURRENCY)
     if not results:
         return None
-    # Some Google Flights results come back without a usable price; drop them
-    # before picking the cheapest so the comparison can't hit None < float.
-    priced = [
-        flight
-        for flight in results
-        if isinstance(getattr(flight, "price", None), (int, float)) and flight.price > 0
-    ]
+
+    # Drop results without a usable price so min() can't hit None < float.
+    priced = [item for item in results if (_price_of(item) or 0) > 0]
     if not priced:
         return None
-    return min(priced, key=lambda flight: flight.price)
+
+    best = min(priced, key=lambda item: _price_of(item))
+    outbound = best[0] if isinstance(best, tuple) else best
+    leg = outbound.legs[0] if outbound.legs else None
+    return {
+        "price": float(_price_of(best)),
+        "airline": outbound.primary_airline_name or (leg.airline.value if leg else None),
+        "departure_time": str(leg.departure_datetime) if leg and leg.departure_datetime else None,
+        "stops": outbound.stops,
+    }
 
 
-def build_message(flight, origin: str, destination: str, target: float, error_fare: bool) -> str:
+def build_message(quote, origin, destination, target, trip_type, trip_length_days, error_fare):
     header = "🚨 *Posible tarifa de error*" if error_fare else "✈️ *Bajó el precio de tu vuelo*"
-    leg = flight.legs[0] if flight.legs else None
-    airline = flight.primary_airline_name or (leg.airline.value if leg else "—")
-    departure = leg.departure_datetime if leg else None
+    trip = (
+        f"Ida y vuelta ({trip_length_days} días)"
+        if trip_type == "round_trip"
+        else "Solo ida"
+    )
     lines = [
         header,
         f"*Ruta:* {origin} → {destination}",
-        f"*Precio:* {format_cop(flight.price)}",
+        f"*Viaje:* {trip}",
+        f"*Precio:* {format_cop(quote['price'])}",
         f"*Tu objetivo:* {format_cop(target)}",
-        f"*Escalas:* {flight.stops}",
-        f"*Aerolínea:* {airline}",
+        f"*Escalas:* {quote['stops']}",
+        f"*Aerolínea:* {quote['airline'] or '—'}",
     ]
-    if departure:
-        lines.append(f"*Salida:* {departure}")
+    if quote.get("departure_time"):
+        lines.append(f"*Salida:* {quote['departure_time']}")
     return "\n".join(lines)
 
 
@@ -211,32 +243,34 @@ def main() -> int:
         origin = (flight.get("origin") or "").strip().upper()
         destination = (flight.get("destination") or "").strip().upper()
         target = float(flight.get("target_price") or 0)
+        trip_type = flight.get("trip_type") or "one_way"
+        trip_length_days = int(flight.get("trip_length_days") or 7)
 
         if origin not in Airport.__members__ or destination not in Airport.__members__:
             errors.append(f"{origin}->{destination}: aeropuerto no soportado por fli")
             continue
 
         try:
-            best = search_cheapest(origin, destination, int(flight.get("max_stops") or 0))
+            quote = search_quote(
+                origin, destination, int(flight.get("max_stops") or 0),
+                trip_type, trip_length_days,
+            )
         except Exception as error:
             errors.append(f"{origin}->{destination}: {error}")
             continue
 
-        if best is None:
+        if quote is None:
             continue
 
         results_found += 1
-        price = float(best.price)
-        leg = best.legs[0] if best.legs else None
-        airline = best.primary_airline_name or (leg.airline.value if leg else None)
-        departure = str(leg.departure_datetime) if leg and leg.departure_datetime else None
+        price = quote["price"]
 
         history_rows.append(
             {
                 "flight_id": flight["id"],
                 "price": price,
-                "airline": airline,
-                "departure_time": departure,
+                "airline": quote["airline"],
+                "departure_time": quote["departure_time"],
                 "checked_at": now,
             }
         )
@@ -251,7 +285,9 @@ def main() -> int:
             alerts_triggered += 1
             chat_id = (flight.get("telegram_chat_id") or chat_ids.get(flight["user_id"])
                        or TELEGRAM_DEFAULT_CHAT_ID)
-            message = build_message(best, origin, destination, target, error_fare)
+            message = build_message(
+                quote, origin, destination, target, trip_type, trip_length_days, error_fare
+            )
             if send_telegram(chat_id, message):
                 alerts_sent += 1
 

@@ -24,6 +24,8 @@ create table if not exists public.tracked_flights (
   visa_exclusion boolean not null default false,
   night_only boolean not null default false,
   flex_days integer not null default 0 check (flex_days between 0 and 3),
+  trip_type text not null default 'one_way' check (trip_type in ('one_way', 'round_trip')),
+  trip_length_days integer not null default 7 check (trip_length_days between 1 and 60),
   target_price numeric(12,2) not null check (target_price >= 0),
   is_active boolean not null default true,
   created_at timestamptz not null default now(),

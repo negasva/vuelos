@@ -3,6 +3,8 @@ import { getOrCreateGuestUser, supabaseRest } from "@/lib/supabase-rest";
 
 type BaggageType = "any" | "morral" | "mano_10kg" | "bodega_23kg";
 
+type TripType = "one_way" | "round_trip";
+
 type CreateTrackedFlightBody = {
   origin?: string;
   destination?: string;
@@ -11,11 +13,13 @@ type CreateTrackedFlightBody = {
   visa_exclusion?: boolean;
   night_only?: boolean;
   flex_days?: number;
+  trip_type?: TripType;
+  trip_length_days?: number;
   target_price?: number;
 };
 
 const SELECT_FIELDS =
-  "id,origin,destination,baggage_type,max_stops,visa_exclusion,night_only,flex_days,target_price,is_active,created_at";
+  "id,origin,destination,baggage_type,max_stops,visa_exclusion,night_only,flex_days,trip_type,trip_length_days,target_price,is_active,created_at";
 
 export async function POST(request: Request) {
   try {
@@ -52,6 +56,8 @@ export async function POST(request: Request) {
           visa_exclusion: Boolean(body.visa_exclusion),
           night_only: Boolean(body.night_only),
           flex_days: clampFlexDays(body.flex_days),
+          trip_type: body.trip_type === "round_trip" ? "round_trip" : "one_way",
+          trip_length_days: clampTripLength(body.trip_length_days),
           target_price: targetPrice,
           is_active: true,
         },
@@ -111,6 +117,12 @@ export async function PATCH(request: Request) {
     if (typeof body.visa_exclusion === "boolean") updates.visa_exclusion = body.visa_exclusion;
     if (typeof body.night_only === "boolean") updates.night_only = body.night_only;
     if (typeof body.flex_days === "number") updates.flex_days = clampFlexDays(body.flex_days);
+    if (body.trip_type === "one_way" || body.trip_type === "round_trip") {
+      updates.trip_type = body.trip_type;
+    }
+    if (typeof body.trip_length_days === "number") {
+      updates.trip_length_days = clampTripLength(body.trip_length_days);
+    }
     if (typeof body.origin === "string") updates.origin = body.origin.trim().toUpperCase();
     if (typeof body.destination === "string") {
       updates.destination = body.destination.trim().toUpperCase();
@@ -181,4 +193,10 @@ function clampFlexDays(value: unknown): number {
   const n = Number(value);
   if (!Number.isFinite(n)) return 0;
   return Math.max(0, Math.min(3, Math.round(n)));
+}
+
+function clampTripLength(value: unknown): number {
+  const n = Number(value);
+  if (!Number.isFinite(n)) return 7;
+  return Math.max(1, Math.min(60, Math.round(n)));
 }
