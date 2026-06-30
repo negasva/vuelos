@@ -1,9 +1,12 @@
 import { NextResponse } from "next/server";
+import { getOrCreateGuestUser, supabaseRest } from "@/lib/supabase-rest";
+
+type BaggageType = "any" | "morral" | "mano_10kg" | "bodega_23kg";
 
 type CreateTrackedFlightBody = {
   origin?: string;
   destination?: string;
-  baggage_type?: "any" | "morral" | "mano_10kg" | "bodega_23kg";
+  baggage_type?: BaggageType;
   max_stops?: number;
   visa_exclusion?: boolean;
   night_only?: boolean;
@@ -11,50 +14,8 @@ type CreateTrackedFlightBody = {
   target_price?: number;
 };
 
-async function getSupabaseUrlAndKey() {
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
-  if (!url || !key) throw new Error("Missing Supabase configuration");
-  return { url, key };
-}
-
-async function getOrCreateGuestUser(url: string, key: string) {
-  const guestEmail = "guest@flighttracker.local";
-  const lookup = await fetch(`${url}/rest/v1/users?email=eq.${encodeURIComponent(guestEmail)}&select=id,email`, {
-    headers: {
-      apikey: key,
-      Authorization: `Bearer ${key}`,
-      Accept: "application/json",
-    },
-    cache: "no-store",
-  });
-
-  if (!lookup.ok) {
-    throw new Error(`Supabase user lookup failed ${lookup.status}`);
-  }
-
-  const users = (await lookup.json()) as Array<{ id: string }>;
-  if (users.length > 0) return users[0].id;
-
-  const create = await fetch(`${url}/rest/v1/users`, {
-    method: "POST",
-    headers: {
-      apikey: key,
-      Authorization: `Bearer ${key}`,
-      "Content-Type": "application/json",
-      Prefer: "return=representation",
-    },
-    body: JSON.stringify([{ email: guestEmail }]),
-  });
-
-  if (!create.ok) {
-    throw new Error(`Supabase user create failed ${create.status}`);
-  }
-
-  const created = (await create.json()) as Array<{ id: string }>;
-  if (!created[0]?.id) throw new Error("Could not create guest user");
-  return created[0].id;
-}
+const SELECT_FIELDS =
+  "id,origin,destination,baggage_type,max_stops,visa_exclusion,night_only,flex_days,target_price,is_active,created_at";
 
 export async function POST(request: Request) {
   try {
@@ -65,22 +26,22 @@ export async function POST(request: Request) {
 
     if (!origin || !destination || !Number.isFinite(targetPrice) || targetPrice <= 0) {
       return NextResponse.json(
-        { ok: false, error: "Invalid flight alert payload" },
-        { status: 400 },
+        { ok: false, error: "Datos de alerta inválidos" },
+        { status: 400 }
+      );
+    }
+    if (origin === destination) {
+      return NextResponse.json(
+        { ok: false, error: "El origen y el destino no pueden ser iguales" },
+        { status: 400 }
       );
     }
 
-    const { url, key } = await getSupabaseUrlAndKey();
-    const userId = await getOrCreateGuestUser(url, key);
+    const userId = await getOrCreateGuestUser();
 
-    const response = await fetch(`${url}/rest/v1/tracked_flights`, {
+    const response = await supabaseRest("tracked_flights", {
       method: "POST",
-      headers: {
-        apikey: key,
-        Authorization: `Bearer ${key}`,
-        "Content-Type": "application/json",
-        Prefer: "return=representation",
-      },
+      headers: { "Content-Type": "application/json", Prefer: "return=representation" },
       body: JSON.stringify([
         {
           user_id: userId,
@@ -90,7 +51,7 @@ export async function POST(request: Request) {
           max_stops: Number.isFinite(body.max_stops as number) ? Number(body.max_stops) : 0,
           visa_exclusion: Boolean(body.visa_exclusion),
           night_only: Boolean(body.night_only),
-          flex_days: Number.isFinite(body.flex_days as number) ? Number(body.flex_days) : 0,
+          flex_days: clampFlexDays(body.flex_days),
           target_price: targetPrice,
           is_active: true,
         },
@@ -112,17 +73,9 @@ export async function POST(request: Request) {
 
 export async function GET() {
   try {
-    const { url, key } = await getSupabaseUrlAndKey();
-    const response = await fetch(
-      `${url}/rest/v1/tracked_flights?select=id,origin,destination,baggage_type,max_stops,visa_exclusion,night_only,flex_days,target_price,is_active,created_at&order=created_at.desc`,
-      {
-        headers: {
-          apikey: key,
-          Authorization: `Bearer ${key}`,
-          Accept: "application/json",
-        },
-        cache: "no-store",
-      }
+    const userId = await getOrCreateGuestUser();
+    const response = await supabaseRest(
+      `tracked_flights?user_id=eq.${userId}&select=${SELECT_FIELDS}&order=created_at.desc`
     );
 
     if (!response.ok) {
@@ -140,26 +93,52 @@ export async function GET() {
 
 export async function PATCH(request: Request) {
   try {
-    const body = (await request.json()) as { id?: string; target_price?: number; is_active?: boolean };
+    const body = (await request.json()) as Partial<CreateTrackedFlightBody> & {
+      id?: string;
+      is_active?: boolean;
+    };
     if (!body.id) {
       return NextResponse.json({ ok: false, error: "Missing id" }, { status: 400 });
     }
 
-    const { url, key } = await getSupabaseUrlAndKey();
     const updates: Record<string, unknown> = {};
-    if (typeof body.target_price === "number") updates.target_price = body.target_price;
+    if (typeof body.target_price === "number" && body.target_price > 0) {
+      updates.target_price = body.target_price;
+    }
     if (typeof body.is_active === "boolean") updates.is_active = body.is_active;
+    if (typeof body.baggage_type === "string") updates.baggage_type = body.baggage_type;
+    if (typeof body.max_stops === "number") updates.max_stops = body.max_stops;
+    if (typeof body.visa_exclusion === "boolean") updates.visa_exclusion = body.visa_exclusion;
+    if (typeof body.night_only === "boolean") updates.night_only = body.night_only;
+    if (typeof body.flex_days === "number") updates.flex_days = clampFlexDays(body.flex_days);
+    if (typeof body.origin === "string") updates.origin = body.origin.trim().toUpperCase();
+    if (typeof body.destination === "string") {
+      updates.destination = body.destination.trim().toUpperCase();
+    }
 
-    const response = await fetch(`${url}/rest/v1/tracked_flights?id=eq.${encodeURIComponent(body.id)}`, {
-      method: "PATCH",
-      headers: {
-        apikey: key,
-        Authorization: `Bearer ${key}`,
-        "Content-Type": "application/json",
-        Prefer: "return=representation",
-      },
-      body: JSON.stringify(updates),
-    });
+    if (
+      typeof updates.origin === "string" &&
+      typeof updates.destination === "string" &&
+      updates.origin === updates.destination
+    ) {
+      return NextResponse.json(
+        { ok: false, error: "El origen y el destino no pueden ser iguales" },
+        { status: 400 }
+      );
+    }
+
+    if (Object.keys(updates).length === 0) {
+      return NextResponse.json({ ok: false, error: "Nada que actualizar" }, { status: 400 });
+    }
+
+    const response = await supabaseRest(
+      `tracked_flights?id=eq.${encodeURIComponent(body.id)}&select=${SELECT_FIELDS}`,
+      {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json", Prefer: "return=representation" },
+        body: JSON.stringify(updates),
+      }
+    );
 
     if (!response.ok) {
       const details = await response.text().catch(() => "");
@@ -176,20 +155,14 @@ export async function PATCH(request: Request) {
 
 export async function DELETE(request: Request) {
   try {
-    const urlObj = new URL(request.url);
-    const id = urlObj.searchParams.get("id");
+    const id = new URL(request.url).searchParams.get("id");
     if (!id) {
       return NextResponse.json({ ok: false, error: "Missing id" }, { status: 400 });
     }
 
-    const { url, key } = await getSupabaseUrlAndKey();
-    const response = await fetch(`${url}/rest/v1/tracked_flights?id=eq.${encodeURIComponent(id)}`, {
+    const response = await supabaseRest(`tracked_flights?id=eq.${encodeURIComponent(id)}`, {
       method: "DELETE",
-      headers: {
-        apikey: key,
-        Authorization: `Bearer ${key}`,
-        Prefer: "return=representation",
-      },
+      headers: { Prefer: "return=representation" },
     });
 
     if (!response.ok) {
@@ -202,4 +175,10 @@ export async function DELETE(request: Request) {
     const message = error instanceof Error ? error.message : "Unknown error";
     return NextResponse.json({ ok: false, error: message }, { status: 500 });
   }
+}
+
+function clampFlexDays(value: unknown): number {
+  const n = Number(value);
+  if (!Number.isFinite(n)) return 0;
+  return Math.max(0, Math.min(3, Math.round(n)));
 }
