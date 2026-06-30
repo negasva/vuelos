@@ -15,6 +15,7 @@ Optional:
 import json
 import os
 import sys
+from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timedelta, timezone
 
 import requests
@@ -259,14 +260,27 @@ def search_best_quote(origin, destination, max_stops, trip_type, base_depart, ba
     today = datetime.now().date()
     best = None
     last_error = None
+
+    anchors = []
     for offset in range(-flex_days, flex_days + 1):
         depart_dt = base_depart + timedelta(days=offset)
         if depart_dt.date() < today:
             continue  # never search dates in the past
         return_dt = (base_return + timedelta(days=offset)) if base_return else None
-        try:
-            quote = search_quote(origin, destination, max_stops, trip_type, depart_dt, return_dt)
-        except Exception as error:
+        anchors.append((depart_dt, return_dt))
+
+    if not anchors:
+        return None
+
+    def run(anchor):
+        depart_dt, return_dt = anchor
+        return search_quote(origin, destination, max_stops, trip_type, depart_dt, return_dt)
+
+    with ThreadPoolExecutor(max_workers=len(anchors)) as pool:
+        results = pool.map(lambda a: _safe(run, a), anchors)
+
+    for quote, error in results:
+        if error is not None:
             last_error = error
             continue
         if quote and (best is None or quote["price"] < best["price"]):
@@ -274,6 +288,15 @@ def search_best_quote(origin, destination, max_stops, trip_type, base_depart, ba
     if best is None and last_error is not None:
         raise last_error
     return best
+
+
+def _safe(fn, arg):
+    """Run fn(arg), returning (result, None) or (None, error). Lets parallel
+    searches collect failures without aborting the whole batch."""
+    try:
+        return fn(arg), None
+    except Exception as error:
+        return None, error
 
 
 def search_cheapest_any_date(origin, destination, max_stops, trip_type, trip_length_days, flex_days):
@@ -286,18 +309,28 @@ def search_cheapest_any_date(origin, destination, max_stops, trip_type, trip_len
     monthly_best_return = None
     last_error = None
 
+    # Build one (depart, return) anchor per month, then search them in
+    # parallel — sequential fli calls would blow the cron's time budget.
+    anchors = []
     for sample in range(SEARCH_WINDOW_MONTHS):
         base_depart = today + timedelta(days=14 + sample * SEARCH_SAMPLE_DAYS)
         base_return = (base_depart + timedelta(days=trip_length_days)) if trip_type == "round_trip" else None
-        try:
-            quote = search_quote(origin, destination, max_stops, trip_type, base_depart, base_return)
-        except Exception as error:
+        anchors.append((base_depart, base_return))
+
+    def run(anchor):
+        depart_dt, return_dt = anchor
+        return search_quote(origin, destination, max_stops, trip_type, depart_dt, return_dt)
+
+    with ThreadPoolExecutor(max_workers=SEARCH_WINDOW_MONTHS) as pool:
+        results = list(pool.map(lambda a: _safe(run, a), anchors))
+
+    for anchor, (quote, error) in zip(anchors, results):
+        if error is not None:
             last_error = error
             continue
         if quote and (monthly_best is None or quote["price"] < monthly_best["price"]):
             monthly_best = quote
-            monthly_best_depart = base_depart
-            monthly_best_return = base_return
+            monthly_best_depart, monthly_best_return = anchor
 
     if monthly_best is None:
         if last_error is not None:
