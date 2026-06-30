@@ -27,6 +27,8 @@ type TrackedFlight = {
   flex_days: number;
   trip_type: "one_way" | "round_trip";
   trip_length_days: number;
+  depart_date: string | null;
+  return_date: string | null;
   target_price: number;
   is_active: boolean;
   created_at?: string;
@@ -67,6 +69,16 @@ function tripLabel(tripType: string, lengthDays: number): string {
   return tripType === "round_trip" ? `Ida y vuelta · ${lengthDays} día(s)` : "Solo ida";
 }
 
+function datesLabel(
+  departDate: string | null,
+  returnDate: string | null,
+  tripType: string
+): string | null {
+  if (!departDate) return null;
+  if (tripType === "round_trip" && returnDate) return `${departDate} → ${returnDate}`;
+  return departDate;
+}
+
 export function HomeDashboard() {
   return (
     <ToastProvider>
@@ -87,6 +99,8 @@ function Dashboard() {
   const [flexDays, setFlexDays] = useState(0);
   const [tripType, setTripType] = useState<"one_way" | "round_trip">("round_trip");
   const [tripLengthDays, setTripLengthDays] = useState(7);
+  const [departDate, setDepartDate] = useState("");
+  const [returnDate, setReturnDate] = useState("");
   const [visaExclusion, setVisaExclusion] = useState(false);
   const [nightOnly, setNightOnly] = useState(false);
   const [submitting, setSubmitting] = useState(false);
@@ -116,8 +130,12 @@ function Dashboard() {
         ? "El destino no puede ser igual al origen"
         : "",
     target: targetNumber <= 0 ? "Ingresa un precio objetivo mayor a 0" : "",
+    dates:
+      tripType === "round_trip" && departDate && returnDate && returnDate < departDate
+        ? "El regreso no puede ser antes de la salida"
+        : "",
   };
-  const isValid = !errors.origin && !errors.destination && !errors.target;
+  const isValid = !errors.origin && !errors.destination && !errors.target && !errors.dates;
 
   const loadAlerts = useCallback(async () => {
     try {
@@ -242,6 +260,8 @@ function Dashboard() {
           flex_days: flexDays,
           trip_type: tripType,
           trip_length_days: tripLengthDays,
+          depart_date: departDate || null,
+          return_date: tripType === "round_trip" ? returnDate || null : null,
           target_price: targetNumber,
         }),
       });
@@ -457,7 +477,7 @@ function Dashboard() {
             </div>
             {tripType === "round_trip" ? (
               <div className="field">
-                <label htmlFor="trip-length">Duración del viaje (días)</label>
+                <label htmlFor="trip-length">Duración (días, si no eliges regreso)</label>
                 <input
                   id="trip-length"
                   type="number"
@@ -475,6 +495,34 @@ function Dashboard() {
               <div className="field" aria-hidden="true" />
             )}
           </div>
+
+          <div className="form-grid">
+            <div className="field">
+              <label htmlFor="depart-date">Fecha de salida (opcional)</label>
+              <input
+                id="depart-date"
+                type="date"
+                value={departDate}
+                onChange={(event) => setDepartDate(event.target.value)}
+              />
+            </div>
+            {tripType === "round_trip" ? (
+              <div className="field">
+                <label htmlFor="return-date">Fecha de regreso (opcional)</label>
+                <input
+                  id="return-date"
+                  type="date"
+                  className={touched && errors.dates ? "is-invalid" : ""}
+                  value={returnDate}
+                  min={departDate || undefined}
+                  onChange={(event) => setReturnDate(event.target.value)}
+                />
+              </div>
+            ) : (
+              <div className="field" aria-hidden="true" />
+            )}
+          </div>
+          {touched && errors.dates ? <p className="field-error">{errors.dates}</p> : null}
 
           <div className="toggles">
             <TogglePill
@@ -499,6 +547,12 @@ function Dashboard() {
               Ruta: <strong>{airportName(origin)}</strong> → <strong>{airportName(destination)}</strong>
             </span>
             <span>Viaje: {tripLabel(tripType, tripLengthDays)}</span>
+            <span>
+              Fechas:{" "}
+              {datesLabel(departDate || null, returnDate || null, tripType) ??
+                "automáticas (~30 días)"}
+              {flexDays > 0 ? ` · ±${flexDays} día(s)` : ""}
+            </span>
             <span>Equipaje: {baggageLabel(baggageType)}</span>
             <span>Escalas: {maxStopsLabel(maxStops)}</span>
             <span>Objetivo: {formatCOP(targetNumber)}</span>
@@ -587,6 +641,11 @@ function Dashboard() {
                   <span className="alert-target">Meta: {formatCOP(alert.target_price)}</span>
                   <div className="chip-row">
                     <span className="chip">{tripLabel(alert.trip_type, alert.trip_length_days)}</span>
+                    {datesLabel(alert.depart_date, alert.return_date, alert.trip_type) ? (
+                      <span className="chip">
+                        {datesLabel(alert.depart_date, alert.return_date, alert.trip_type)}
+                      </span>
+                    ) : null}
                     <span className="chip">{baggageLabel(alert.baggage_type)}</span>
                     <span className="chip">{maxStopsLabel(alert.max_stops)}</span>
                     {alert.flex_days > 0 ? (
@@ -798,6 +857,8 @@ function EditAlertModal({
   const [flexDays, setFlexDays] = useState(alert.flex_days);
   const [tripType, setTripType] = useState<"one_way" | "round_trip">(alert.trip_type);
   const [tripLengthDays, setTripLengthDays] = useState(alert.trip_length_days);
+  const [departDate, setDepartDate] = useState(alert.depart_date ?? "");
+  const [returnDate, setReturnDate] = useState(alert.return_date ?? "");
   const [visaExclusion, setVisaExclusion] = useState(alert.visa_exclusion);
   const [nightOnly, setNightOnly] = useState(alert.night_only);
 
@@ -810,7 +871,13 @@ function EditAlertModal({
   }, [onCancel]);
 
   const targetNumber = Number(onlyDigits(target));
-  const valid = origin !== destination && targetNumber > 0;
+  const datesValid = !(
+    tripType === "round_trip" &&
+    departDate &&
+    returnDate &&
+    returnDate < departDate
+  );
+  const valid = origin !== destination && targetNumber > 0 && datesValid;
 
   return (
     <div className="modal-backdrop" onMouseDown={onCancel}>
@@ -916,6 +983,31 @@ function EditAlertModal({
             <div className="field" aria-hidden="true" />
           )}
         </div>
+        <div className="form-grid">
+          <div className="field">
+            <label htmlFor="edit-depart-date">Fecha de salida (opcional)</label>
+            <input
+              id="edit-depart-date"
+              type="date"
+              value={departDate}
+              onChange={(event) => setDepartDate(event.target.value)}
+            />
+          </div>
+          {tripType === "round_trip" ? (
+            <div className="field">
+              <label htmlFor="edit-return-date">Fecha de regreso (opcional)</label>
+              <input
+                id="edit-return-date"
+                type="date"
+                value={returnDate}
+                min={departDate || undefined}
+                onChange={(event) => setReturnDate(event.target.value)}
+              />
+            </div>
+          ) : (
+            <div className="field" aria-hidden="true" />
+          )}
+        </div>
         <div className="toggles">
           <TogglePill
             label="Excluir visa"
@@ -952,6 +1044,8 @@ function EditAlertModal({
                 flex_days: flexDays,
                 trip_type: tripType,
                 trip_length_days: tripLengthDays,
+                depart_date: departDate || null,
+                return_date: tripType === "round_trip" ? returnDate || null : null,
                 visa_exclusion: visaExclusion,
                 night_only: nightOnly,
               })
@@ -1012,6 +1106,7 @@ function ConfirmDialog({
 
 function TelegramSettings({ notify }: { notify: (message: string, type?: "success" | "error" | "info") => void }) {
   const [chatId, setChatId] = useState("");
+  const [email, setEmail] = useState("");
   const [loaded, setLoaded] = useState(false);
   const [saving, setSaving] = useState(false);
 
@@ -1020,9 +1115,14 @@ function TelegramSettings({ notify }: { notify: (message: string, type?: "succes
     async function load() {
       try {
         const response = await fetch("/api/settings");
-        const payload = (await response.json()) as { ok?: boolean; telegram_chat_id?: string | null };
+        const payload = (await response.json()) as {
+          ok?: boolean;
+          telegram_chat_id?: string | null;
+          notify_email?: string | null;
+        };
         if (!cancelled && response.ok && payload.ok) {
           setChatId(payload.telegram_chat_id ?? "");
+          setEmail(payload.notify_email ?? "");
         }
       } catch {
         /* ignore */
@@ -1037,16 +1137,20 @@ function TelegramSettings({ notify }: { notify: (message: string, type?: "succes
   }, []);
 
   async function save() {
+    if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      notify("El correo no parece válido.", "error");
+      return;
+    }
     setSaving(true);
     try {
       const response = await fetch("/api/settings", {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ telegram_chat_id: chatId }),
+        body: JSON.stringify({ telegram_chat_id: chatId, notify_email: email }),
       });
       const payload = (await response.json()) as { ok?: boolean; error?: string };
       if (!response.ok || !payload.ok) throw new Error(payload.error || "No se pudo guardar");
-      notify("Chat de Telegram guardado.", "success");
+      notify("Notificaciones guardadas.", "success");
     } catch (error) {
       notify(error instanceof Error ? error.message : "No se pudo guardar", "error");
     } finally {
@@ -1057,19 +1161,26 @@ function TelegramSettings({ notify }: { notify: (message: string, type?: "succes
   return (
     <section className="settings-bar">
       <div className="settings-text">
-        <strong>Notificaciones de Telegram</strong>
+        <strong>Notificaciones</strong>
         <span>
-          Pega tu chat ID (escribe a <code>@userinfobot</code> en Telegram) para recibir las
-          alertas. Si lo dejas vacío se usa el chat por defecto del bot.
+          Telegram: tu chat ID (escribe a <code>@userinfobot</code>). Correo: dónde recibir las
+          alertas. Puedes usar uno o ambos; deja vacío lo que no quieras.
         </span>
       </div>
       <div className="settings-input">
         <input
           value={chatId}
           onChange={(event) => setChatId(event.target.value)}
-          placeholder={loaded ? "Ej. 123456789" : "Cargando…"}
+          placeholder={loaded ? "Telegram chat ID" : "Cargando…"}
           inputMode="numeric"
           aria-label="Telegram chat ID"
+        />
+        <input
+          value={email}
+          onChange={(event) => setEmail(event.target.value)}
+          placeholder="tucorreo@ejemplo.com"
+          type="email"
+          aria-label="Correo para alertas"
         />
         <button type="button" className="primary-btn" onClick={save} disabled={saving}>
           {saving ? "Guardando…" : "Guardar"}

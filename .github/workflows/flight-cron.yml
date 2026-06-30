@@ -33,4 +33,7 @@ jobs:
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_DEFAULT_CHAT_ID: ${{ vars.TELEGRAM_DEFAULT_CHAT_ID || secrets.TELEGRAM_DEFAULT_CHAT_ID }}
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          RESEND_FROM: ${{ vars.RESEND_FROM || secrets.RESEND_FROM }}
+          ALERT_EMAIL_TO: ${{ vars.ALERT_EMAIL_TO || secrets.ALERT_EMAIL_TO }}
         run: python scripts/track_prices.py

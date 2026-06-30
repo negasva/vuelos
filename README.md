@@ -40,24 +40,31 @@ Actions**:
 
 - `NEXT_PUBLIC_SUPABASE_URL` (variable or secret)
 - `SUPABASE_SERVICE_ROLE_KEY` (secret)
-- `TELEGRAM_BOT_TOKEN` (secret)
+- `TELEGRAM_BOT_TOKEN` (secret) — for Telegram alerts
 - `TELEGRAM_DEFAULT_CHAT_ID` (optional; fallback chat for testing)
+- `RESEND_API_KEY` (secret) — for email alerts via [Resend](https://resend.com)
+- `RESEND_FROM` (optional; default `FlightTracker <onboarding@resend.dev>`)
+- `ALERT_EMAIL_TO` (optional; fallback recipient when a user has no `notify_email`)
 
-Alerts are sent per tracked flight to the user's `telegram_chat_id` (or
-`TELEGRAM_DEFAULT_CHAT_ID` as fallback) when the current price is at or below
-the target price, drops 20%+ versus the previous check, or looks like an error
-fare. Each run prints a `SUMMARY: {...}` line in the Action log showing how many
-flights were searched, how many alerts were triggered/sent, and the first error
-if any.
+Alerts are sent per tracked flight — to the user's `telegram_chat_id` and/or
+`notify_email` (set in the app's Notifications panel), with
+`TELEGRAM_DEFAULT_CHAT_ID` / `ALERT_EMAIL_TO` as fallbacks — when the price is at
+or below the target, drops 20%+ versus the previous check, or looks like an error
+fare. Each run prints a `SUMMARY: {...}` line in the Action log (flights searched,
+alerts triggered, telegram/email sent, first error).
 
 Notes / limitations:
 - `fli` queries Google Flights' internal API and can be rate-limited from
   datacenter IPs; runs are best-effort with built-in retries.
-- The app stores no specific travel date, so the cron watches a rolling
-  departure ~30 days out (`SEARCH_LEAD_DAYS`). Round-trip alerts use a return
-  date of departure + `trip_length_days` (set per alert in the UI).
+- Travel dates: each alert can set an exact `depart_date` / `return_date`;
+  when omitted, the cron uses a rolling departure ~30 days out
+  (`SEARCH_LEAD_DAYS`) and, for round trips, departure + `trip_length_days`.
+  `flex_days` (0–3) searches a ±N-day window and keeps the cheapest (more
+  searches per route).
 - Baggage / visa / night-only filters are not yet applied in the `fli` path
   (only stops + economy cabin); they remain stored on each alert.
+- Resend's free tier sends from `onboarding@resend.dev` to your own account
+  email; to send to any address, verify a domain and set `RESEND_FROM`.
 
 The Next.js app (dashboard + `/api/tracked-flights`, `/api/price-history`,
 `/api/settings`) still needs `NEXT_PUBLIC_SUPABASE_URL` and
