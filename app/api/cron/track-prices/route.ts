@@ -6,6 +6,10 @@ import type { TrackedFlight } from "@/lib/apify";
 type CronResult = {
   ok: boolean;
   groupsProcessed?: number;
+  apifyResults?: number;
+  apifyErrors?: number;
+  sampleError?: string | null;
+  telegramConfigured?: boolean;
   alertsTriggered?: number;
   alertsSent?: number;
   error?: string;
@@ -167,7 +171,10 @@ export async function GET(request: Request): Promise<NextResponse<CronResult>> {
   try {
     const activeFlights = await getSupabaseFlights();
     const priceStats = await getRecentPriceStats(activeFlights.map((flight) => flight.id));
-    const { historyRows, alerts } = await runTrackedFlights(activeFlights, priceStats);
+    const { historyRows, alerts, diagnostics } = await runTrackedFlights(
+      activeFlights,
+      priceStats
+    );
 
     await insertPriceHistory(historyRows);
     const alertsSent = await dispatchAlerts(alerts);
@@ -175,6 +182,10 @@ export async function GET(request: Request): Promise<NextResponse<CronResult>> {
     return NextResponse.json({
       ok: true,
       groupsProcessed: activeFlights.length,
+      apifyResults: diagnostics.totalResults,
+      apifyErrors: diagnostics.groupErrors,
+      sampleError: diagnostics.sampleError,
+      telegramConfigured: Boolean(process.env.TELEGRAM_BOT_TOKEN),
       alertsTriggered: alerts.length,
       alertsSent,
     });
