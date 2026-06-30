@@ -337,7 +337,7 @@ function Dashboard() {
       <Header />
 
       {/* ============ HERO ============ */}
-      <HeroSection activeCount={activeCount} />
+      <HeroSection activeCount={activeCount} history={history} />
 
       {/* ============ MAIN GRID ============ */}
       <main
@@ -613,7 +613,13 @@ function Header() {
   );
 }
 
-function HeroSection({ activeCount }: { activeCount: number }) {
+function HeroSection({
+  activeCount,
+  history,
+}: {
+  activeCount: number;
+  history: HistoryPoint[];
+}) {
   return (
     <section
       style={{
