@@ -77,12 +77,16 @@ export async function runTrackedFlights(
   const historyRows: Array<ReturnType<typeof mapFlightToHistoryRow>> = [];
   const alerts: FlightAlert[] = [];
 
+  let totalResults = 0;
+  const errors: string[] = [];
+
   for (const group of groups) {
     const seed = group.flights[0];
 
     try {
       const input = buildApifyInputForTrackedFlight(seed);
       const results = await fetchApifyFlights(input);
+      totalResults += results.length;
 
       for (const tracked of group.flights) {
         const valid = results.filter((flight) => passesFlightFilters(flight, tracked));
@@ -119,10 +123,19 @@ export async function runTrackedFlights(
         }
       }
     } catch (error) {
+      const message = error instanceof Error ? error.message : "Unknown Apify error";
+      errors.push(`${group.key}: ${message}`);
       console.error("[flight-tracker] Apify fetch failed", { groupKey: group.key, error });
     }
   }
 
-  return { historyRows, alerts };
+  const diagnostics = {
+    groups: groups.length,
+    totalResults,
+    groupErrors: errors.length,
+    sampleError: errors[0] ?? null,
+  };
+
+  return { historyRows, alerts, diagnostics };
 }
 
