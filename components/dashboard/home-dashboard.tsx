@@ -420,7 +420,7 @@ function Dashboard() {
       {confirmingDelete && (
         <ConfirmDialog
           title="Borrar alerta"
-          message={`Â¿Seguro que quieres borrar ${confirmingDelete.origin} â†’ ${confirmingDelete.destination}?`}
+          message={`¿Seguro que quieres borrar ${confirmingDelete.origin} → ${confirmingDelete.destination}?`}
           confirmLabel="Borrar"
           onCancel={() => setConfirmingDelete(null)}
           onConfirm={confirmDelete}
@@ -477,7 +477,7 @@ function Header() {
             fontFamily: "'Google Sans', system-ui, sans-serif",
           }}
         >
-          Pista<span style={{ color: "var(--primary)" }}>Â·</span>
+          Pista<span style={{ color: "var(--primary)" }}>·</span>
           <span style={{ color: "#c4c7c5", fontWeight: 400 }}>vuelos</span>
         </div>
       </div>
@@ -652,7 +652,7 @@ function HeroSection({
           <span className="ms" style={{ fontSize: "14px" }}>
             bolt
           </span>
-          DetecciÃ³n de tarifas error Â· 6Ã—/dÃ­a
+          Detección de tarifas error · 6×/día
         </div>
         <h1
           style={{
@@ -787,11 +787,11 @@ function HeroSection({
           <g style={{ fontFamily: "'Google Sans', system-ui", fontSize: "11", fontWeight: "500" }}>
             <rect x="100" y="142" width="76" height="22" rx="11" fill="#26282b" stroke="#3c4043" />
             <text x="138" y="157" textAnchor="middle" fill="#e3e3e3">
-              MDE Â· MedellÃ­n
+              MDE · Medellín
             </text>
             <rect x="346" y="248" width="72" height="22" rx="11" fill="#26282b" stroke="#3c4043" />
             <text x="382" y="263" textAnchor="middle" fill="#e3e3e3">
-              BCN Â· EspaÃ±a
+              BCN · España
             </text>
           </g>
           <g transform="translate(255,130) rotate(35)">
@@ -835,7 +835,7 @@ function HeroSection({
             <span style={{ fontSize: "13px", color: "#9aa0a6", fontWeight: 400 }}>COP</span>
           </div>
           <div style={{ fontSize: "12px", color: "#9aa0a6", marginTop: "2px" }}>
-            MDE â†’ BCN Â· Oct 14â€“28 Â· 1 escala
+            MDE → BCN · Oct 14–28 · 1 escala
           </div>
           <svg
             className="spark"
@@ -1084,7 +1084,7 @@ function CreateAlertForm({
           <select value={flexDays} onChange={(e) => setFlexDays(Number(e.target.value))} style={{ marginTop: "2px", fontSize: "14px", fontWeight: 500 }}>
             {FLEX_OPTIONS.map((v) => (
               <option key={v} value={v}>
-                {v === 0 ? "Exacta" : `Â± ${v} dÃ­a${v > 1 ? "s" : ""}`}
+                {v === 0 ? "Exacta" : `± ${v} día${v > 1 ? "s" : ""}`}
               </option>
             ))}
           </select>
@@ -1215,10 +1215,10 @@ function CreateAlertForm({
               >
                 Paso 02
               </div>
-              <span style={{ color: "#5f6368" }}>Â·</span>
+              <span style={{ color: "#5f6368" }}>·</span>
               <span style={{ fontSize: "13px", color: "#c4c7c5" }}>Precio objetivo</span>
             </div>
-            <span style={{ fontSize: "12px", color: "#9aa0a6" }}>Promedio Ãºltimos 30d: $ 2.450.000</span>
+            <span style={{ fontSize: "12px", color: "#9aa0a6" }}>Promedio últimos 30d: $ 2.450.000</span>
           </div>
           <label
             className="ring"
@@ -1300,7 +1300,7 @@ function ActiveAlertsList({
             Alertas activas
           </h2>
           <div style={{ fontSize: "13px", color: "#9aa0a6", marginTop: "2px" }}>
-            {alerts.length} vigilando Â· Ãºltima revisiÃ³n hace 38 min
+            {alerts.length} vigilando · última revisión hace 38 min
           </div>
         </div>
         <div style={{ display: "flex", gap: "6px" }}>
@@ -1313,7 +1313,7 @@ function ActiveAlertsList({
               fontSize: "12px",
             }}
           >
-            Activas Â· {alerts.filter((a: any) => a.is_active).length}
+            Activas · {alerts.filter((a: any) => a.is_active).length}
           </button>
           <button
             className="seg chip-hov"
@@ -1326,7 +1326,7 @@ function ActiveAlertsList({
               fontSize: "12px",
             }}
           >
-            Pausadas Â· {alerts.filter((a: any) => !a.is_active).length}
+            Pausadas · {alerts.filter((a: any) => !a.is_active).length}
           </button>
         </div>
       </div>
@@ -1625,7 +1625,7 @@ function Sidebar({
             <div style={{ fontSize: "15px", fontWeight: 500, fontFamily: "'Google Sans', system-ui, sans-serif" }}>
               Notificaciones
             </div>
-            <div style={{ fontSize: "12px", color: "#9aa0a6" }}>Â¿DÃ³nde te avisamos?</div>
+            <div style={{ fontSize: "12px", color: "#9aa0a6" }}>¿Dónde te avisamos?</div>
           </div>
         </div>
 
@@ -1740,9 +1740,9 @@ function Sidebar({
             </div>
             <div>
               <div style={{ fontSize: "13px", color: "#f1f1f1", lineHeight: 1.4 }}>
-                <b>MDE â†’ BCN</b> bajó a <span style={{ color: "#7ee2a8", fontFamily: "'Roboto Mono', monospace" }}>{latestHistory ? formatCOP(latestHistory.price) : "$0"}</span>
+                <b>MDE → BCN</b> bajó a <span style={{ color: "#7ee2a8", fontFamily: "'Roboto Mono', monospace" }}>{latestHistory ? formatCOP(latestHistory.price) : "$0"}</span>
               </div>
-              <div style={{ fontSize: "11px", color: "#9aa0a6", marginTop: "2px" }}>Hace 2 min Â· enviado a Telegram</div>
+              <div style={{ fontSize: "11px", color: "#9aa0a6", marginTop: "2px" }}>Hace 2 min · enviado a Telegram</div>
             </div>
           </li>
         </ul>
