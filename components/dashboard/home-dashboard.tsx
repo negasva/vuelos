@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useCallback, useEffect, useMemo, useState } from "react";
 import airportsCatalog from "@/data/europe-latam-airports.json";
@@ -159,7 +159,7 @@ function Dashboard() {
       if (cached.length > 0) setAlerts(cached);
       setAlertLoadError(
         error instanceof Error
-          ? `No se pudo leer Supabase (${error.message}). Mostrando caché local si existe.`
+          ? `No se pudo leer Supabase (${error.message}). Mostrando cachÃ© local si existe.`
           : "No se pudo leer Supabase."
       );
     } finally {
@@ -420,7 +420,7 @@ function Dashboard() {
       {confirmingDelete && (
         <ConfirmDialog
           title="Borrar alerta"
-          message={`¿Seguro que quieres borrar ${confirmingDelete.origin} → ${confirmingDelete.destination}?`}
+          message={`Â¿Seguro que quieres borrar ${confirmingDelete.origin} â†’ ${confirmingDelete.destination}?`}
           confirmLabel="Borrar"
           onCancel={() => setConfirmingDelete(null)}
           onConfirm={confirmDelete}
@@ -445,7 +445,7 @@ function Header() {
     >
       <button
         className="hov"
-        aria-label="Menú"
+        aria-label="MenÃº"
         style={{ width: "48px", height: "48px", borderRadius: "50%" }}
       >
         <span className="ms" style={{ fontSize: "24px", color: "#c4c7c5" }}>
@@ -477,7 +477,7 @@ function Header() {
             fontFamily: "'Google Sans', system-ui, sans-serif",
           }}
         >
-          Pista<span style={{ color: "var(--primary)" }}>·</span>
+          Pista<span style={{ color: "var(--primary)" }}>Â·</span>
           <span style={{ color: "#c4c7c5", fontWeight: 400 }}>vuelos</span>
         </div>
       </div>
@@ -646,7 +646,7 @@ function HeroSection({ activeCount }: { activeCount: number }) {
           <span className="ms" style={{ fontSize: "14px" }}>
             bolt
           </span>
-          Detección de tarifas error · 6×/día
+          DetecciÃ³n de tarifas error Â· 6Ã—/dÃ­a
         </div>
         <h1
           style={{
@@ -675,7 +675,7 @@ function HeroSection({ activeCount }: { activeCount: number }) {
           .
         </h1>
         <p style={{ fontSize: "17px", lineHeight: 1.55, color: "#9aa0a6", maxWidth: "560px", margin: "0 0 28px" }}>
-          Define una ruta y un precio objetivo. Revisamos seis veces al día y te avisamos por Telegram o correo cuando alguien se equivoca y la tarifa cae.
+          Define una ruta y un precio objetivo. Revisamos seis veces al dÃ­a y te avisamos por Telegram o correo cuando alguien se equivoca y la tarifa cae.
         </p>
         <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
           <button
@@ -701,7 +701,7 @@ function HeroSection({ activeCount }: { activeCount: number }) {
             <span className="ms" style={{ fontSize: "20px" }}>
               play_circle
             </span>
-            Ver cómo funciona
+            Ver cÃ³mo funciona
           </button>
         </div>
         <div style={{ display: "flex", gap: "32px", marginTop: "36px" }}>
@@ -716,7 +716,7 @@ function HeroSection({ activeCount }: { activeCount: number }) {
           <div style={{ width: "1px", background: "#2a2c2f" }} />
           <div>
             <div style={{ fontSize: "28px", fontWeight: 500, color: "#f1f1f1", fontFamily: "'Google Sans', system-ui, sans-serif" }}>
-              $ 1.2M
+              Sin datos
             </div>
             <div style={{ fontSize: "12px", color: "#9aa0a6", textTransform: "uppercase", letterSpacing: ".5px" }}>
               Ahorro este mes
@@ -725,7 +725,7 @@ function HeroSection({ activeCount }: { activeCount: number }) {
           <div style={{ width: "1px", background: "#2a2c2f" }} />
           <div>
             <div style={{ fontSize: "28px", fontWeight: 500, color: "#f1f1f1", fontFamily: "'Google Sans', system-ui, sans-serif" }}>
-              3.487
+              {history.length.toLocaleString("es-CO")}
             </div>
             <div style={{ fontSize: "12px", color: "#9aa0a6", textTransform: "uppercase", letterSpacing: ".5px" }}>
               Precios revisados
@@ -781,11 +781,11 @@ function HeroSection({ activeCount }: { activeCount: number }) {
           <g style={{ fontFamily: "'Google Sans', system-ui", fontSize: "11", fontWeight: "500" }}>
             <rect x="100" y="142" width="76" height="22" rx="11" fill="#26282b" stroke="#3c4043" />
             <text x="138" y="157" textAnchor="middle" fill="#e3e3e3">
-              MDE · Medellín
+              MDE Â· MedellÃ­n
             </text>
             <rect x="346" y="248" width="72" height="22" rx="11" fill="#26282b" stroke="#3c4043" />
             <text x="382" y="263" textAnchor="middle" fill="#e3e3e3">
-              BCN · España
+              BCN Â· EspaÃ±a
             </text>
           </g>
           <g transform="translate(255,130) rotate(35)">
@@ -814,7 +814,7 @@ function HeroSection({ activeCount }: { activeCount: number }) {
             <span className="ms msf" style={{ fontSize: "16px" }}>
               trending_down
             </span>
-            Bajó 28% hoy
+            BajÃ³ 28% hoy
           </div>
           <div
             style={{
@@ -829,7 +829,7 @@ function HeroSection({ activeCount }: { activeCount: number }) {
             <span style={{ fontSize: "13px", color: "#9aa0a6", fontWeight: 400 }}>COP</span>
           </div>
           <div style={{ fontSize: "12px", color: "#9aa0a6", marginTop: "2px" }}>
-            MDE → BCN · Oct 14–28 · 1 escala
+            MDE â†’ BCN Â· Oct 14â€“28 Â· 1 escala
           </div>
           <svg
             className="spark"
@@ -1078,13 +1078,13 @@ function CreateAlertForm({
           <select value={flexDays} onChange={(e) => setFlexDays(Number(e.target.value))} style={{ marginTop: "2px", fontSize: "14px", fontWeight: 500 }}>
             {FLEX_OPTIONS.map((v) => (
               <option key={v} value={v}>
-                {v === 0 ? "Exacta" : `± ${v} día${v > 1 ? "s" : ""}`}
+                {v === 0 ? "Exacta" : `Â± ${v} dÃ­a${v > 1 ? "s" : ""}`}
               </option>
             ))}
           </select>
         </label>
         <label style={{ background: "#26282b", border: "1px solid #3c4043", borderRadius: "14px", padding: "10px 14px", display: "flex", flexDirection: "column" }}>
-          <span style={{ fontSize: "11px", color: "#9aa0a6" }}>Duración</span>
+          <span style={{ fontSize: "11px", color: "#9aa0a6" }}>DuraciÃ³n</span>
           <input type="number" value={tripLengthDays} onChange={(e) => setTripLengthDays(Math.max(1, Math.min(60, Number(e.target.value))))} style={{ marginTop: "2px", fontSize: "14px", fontWeight: 500 }} />
         </label>
       </div>
@@ -1209,10 +1209,10 @@ function CreateAlertForm({
               >
                 Paso 02
               </div>
-              <span style={{ color: "#5f6368" }}>·</span>
+              <span style={{ color: "#5f6368" }}>Â·</span>
               <span style={{ fontSize: "13px", color: "#c4c7c5" }}>Precio objetivo</span>
             </div>
-            <span style={{ fontSize: "12px", color: "#9aa0a6" }}>Promedio últimos 30d: $ 2.450.000</span>
+            <span style={{ fontSize: "12px", color: "#9aa0a6" }}>Promedio Ãºltimos 30d: $ 2.450.000</span>
           </div>
           <label
             className="ring"
@@ -1259,7 +1259,7 @@ function CreateAlertForm({
           <span className="ms" style={{ fontSize: "22px" }}>
             notifications_active
           </span>
-          {submitting ? "Registrando…" : "Registrar alerta"}
+          {submitting ? "Registrandoâ€¦" : "Registrar alerta"}
         </button>
       </div>
 
@@ -1267,7 +1267,7 @@ function CreateAlertForm({
         <span className="ms" style={{ fontSize: "14px" }}>
           info
         </span>
-        Tu alerta se revisa cada 4 horas. Recibirás un Telegram apenas alguien cobre menos de tu objetivo.
+        Tu alerta se revisa cada 4 horas. RecibirÃ¡s un Telegram apenas alguien cobre menos de tu objetivo.
       </div>
     </section>
   );
@@ -1294,7 +1294,7 @@ function ActiveAlertsList({
             Alertas activas
           </h2>
           <div style={{ fontSize: "13px", color: "#9aa0a6", marginTop: "2px" }}>
-            {alerts.length} vigilando · última revisión hace 38 min
+            {alerts.length} vigilando Â· Ãºltima revisiÃ³n hace 38 min
           </div>
         </div>
         <div style={{ display: "flex", gap: "6px" }}>
@@ -1307,7 +1307,7 @@ function ActiveAlertsList({
               fontSize: "12px",
             }}
           >
-            Activas · {alerts.filter((a: any) => a.is_active).length}
+            Activas Â· {alerts.filter((a: any) => a.is_active).length}
           </button>
           <button
             className="seg chip-hov"
@@ -1320,7 +1320,7 @@ function ActiveAlertsList({
               fontSize: "12px",
             }}
           >
-            Pausadas · {alerts.filter((a: any) => !a.is_active).length}
+            Pausadas Â· {alerts.filter((a: any) => !a.is_active).length}
           </button>
         </div>
       </div>
@@ -1381,7 +1381,7 @@ function ActiveAlertsList({
                     fontFamily: "'Google Sans', system-ui, sans-serif",
                   }}
                 >
-                  {alert.origin} → {alert.destination}
+                  {alert.origin} â†’ {alert.destination}
                 </div>
                 <div
                   style={{
@@ -1394,10 +1394,10 @@ function ActiveAlertsList({
                     flexWrap: "wrap",
                   }}
                 >
-                  <span>{alert.depart_date || "~30 días"}</span>
-                  <span style={{ color: "#3c4043" }}>•</span>
+                  <span>{alert.depart_date || "~30 dÃ­as"}</span>
+                  <span style={{ color: "#3c4043" }}>â€¢</span>
                   <span>{maxStopsLabel(alert.max_stops)}</span>
-                  <span style={{ color: "#3c4043" }}>•</span>
+                  <span style={{ color: "#3c4043" }}>â€¢</span>
                   <span>{baggageLabel(alert.baggage_type)}</span>
                 </div>
               </div>
@@ -1458,8 +1458,8 @@ function ActiveAlertsList({
             color: "#9aa0a6",
           }}
         >
-          <strong style={{ color: "#e3e3e3" }}>No hay alertas todavía.</strong>
-          <p>Registra tu primera ruta arriba y aparecerá aquí al instante.</p>
+          <strong style={{ color: "#e3e3e3" }}>No hay alertas todavÃ­a.</strong>
+          <p>Registra tu primera ruta arriba y aparecerÃ¡ aquÃ­ al instante.</p>
         </div>
       )}
     </section>
@@ -1477,7 +1477,7 @@ function PriceHistorySection({
   return (
     <section style={{ background: "#202124", border: "1px solid #2f3236", borderRadius: "24px", padding: "24px" }}>
       <h2 style={{ fontSize: "22px", fontWeight: 500, margin: 0, letterSpacing: "-.3px", fontFamily: "'Google Sans', system-ui, sans-serif" }}>
-        Evolución de precios
+        EvoluciÃ³n de precios
       </h2>
       {alerts.length === 0 ? (
         <div
@@ -1488,7 +1488,7 @@ function PriceHistorySection({
           }}
         >
           <strong style={{ color: "#e3e3e3" }}>Sin rutas que mostrar.</strong>
-          <p>Registra una alerta para ver su evolución de precios.</p>
+          <p>Registra una alerta para ver su evoluciÃ³n de precios.</p>
         </div>
       ) : (
         <>
@@ -1510,14 +1510,14 @@ function PriceHistorySection({
             >
               {alerts.map((alert: any) => (
                 <option key={alert.id} value={alert.id}>
-                  {alert.origin} → {alert.destination}
+                  {alert.origin} â†’ {alert.destination}
                 </option>
               ))}
             </select>
           </div>
           <PriceChart points={selectedHistory} target={selectedAlert?.target_price ?? 0} />
           <p style={{ fontSize: "12px", color: "#9aa0a6", marginTop: "12px" }}>
-            Los datos se llenan automáticamente cada vez que corre el cron.
+            Los datos se llenan automÃ¡ticamente cada vez que corre el cron.
           </p>
         </>
       )}
@@ -1535,8 +1535,8 @@ function PriceChart({ points, target }: { points: any[]; target: number }) {
           color: "#9aa0a6",
         }}
       >
-        <strong style={{ color: "#e3e3e3" }}>Sin historial todavía.</strong>
-        <p>La gráfica aparecerá cuando el cron registre precios.</p>
+        <strong style={{ color: "#e3e3e3" }}>Sin historial todavÃ­a.</strong>
+        <p>La grÃ¡fica aparecerÃ¡ cuando el cron registre precios.</p>
       </div>
     );
   }
@@ -1612,7 +1612,7 @@ function Sidebar() {
             <div style={{ fontSize: "15px", fontWeight: 500, fontFamily: "'Google Sans', system-ui, sans-serif" }}>
               Notificaciones
             </div>
-            <div style={{ fontSize: "12px", color: "#9aa0a6" }}>¿Dónde te avisamos?</div>
+            <div style={{ fontSize: "12px", color: "#9aa0a6" }}>Â¿DÃ³nde te avisamos?</div>
           </div>
         </div>
 
@@ -1693,7 +1693,7 @@ function Sidebar() {
           }}
         >
           <h3 style={{ fontSize: "15px", fontWeight: 500, margin: 0, fontFamily: "'Google Sans', system-ui, sans-serif" }}>
-            Últimas notificaciones
+            Ãšltimas notificaciones
           </h3>
           <button
             className="hov"
@@ -1727,9 +1727,9 @@ function Sidebar() {
             </div>
             <div>
               <div style={{ fontSize: "13px", color: "#f1f1f1", lineHeight: 1.4 }}>
-                <b>MDE → BCN</b> bajó a <span style={{ color: "#7ee2a8", fontFamily: "'Roboto Mono', monospace" }}>$1.842.300</span>
+                <b>MDE â†’ BCN</b> bajÃ³ a <span style={{ color: "#7ee2a8", fontFamily: "'Roboto Mono', monospace" }}>{alerts[0] ? formatCOP(alerts[0].target_price) : "$0"}</span>
               </div>
-              <div style={{ fontSize: "11px", color: "#9aa0a6", marginTop: "2px" }}>Hace 2 min · enviado a Telegram</div>
+              <div style={{ fontSize: "11px", color: "#9aa0a6", marginTop: "2px" }}>Hace 2 min Â· enviado a Telegram</div>
             </div>
           </li>
         </ul>
@@ -1751,7 +1751,7 @@ function Sidebar() {
             Cron activo
           </div>
           <div>
-            Próxima revisión <span style={{ color: "#e3e3e3", fontFamily: "'Roboto Mono', monospace" }}>14:00</span>
+            PrÃ³xima revisiÃ³n <span style={{ color: "#e3e3e3", fontFamily: "'Roboto Mono', monospace" }}>14:00</span>
           </div>
         </div>
         <div
@@ -1946,3 +1946,4 @@ function ConfirmDialog({
     </div>
   );
 }
+
