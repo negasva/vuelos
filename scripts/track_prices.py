@@ -34,9 +34,12 @@ SUPABASE_URL = os.environ.get("NEXT_PUBLIC_SUPABASE_URL", "").rstrip("/")
 SUPABASE_KEY = os.environ.get("SUPABASE_SERVICE_ROLE_KEY", "")
 TELEGRAM_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "")
 TELEGRAM_DEFAULT_CHAT_ID = os.environ.get("TELEGRAM_DEFAULT_CHAT_ID", "").strip()
+RESEND_API_KEY = os.environ.get("RESEND_API_KEY", "")
+RESEND_FROM = os.environ.get("RESEND_FROM", "FlightTracker <onboarding@resend.dev>")
+ALERT_EMAIL_TO = os.environ.get("ALERT_EMAIL_TO", "").strip()
 
-# The app stores no specific travel date (only flex_days), so we watch a rolling
-# date this many days out as a sensible default for fare hunting.
+# When a tracked flight has no explicit departure date, watch a rolling date
+# this many days out as a sensible default for fare hunting.
 SEARCH_LEAD_DAYS = 30
 CURRENCY = "COP"
 
@@ -82,14 +85,23 @@ def in_list(ids: list) -> str:
     return ",".join(f'"{value}"' for value in ids)
 
 
-def fetch_chat_ids(user_ids: list) -> dict:
+def fetch_users(user_ids: list) -> dict:
+    """Map user_id -> {telegram_chat_id, notify_email}. Tolerant of failures."""
     if not user_ids:
         return {}
     try:
-        rows = supabase_get(f"users?id=in.({in_list(user_ids)})&select=id,telegram_chat_id")
-        return {row["id"]: row.get("telegram_chat_id") for row in rows}
-    except Exception as error:  # tolerant: fall back to default chat
-        print(f"[warn] could not load telegram chat ids: {error}")
+        rows = supabase_get(
+            f"users?id=in.({in_list(user_ids)})&select=id,telegram_chat_id,notify_email"
+        )
+        return {
+            row["id"]: {
+                "telegram_chat_id": row.get("telegram_chat_id"),
+                "notify_email": row.get("notify_email"),
+            }
+            for row in rows
+        }
+    except Exception as error:  # tolerant: fall back to defaults
+        print(f"[warn] could not load user contacts: {error}")
         return {}
 
 
@@ -121,6 +133,16 @@ def format_cop(value: float) -> str:
     return "COP " + f"{round(value):,}".replace(",", ".")
 
 
+def parse_date(value):
+    """Parse a 'YYYY-MM-DD' string into a datetime, or None."""
+    if not value or not isinstance(value, str):
+        return None
+    try:
+        return datetime.strptime(value.strip(), "%Y-%m-%d")
+    except ValueError:
+        return None
+
+
 def send_telegram(chat_id: str, text: str) -> bool:
     if not TELEGRAM_TOKEN:
         print("[warn] TELEGRAM_BOT_TOKEN not set")
@@ -143,6 +165,32 @@ def send_telegram(chat_id: str, text: str) -> bool:
         return False
 
 
+def send_email(to_addr, subject, html) -> bool:
+    if not RESEND_API_KEY:
+        print("[warn] RESEND_API_KEY not set")
+        return False
+    if not to_addr:
+        print("[warn] no recipient email for alert")
+        return False
+    try:
+        response = requests.post(
+            "https://api.resend.com/emails",
+            headers={
+                "Authorization": f"Bearer {RESEND_API_KEY}",
+                "Content-Type": "application/json",
+            },
+            json={"from": RESEND_FROM, "to": [to_addr], "subject": subject, "html": html},
+            timeout=30,
+        )
+        if response.status_code not in (200, 201):
+            print(f"[warn] resend {response.status_code}: {response.text[:200]}")
+            return False
+        return True
+    except Exception as error:
+        print(f"[warn] email send failed: {error}")
+        return False
+
+
 def _price_of(item):
     """Total price of a result. For round-trip tuples the combined total is on
     the last (return) result, matching Google Flights' behaviour."""
@@ -151,23 +199,22 @@ def _price_of(item):
     return price if isinstance(price, (int, float)) else None
 
 
-def search_quote(origin, destination, max_stops, trip_type, trip_length_days):
-    """Return a normalized cheapest-fare dict, or None. Raises on transport errors."""
-    departure_date = datetime.now() + timedelta(days=SEARCH_LEAD_DAYS)
+def search_quote(origin, destination, max_stops, trip_type, depart_dt, return_dt):
+    """Search a single departure (and optional return) date. Returns a quote
+    dict or None. Raises on transport errors."""
     segments = [
         FlightSegment(
             departure_airport=[[Airport[origin], 0]],
             arrival_airport=[[Airport[destination], 0]],
-            travel_date=departure_date.strftime("%Y-%m-%d"),
+            travel_date=depart_dt.strftime("%Y-%m-%d"),
         )
     ]
-    if trip_type == "round_trip":
-        return_date = departure_date + timedelta(days=trip_length_days)
+    if trip_type == "round_trip" and return_dt is not None:
         segments.append(
             FlightSegment(
                 departure_airport=[[Airport[destination], 0]],
                 arrival_airport=[[Airport[origin], 0]],
-                travel_date=return_date.strftime("%Y-%m-%d"),
+                travel_date=return_dt.strftime("%Y-%m-%d"),
             )
         )
         fli_trip = TripType.ROUND_TRIP
@@ -199,28 +246,73 @@ def search_quote(origin, destination, max_stops, trip_type, trip_length_days):
         "airline": outbound.primary_airline_name or (leg.airline.value if leg else None),
         "departure_time": str(leg.departure_datetime) if leg and leg.departure_datetime else None,
         "stops": outbound.stops,
+        "depart_date": depart_dt.strftime("%Y-%m-%d"),
+        "return_date": return_dt.strftime("%Y-%m-%d") if (return_dt and fli_trip == TripType.ROUND_TRIP) else None,
     }
 
 
-def build_message(quote, origin, destination, target, trip_type, trip_length_days, error_fare):
-    header = "🚨 *Posible tarifa de error*" if error_fare else "✈️ *Bajó el precio de tu vuelo*"
-    trip = (
-        f"Ida y vuelta ({trip_length_days} días)"
-        if trip_type == "round_trip"
-        else "Solo ida"
-    )
+def search_best_quote(origin, destination, max_stops, trip_type, base_depart, base_return, flex_days):
+    """Search the ±flex_days window (shifting both dates to keep the trip length)
+    and return the cheapest quote. Raises if every attempt errored."""
+    today = datetime.now().date()
+    best = None
+    last_error = None
+    for offset in range(-flex_days, flex_days + 1):
+        depart_dt = base_depart + timedelta(days=offset)
+        if depart_dt.date() < today:
+            continue  # never search dates in the past
+        return_dt = (base_return + timedelta(days=offset)) if base_return else None
+        try:
+            quote = search_quote(origin, destination, max_stops, trip_type, depart_dt, return_dt)
+        except Exception as error:
+            last_error = error
+            continue
+        if quote and (best is None or quote["price"] < best["price"]):
+            best = quote
+    if best is None and last_error is not None:
+        raise last_error
+    return best
+
+
+def _trip_lines(quote, origin, destination, target, trip_type):
+    trip = "Ida y vuelta" if trip_type == "round_trip" else "Solo ida"
+    dates = quote.get("depart_date") or "—"
+    if quote.get("return_date"):
+        dates = f"{quote['depart_date']} → {quote['return_date']}"
     lines = [
-        header,
-        f"*Ruta:* {origin} → {destination}",
-        f"*Viaje:* {trip}",
-        f"*Precio:* {format_cop(quote['price'])}",
-        f"*Tu objetivo:* {format_cop(target)}",
-        f"*Escalas:* {quote['stops']}",
-        f"*Aerolínea:* {quote['airline'] or '—'}",
+        ("Ruta", f"{origin} → {destination}"),
+        ("Viaje", trip),
+        ("Fechas", dates),
+        ("Precio", format_cop(quote["price"])),
+        ("Tu objetivo", format_cop(target)),
+        ("Escalas", str(quote["stops"])),
+        ("Aerolínea", quote["airline"] or "—"),
     ]
     if quote.get("departure_time"):
-        lines.append(f"*Salida:* {quote['departure_time']}")
-    return "\n".join(lines)
+        lines.append(("Salida", str(quote["departure_time"])))
+    return lines
+
+
+def build_message(quote, origin, destination, target, trip_type, error_fare):
+    header = "🚨 *Posible tarifa de error*" if error_fare else "✈️ *Bajó el precio de tu vuelo*"
+    body = "\n".join(f"*{label}:* {value}" for label, value in _trip_lines(quote, origin, destination, target, trip_type))
+    return f"{header}\n{body}"
+
+
+def build_email(quote, origin, destination, target, trip_type, error_fare):
+    title = "🚨 Posible tarifa de error" if error_fare else "✈️ Bajó el precio de tu vuelo"
+    rows = "".join(
+        f"<tr><td style='padding:4px 12px 4px 0;color:#64748b'>{label}</td>"
+        f"<td style='padding:4px 0;font-weight:600'>{value}</td></tr>"
+        for label, value in _trip_lines(quote, origin, destination, target, trip_type)
+    )
+    html = (
+        f"<div style='font-family:system-ui,sans-serif'>"
+        f"<h2>{title}</h2><table>{rows}</table>"
+        f"<p style='color:#94a3b8;font-size:12px'>FlightTracker Co</p></div>"
+    )
+    subject = f"{'🚨 Tarifa error' if error_fare else '✈️ Bajó'}: {origin}→{destination} {format_cop(quote['price'])}"
+    return subject, html
 
 
 def main() -> int:
@@ -229,7 +321,7 @@ def main() -> int:
         return 1
 
     flights = supabase_get("tracked_flights?is_active=eq.true&select=*")
-    chat_ids = fetch_chat_ids([f["user_id"] for f in flights])
+    users = fetch_users([f["user_id"] for f in flights])
     stats = fetch_price_stats([f["id"] for f in flights])
 
     now = datetime.now(timezone.utc).isoformat()
@@ -238,6 +330,7 @@ def main() -> int:
     results_found = 0
     alerts_triggered = 0
     alerts_sent = 0
+    emails_sent = 0
 
     for flight in flights:
         origin = (flight.get("origin") or "").strip().upper()
@@ -245,15 +338,27 @@ def main() -> int:
         target = float(flight.get("target_price") or 0)
         trip_type = flight.get("trip_type") or "one_way"
         trip_length_days = int(flight.get("trip_length_days") or 7)
+        flex_days = max(0, min(3, int(flight.get("flex_days") or 0)))
 
         if origin not in Airport.__members__ or destination not in Airport.__members__:
             errors.append(f"{origin}->{destination}: aeropuerto no soportado por fli")
             continue
 
+        # Resolve base departure/return dates (explicit, or sensible fallbacks).
+        base_depart = parse_date(flight.get("depart_date")) or (
+            datetime.now() + timedelta(days=SEARCH_LEAD_DAYS)
+        )
+        if trip_type == "round_trip":
+            base_return = parse_date(flight.get("return_date")) or (
+                base_depart + timedelta(days=trip_length_days)
+            )
+        else:
+            base_return = None
+
         try:
-            quote = search_quote(
+            quote = search_best_quote(
                 origin, destination, int(flight.get("max_stops") or 0),
-                trip_type, trip_length_days,
+                trip_type, base_depart, base_return, flex_days,
             )
         except Exception as error:
             errors.append(f"{origin}->{destination}: {error}")
@@ -283,13 +388,21 @@ def main() -> int:
 
         if price <= target or big_drop or error_fare:
             alerts_triggered += 1
-            chat_id = (flight.get("telegram_chat_id") or chat_ids.get(flight["user_id"])
+            contact = users.get(flight["user_id"], {})
+
+            chat_id = (flight.get("telegram_chat_id") or contact.get("telegram_chat_id")
                        or TELEGRAM_DEFAULT_CHAT_ID)
-            message = build_message(
-                quote, origin, destination, target, trip_type, trip_length_days, error_fare
-            )
-            if send_telegram(chat_id, message):
+            message = build_message(quote, origin, destination, target, trip_type, error_fare)
+            if chat_id and send_telegram(chat_id, message):
                 alerts_sent += 1
+
+            email_to = contact.get("notify_email") or ALERT_EMAIL_TO
+            if email_to:
+                subject, html = build_email(
+                    quote, origin, destination, target, trip_type, error_fare
+                )
+                if send_email(email_to, subject, html):
+                    emails_sent += 1
 
     try:
         supabase_insert("price_history", history_rows)
@@ -303,8 +416,10 @@ def main() -> int:
         "errors": len(errors),
         "sampleError": errors[0] if errors else None,
         "telegramConfigured": bool(TELEGRAM_TOKEN),
+        "emailConfigured": bool(RESEND_API_KEY),
         "alertsTriggered": alerts_triggered,
         "alertsSent": alerts_sent,
+        "emailsSent": emails_sent,
     }
     print("SUMMARY:", json.dumps(summary, ensure_ascii=False))
     for error in errors:

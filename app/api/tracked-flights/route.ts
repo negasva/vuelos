@@ -15,11 +15,20 @@ type CreateTrackedFlightBody = {
   flex_days?: number;
   trip_type?: TripType;
   trip_length_days?: number;
+  depart_date?: string | null;
+  return_date?: string | null;
   target_price?: number;
 };
 
 const SELECT_FIELDS =
-  "id,origin,destination,baggage_type,max_stops,visa_exclusion,night_only,flex_days,trip_type,trip_length_days,target_price,is_active,created_at";
+  "id,origin,destination,baggage_type,max_stops,visa_exclusion,night_only,flex_days,trip_type,trip_length_days,depart_date,return_date,target_price,is_active,created_at";
+
+// Accept "YYYY-MM-DD" or empty/undefined (-> null).
+function cleanDate(value: unknown): string | null {
+  if (typeof value !== "string") return null;
+  const trimmed = value.trim();
+  return /^\d{4}-\d{2}-\d{2}$/.test(trimmed) ? trimmed : null;
+}
 
 export async function POST(request: Request) {
   try {
@@ -58,6 +67,8 @@ export async function POST(request: Request) {
           flex_days: clampFlexDays(body.flex_days),
           trip_type: body.trip_type === "round_trip" ? "round_trip" : "one_way",
           trip_length_days: clampTripLength(body.trip_length_days),
+          depart_date: cleanDate(body.depart_date),
+          return_date: cleanDate(body.return_date),
           target_price: targetPrice,
           is_active: true,
         },
@@ -123,6 +134,8 @@ export async function PATCH(request: Request) {
     if (typeof body.trip_length_days === "number") {
       updates.trip_length_days = clampTripLength(body.trip_length_days);
     }
+    if ("depart_date" in body) updates.depart_date = cleanDate(body.depart_date);
+    if ("return_date" in body) updates.return_date = cleanDate(body.return_date);
     if (typeof body.origin === "string") updates.origin = body.origin.trim().toUpperCase();
     if (typeof body.destination === "string") {
       updates.destination = body.destination.trim().toUpperCase();
