@@ -38,10 +38,12 @@ RESEND_API_KEY = os.environ.get("RESEND_API_KEY", "")
 RESEND_FROM = os.environ.get("RESEND_FROM", "FlightTracker <onboarding@resend.dev>")
 ALERT_EMAIL_TO = os.environ.get("ALERT_EMAIL_TO", "").strip()
 
-# When a tracked flight has no explicit departure date, watch a rolling date
-# this many days out as a sensible default for fare hunting.
-SEARCH_LEAD_DAYS = 30
 CURRENCY = "COP"
+
+# When no departure date is set, scan this many months ahead (one anchor per
+# SEARCH_SAMPLE_DAYS) to find the cheapest month, then refine with flex_days.
+SEARCH_WINDOW_MONTHS = 12
+SEARCH_SAMPLE_DAYS = 30
 
 STOPS_MAP = {
     0: MaxStops.NON_STOP,
@@ -229,7 +231,7 @@ def search_quote(origin, destination, max_stops, trip_type, depart_dt, return_dt
         stops=STOPS_MAP.get(max_stops, MaxStops.ANY),
         sort_by=SortBy.CHEAPEST,
     )
-    results = SearchFlights().search(filters, top_n=5, currency=CURRENCY)
+    results = SearchFlights().search(filters, top_n=10, currency=CURRENCY)
     if not results:
         return None
 
@@ -272,6 +274,48 @@ def search_best_quote(origin, destination, max_stops, trip_type, base_depart, ba
     if best is None and last_error is not None:
         raise last_error
     return best
+
+
+def search_cheapest_any_date(origin, destination, max_stops, trip_type, trip_length_days, flex_days):
+    """No departure date configured: scan one anchor per month for
+    SEARCH_WINDOW_MONTHS to find the cheapest month, then refine the winner
+    with ±flex_days.  Total calls: SEARCH_WINDOW_MONTHS + (2*flex_days+1)."""
+    today = datetime.now()
+    monthly_best = None
+    monthly_best_depart = None
+    monthly_best_return = None
+    last_error = None
+
+    for sample in range(SEARCH_WINDOW_MONTHS):
+        base_depart = today + timedelta(days=14 + sample * SEARCH_SAMPLE_DAYS)
+        base_return = (base_depart + timedelta(days=trip_length_days)) if trip_type == "round_trip" else None
+        try:
+            quote = search_quote(origin, destination, max_stops, trip_type, base_depart, base_return)
+        except Exception as error:
+            last_error = error
+            continue
+        if quote and (monthly_best is None or quote["price"] < monthly_best["price"]):
+            monthly_best = quote
+            monthly_best_depart = base_depart
+            monthly_best_return = base_return
+
+    if monthly_best is None:
+        if last_error is not None:
+            raise last_error
+        return None
+
+    if flex_days > 0 and monthly_best_depart is not None:
+        try:
+            refined = search_best_quote(
+                origin, destination, max_stops, trip_type,
+                monthly_best_depart, monthly_best_return, flex_days,
+            )
+            if refined and refined["price"] < monthly_best["price"]:
+                return refined
+        except Exception:
+            pass
+
+    return monthly_best
 
 
 def _trip_lines(quote, origin, destination, target, trip_type):
@@ -344,22 +388,26 @@ def main() -> int:
             errors.append(f"{origin}->{destination}: aeropuerto no soportado por fli")
             continue
 
-        # Resolve base departure/return dates (explicit, or sensible fallbacks).
-        base_depart = parse_date(flight.get("depart_date")) or (
-            datetime.now() + timedelta(days=SEARCH_LEAD_DAYS)
-        )
-        if trip_type == "round_trip":
-            base_return = parse_date(flight.get("return_date")) or (
-                base_depart + timedelta(days=trip_length_days)
-            )
-        else:
-            base_return = None
+        max_stops_val = int(flight.get("max_stops") or 0)
+        explicit_depart = parse_date(flight.get("depart_date"))
 
         try:
-            quote = search_best_quote(
-                origin, destination, int(flight.get("max_stops") or 0),
-                trip_type, base_depart, base_return, flex_days,
-            )
+            if explicit_depart is not None:
+                # Specific date: narrow ±flex_days search around that date.
+                base_return = (
+                    parse_date(flight.get("return_date"))
+                    or ((explicit_depart + timedelta(days=trip_length_days)) if trip_type == "round_trip" else None)
+                )
+                quote = search_best_quote(
+                    origin, destination, max_stops_val,
+                    trip_type, explicit_depart, base_return, flex_days,
+                )
+            else:
+                # No date: scan across the next 12 months to find the cheapest.
+                quote = search_cheapest_any_date(
+                    origin, destination, max_stops_val,
+                    trip_type, trip_length_days, flex_days,
+                )
         except Exception as error:
             errors.append(f"{origin}->{destination}: {error}")
             continue
