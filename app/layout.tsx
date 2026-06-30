@@ -15,7 +15,7 @@ export const viewport: Viewport = {
 
 function getThemeScript() {
   // Avoid hard failures in browsers that block storage access.
-  return `(function(){try{var t=window.localStorage&&window.localStorage.getItem('flighttracker_theme');if(t==='light'||t==='dark'){document.documentElement.dataset.theme=t;}document.documentElement.style.backgroundColor='#1b1c1e';document.body.style.backgroundColor='#1b1c1e';}catch(e){document.documentElement.style.backgroundColor='#1b1c1e';document.body.style.backgroundColor='#1b1c1e';}})();`;
+  return `(function(){try{var t=window.localStorage&&window.localStorage.getItem('flighttracker_theme');if(t==='light'||t==='dark'){document.documentElement.dataset.theme=t;}document.documentElement.style.backgroundColor='#1b1c1e';}catch(e){document.documentElement.style.backgroundColor='#1b1c1e';}})();`;
 }
 
 export default function RootLayout({
