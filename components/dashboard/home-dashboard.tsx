@@ -831,7 +831,7 @@ function HeroSection({
             <span className="ms msf" style={{ fontSize: "16px" }}>
               trending_down
             </span>
-            BajÃ³ 28% hoy
+            Bajó 28% hoy
           </div>
           <div
             style={{
@@ -1276,7 +1276,7 @@ function CreateAlertForm({
           <span className="ms" style={{ fontSize: "22px" }}>
             notifications_active
           </span>
-          {submitting ? "Registrandoâ€¦" : "Registrar alerta"}
+          {submitting ? "Registrando..." : "Registrar alerta"}
         </button>
       </div>
 
@@ -1284,7 +1284,7 @@ function CreateAlertForm({
         <span className="ms" style={{ fontSize: "14px" }}>
           info
         </span>
-        Tu alerta se revisa cada 4 horas. RecibirÃ¡s un Telegram apenas alguien cobre menos de tu objetivo.
+        Tu alerta se revisa cada 4 horas. Recibirás un Telegram apenas alguien cobre menos de tu objetivo.
       </div>
     </section>
   );
@@ -1397,7 +1397,7 @@ function ActiveAlertsList({
                     fontFamily: "'Google Sans', system-ui, sans-serif",
                   }}
                 >
-                  {alert.origin} â†’ {alert.destination}
+                  {alert.origin} → {alert.destination}
                 </div>
                 <div
                   style={{
@@ -1411,9 +1411,9 @@ function ActiveAlertsList({
                   }}
                 >
                   <span>{alert.depart_date || "~30 dÃ­as"}</span>
-                  <span style={{ color: "#3c4043" }}>â€¢</span>
+                  <span style={{ color: "#3c4043" }}>•</span>
                   <span>{maxStopsLabel(alert.max_stops)}</span>
-                  <span style={{ color: "#3c4043" }}>â€¢</span>
+                  <span style={{ color: "#3c4043" }}>•</span>
                   <span>{baggageLabel(alert.baggage_type)}</span>
                 </div>
               </div>
@@ -1595,7 +1595,7 @@ function PriceHistorySection({
             >
               {alerts.map((alert: any) => (
                 <option key={alert.id} value={alert.id}>
-                  {alert.origin} â†’ {alert.destination}
+                  {alert.origin} → {alert.destination}
                 </option>
               ))}
             </select>
