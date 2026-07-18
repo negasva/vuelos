@@ -262,3 +262,54 @@ button:focus, input:focus, select:focus {
 .empty-state { display: none; }
 .skeleton-list { display: none; }
 .alert-list { display: none; }
+
+/* ===== Responsive / mobile =====
+   The layout uses inline styles, which outrank stylesheet rules, so the mobile
+   overrides below need !important to win. Class hooks are added in
+   home-dashboard.tsx on the containers that must reflow on small screens. */
+html, body { overflow-x: hidden; }
+
+@media (max-width: 1000px) {
+  /* Main content + sidebar stack into one column */
+  .main-grid {
+    grid-template-columns: 1fr !important;
+    padding: 20px 16px 60px !important;
+    gap: 20px !important;
+  }
+  /* Hero: text only, drop the decorative globe to avoid overflow */
+  .hero-grid {
+    grid-template-columns: 1fr !important;
+    padding: 32px 16px 16px !important;
+    gap: 24px !important;
+  }
+  .hero-visual { display: none !important; }
+  .hero-title { font-size: 40px !important; line-height: 1.08 !important; }
+  /* Header: hide the section nav, keep logo + actions */
+  .header-nav { display: none !important; }
+}
+
+@media (max-width: 720px) {
+  header { padding: 8px 12px !important; }
+  .hero-title { font-size: 32px !important; }
+  .hero-stats { gap: 18px !important; }
+
+  /* Create-alert form reflows to fewer columns */
+  .form-card { padding: 18px 16px !important; }
+  .dates-row { grid-template-columns: 1fr 1fr !important; }
+  .filters-row { grid-template-columns: 1fr !important; }
+  .target-row { grid-template-columns: 1fr !important; }
+  .target-row .pill-btn { width: 100% !important; justify-content: center !important; }
+
+  /* Alert cards stack vertically */
+  .alert-card {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 14px !important;
+    padding: 16px !important;
+  }
+  .alert-card > * { text-align: left !important; align-items: flex-start !important; }
+  .alert-price { text-align: left !important; }
+  .alert-actions { align-items: flex-start !important; }
+  .alert-spark { display: none !important; }
+}

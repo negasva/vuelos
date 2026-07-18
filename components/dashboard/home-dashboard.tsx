@@ -352,6 +352,7 @@ function Dashboard() {
 
       {/* ============ MAIN GRID ============ */}
       <main
+        className="main-grid"
         style={{
           maxWidth: "1320px",
           margin: "0 auto",
@@ -493,7 +494,7 @@ function Header() {
         </div>
       </div>
 
-      <nav style={{ display: "flex", alignItems: "center", gap: "6px", marginLeft: "18px" }}>
+      <nav className="header-nav" style={{ display: "flex", alignItems: "center", gap: "6px", marginLeft: "18px" }}>
         <button
           className="seg on"
           style={{
@@ -633,6 +634,7 @@ function HeroSection({
 }) {
   return (
     <section
+      className="hero-grid"
       style={{
         position: "relative",
         padding: "56px 40px 24px",
@@ -666,6 +668,7 @@ function HeroSection({
           Detección de tarifas error · 6×/día
         </div>
         <h1
+          className="hero-title"
           style={{
             fontSize: "60px",
             lineHeight: 1.05,
@@ -694,7 +697,7 @@ function HeroSection({
         <p style={{ fontSize: "17px", lineHeight: 1.55, color: "#9aa0a6", maxWidth: "560px", margin: "0 0 28px" }}>
           Define una ruta y un precio objetivo. Revisamos seis veces al dÃ­a y te avisamos por Telegram o correo cuando alguien se equivoca y la tarifa cae.
         </p>
-        <div style={{ display: "flex", gap: "32px", marginTop: "36px" }}>
+        <div className="hero-stats" style={{ display: "flex", gap: "32px", marginTop: "36px" }}>
           <div>
             <div style={{ fontSize: "28px", fontWeight: 500, color: "#f1f1f1", fontFamily: "'Google Sans', system-ui, sans-serif" }}>
               {activeCount}
@@ -725,7 +728,7 @@ function HeroSection({
       </div>
 
       {/* Globe SVG */}
-      <div style={{ position: "relative", height: "380px" }}>
+      <div className="hero-visual" style={{ position: "relative", height: "380px" }}>
         <div
           style={{
             position: "absolute",
@@ -912,7 +915,7 @@ function CreateAlertForm({
   onSubmit,
 }: any) {
   return (
-    <section style={{ background: "#202124", border: "1px solid #2f3236", borderRadius: "24px", padding: "24px 24px 20px" }}>
+    <section className="form-card" style={{ background: "#202124", border: "1px solid #2f3236", borderRadius: "24px", padding: "24px 24px 20px" }}>
       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "18px" }}>
         <div>
           <div
@@ -1054,7 +1057,7 @@ function CreateAlertForm({
       </div>
 
       {/* Dates and flexibility row */}
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr 1fr", gap: "10px", marginBottom: "10px" }}>
+      <div className="dates-row" style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr 1fr", gap: "10px", marginBottom: "10px" }}>
         <label style={{ background: "#26282b", border: "1px solid #3c4043", borderRadius: "14px", padding: "10px 14px", display: "flex", flexDirection: "column" }}>
           <span style={{ fontSize: "11px", color: "#9aa0a6" }}>Salida</span>
           <input type="date" value={departDate} onChange={(e) => setDepartDate(e.target.value)} style={{ marginTop: "2px", fontSize: "14px", fontWeight: 500 }} />
@@ -1080,7 +1083,7 @@ function CreateAlertForm({
       </div>
 
       {/* Stops and Baggage */}
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "10px", marginBottom: "14px" }}>
+      <div className="filters-row" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "10px", marginBottom: "14px" }}>
         <div>
           <div style={{ fontSize: "12px", color: "#9aa0a6", margin: "0 4px 8px", display: "flex", alignItems: "center", gap: "6px" }}>
             <span className="ms" style={{ fontSize: "14px" }}>multiple_stop</span>Escalas
@@ -1184,7 +1187,7 @@ function CreateAlertForm({
       </div>
 
       {/* Target price */}
-      <div style={{ display: "grid", gridTemplateColumns: "1fr auto", gap: "14px", alignItems: "end", marginBottom: "10px" }}>
+      <div className="target-row" style={{ display: "grid", gridTemplateColumns: "1fr auto", gap: "14px", alignItems: "end", marginBottom: "10px" }}>
         <div>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "8px" }}>
             <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
@@ -1320,7 +1323,7 @@ function ActiveAlertsList({
           {alerts.map((alert: any) => (
             <article
               key={alert.id}
-              className="card-hov"
+              className="card-hov alert-card"
               style={{
                 background: "#202124",
                 border: "1px solid #2f3236",
@@ -1395,7 +1398,7 @@ function ActiveAlertsList({
                 </div>
               </div>
               <svg
-                className="spark"
+                className="spark alert-spark"
                 viewBox="0 0 160 56"
                 style={{ width: "160px", height: "56px" }}
               >
@@ -1416,7 +1419,7 @@ function ActiveAlertsList({
                 />
                 <circle cx="160" cy="42" r="3.5" fill="#7ee2a8" />
               </svg>
-              <div style={{ textAlign: "right" }}>
+              <div className="alert-price" style={{ textAlign: "right" }}>
                 <div
                   style={{
                     fontSize: "20px",
@@ -1438,7 +1441,7 @@ function ActiveAlertsList({
                   {alert.is_active ? "98% cerca" : "pausada"}
                 </div>
               </div>
-              <div style={{ display: "flex", flexDirection: "column", gap: "8px", alignItems: "flex-end" }}>
+              <div className="alert-actions" style={{ display: "flex", flexDirection: "column", gap: "8px", alignItems: "flex-end" }}>
                 <a
                   href={buildPurchaseLink(alert)}
                   target="_blank"
