@@ -55,17 +55,12 @@ export function detectErrorFare(currentPrice: number, historicalAverage: number 
   return currentPrice <= historicalAverage * 0.3;
 }
 
-function shouldAlert(
-  price: number,
-  tracked: TrackedFlight,
-  stats: PriceStats,
-  errorFare: boolean
-): boolean {
-  if (price <= tracked.target_price) return true;
-  if (stats.previous !== null && stats.previous > 0 && price <= stats.previous * 0.8) {
-    return true;
-  }
-  return errorFare;
+function shouldAlert(price: number, tracked: TrackedFlight): boolean {
+  // The target price is a hard ceiling: never notify above it, even if the
+  // fare dropped sharply or looks like an error fare. Users configure the
+  // target as "notify me only below X", so a 3M price must never alert when
+  // the target is 2M.
+  return price <= tracked.target_price;
 }
 
 export async function runTrackedFlights(
@@ -108,7 +103,7 @@ export async function runTrackedFlights(
         const stats = priceStats.get(tracked.id) ?? { previous: null, average: null };
         const errorFare = detectErrorFare(row.price, stats.average);
 
-        if (shouldAlert(row.price, tracked, stats, errorFare)) {
+        if (shouldAlert(row.price, tracked)) {
           alerts.push({
             flightId: tracked.id,
             origin: tracked.origin,
